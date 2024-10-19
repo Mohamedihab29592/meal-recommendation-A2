@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDh0EF-4a7fbo_AmD8OxFpQla0Ye1ha0IM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>45951663512</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mealRecommendationsA2</string>
+	<key>PROJECT_ID</key>
+	<string>meal-recommendation-a2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meal-recommendation-a2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:45951663512:ios:4547f74695d972849f7fed</string>
+</dict>
+</plist>

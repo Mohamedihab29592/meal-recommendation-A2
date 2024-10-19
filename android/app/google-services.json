@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45951663512",
+    "project_id": "meal-recommendation-a2",
+    "storage_bucket": "meal-recommendation-a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45951663512:android:0a1e171976ce30139f7fed",
+        "android_client_info": {
+          "package_name": "com.example.meal_recommendations"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5wvvf2NJEYXyzI_MlXFMMRPzPR4rHLPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
