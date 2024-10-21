@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 
-import 'features/splash_boarding/splash_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,9 +17,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Meal - Recommendation',
-      home: SplashScreen(),
+    return  MaterialApp.router(
+      routerConfig: AppRouter.router,
     );
   }
 }
