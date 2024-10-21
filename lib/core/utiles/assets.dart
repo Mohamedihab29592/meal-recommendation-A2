@@ -25,5 +25,7 @@ class Assets {
   /// Assets for assetsWellDoneSteakHomemadePotatoes 12x
   /// assets/well-done-steak-homemade-potatoes 1@2x.png
   static const String WellDoneSteak_2x = "assets/well-done-steak-homemade-potatoes 1@2x.png";
+
+  static const String Login_Register_background = "assets/flat-lay-composition-mexican-food-with-copyspace 1.png";
 }
 
