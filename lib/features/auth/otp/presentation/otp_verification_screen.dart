@@ -14,7 +14,8 @@ class VerificationScreen extends StatelessWidget {
       height: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/background.png'),
+          image: AssetImage(
+              'assets/flat-lay-composition-mexican-food-with-copyspace 1.png'),
           fit: BoxFit.cover,
         ),
       ),
