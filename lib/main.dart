@@ -5,7 +5,7 @@ import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'firebase_options.dart';
 
 void main() async {
-
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -17,10 +17,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
+    return MaterialApp.router(
       routerConfig: AppRouter.router,
     );
   }
 }
-
-
