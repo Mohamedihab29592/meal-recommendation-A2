@@ -12,7 +12,20 @@
           "package_name": "com.example.meal_recommendations"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "45951663512-vubsfi039jsbvb18ordrjdvft1vt7npj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meal_recommendations",
+            "certificate_hash": "1447a2a8ad92881e3e0faf92758ef5554f63bfa5"
+          }
+        },
+        {
+          "client_id": "45951663512-vojchjhh5710bs16hpsltp71q3id2dba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA5wvvf2NJEYXyzI_MlXFMMRPzPR4rHLPc"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45951663512-vojchjhh5710bs16hpsltp71q3id2dba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "45951663512-6cm6ctqv1n7clbaqp72d66dc7qqmn7ud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mealRecommendationsA2"
+              }
+            }
+          ]
         }
       }
     }
