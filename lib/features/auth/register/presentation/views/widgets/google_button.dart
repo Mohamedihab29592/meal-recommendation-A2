@@ -5,20 +5,25 @@ class GoogleButton extends StatelessWidget {
   const GoogleButton({
     super.key,
     required this.height,
+    required this.onTap,
   });
 
   final double height;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height * 0.080,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-      ),
-      child: Image.asset(
-        Assets.assetsGoogle,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: height * 0.080,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+        child: Image.asset(
+          Assets.assetsGoogle,
+        ),
       ),
     );
   }

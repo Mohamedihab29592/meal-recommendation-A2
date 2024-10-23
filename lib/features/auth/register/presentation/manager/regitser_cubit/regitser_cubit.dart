@@ -28,6 +28,17 @@ class RegitserCubit extends Cubit<RegitserState> {
     );
   }
 
+  Future<void> googleSignIn() async {
+    emit(GoogleSignInLoading());
+
+    var res = await registerDataSource.signInWithGoogle();
+
+    return res.fold(
+      (fail) => emit(GoogleSignInError(fail.errMsg)),
+      (user) => emit(GoogleSignInSuccess()),
+    );
+  }
+
   void toggleIcons() {
     showPassword = !showPassword;
     emit(RegitserChangeIcons());

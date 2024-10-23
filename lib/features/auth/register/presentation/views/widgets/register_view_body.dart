@@ -25,10 +25,12 @@ class RegisterViewBody extends StatelessWidget {
           RegitserCubit(RegisterDataSource(FirebaseNetworkServiceImpl())),
       child: BlocConsumer<RegitserCubit, RegitserState>(
         listener: (context, state) {
-          if (state is RegitserSuccess) {
+          if (state is RegitserSuccess || state is GoogleSignInSuccess) {
             customSnackBar(context, AppStrings.registerSuccess);
-            //context.go(AppRouter.kLoginScreen);
+            //context.go(AppRouter.kOtpScreen);
           } else if (state is RegitserError) {
+            customSnackBar(context, state.errMsg);
+          } else if (state is GoogleSignInError) {
             customSnackBar(context, state.errMsg);
           }
         },
@@ -169,7 +171,16 @@ class RegisterViewBody extends StatelessWidget {
                         SizedBox(
                           height: height * 0.023,
                         ),
-                        GoogleButton(height: height),
+                        ConditionalBuilder(
+                          condition: state is GoogleSignInLoading,
+                          builder: (context) => const CustomIndicator(),
+                          fallback: (context) => GoogleButton(
+                            height: height,
+                            onTap: () {
+                              cubit.googleSignIn();
+                            },
+                          ),
+                        ),
                         SizedBox(
                           height: height * 0.019,
                         ),
