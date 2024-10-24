@@ -1,0 +1,89 @@
+core
+│   ├───errors
+│   │       firebase_errors.dart
+│   │
+│   ├───network
+│   │       firebase_network.dart
+│   │       firebase_network_impl.dart
+│   │
+│   ├───services
+│   │       build_error_bar.dart
+│   │       di.dart
+│   │
+│   └───utiles
+│           app_colors.dart
+│           app_router.dart
+│           app_text_styles.dart
+│           assets.dart
+│           constant.dart
+│           strings.dart
+│
+└───features
+    ├───auth
+    │   ├───data
+    │   │       data_source.dart
+    │   │
+    │   ├───domain
+    │   │       use_case.dart
+    │   │
+    │   ├───login
+    │   │   ├───data
+    │   │   │   ├───data_source
+    │   │   │   │       data_source.dart
+    │   │   │   │
+    │   │   │   └───model
+    │   │   │           user_model.dart
+    │   │   │
+    │   │   ├───domain
+    │   │   │       use_case.dart
+    │   │   │
+    │   │   └───persentation
+    │   │       ├───manger
+    │   │       │   └───cubit
+    │   │       │           login_cubit.dart
+    │   │       │           login_state.dart
+    │   │       │
+    │   │       └───view
+    │   │           ├───custome_widgets
+    │   │           │       custome_button.dart
+    │   │           │       custome_check_box.dart
+    │   │           │       custome_text_field.dart
+    │   │           │       custom_progress_hud.dart
+    │   │           │       google_sign_in_section.dart
+    │   │           │       login_button.dart
+    │   │           │       logo_widget.dart
+    │   │           │       or_divider.dart
+    │   │           │       password_text_field.dart
+    │   │           │       register_option.dart
+    │   │           │       terms_and_condation.dart
+    │   │           │
+    │   │           └───sign_in
+    │   │                   login_view.dart
+    │   │                   login_view_body.dart
+    │   │                   login_view_body_bloc_consumer.dart
+    │   │
+    │   └───persentation
+    │           screen.dart
+    │
+    ├───gemini_integrate
+    │   ├───data
+    │   │       data_source.dart
+    │   │
+    │   ├───domain
+    │   │       use_case.dart
+    │   │
+    │   └───persentation
+    │           screen.dart
+    │
+    ├───home
+    │   ├───data
+    │   │       data_source.dart
+    │   │
+    │   ├───domain
+    │   │       use_case.dart
+    │   │
+    │   └───persentation
+    │           screen.dart
+    │
+    └───splash_boarding
+            splash_screen.dart
