@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'core/services/di.dart';
+import 'core/utiles/app_router.dart';
 import 'features/auth/otp/presentation/otp_verification_screen.dart';
 import 'firebase_options.dart';
 
@@ -19,17 +20,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp.router(
-  //     routerConfig: AppRouter.router,
-
-  //   );
-  // }
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: OtpVerificationScreen(
-        phoneNumber: "+201118175939",
-      ),
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
     );
   }
 }
