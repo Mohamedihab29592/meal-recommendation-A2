@@ -1,6 +1,12 @@
-core
+│   firebase_options.dart
+│   main.dart
+│
+├───core
 │   ├───errors
 │   │       firebase_errors.dart
+│   │
+│   ├───helper
+│   │       preferences_helper.dart
 │   │
 │   ├───network
 │   │       firebase_network.dart
@@ -45,6 +51,7 @@ core
     │   │       │
     │   │       └───view
     │   │           ├───custome_widgets
+    │   │           │       back_ground_image.dart
     │   │           │       custome_button.dart
     │   │           │       custome_check_box.dart
     │   │           │       custome_text_field.dart
@@ -55,7 +62,7 @@ core
     │   │           │       or_divider.dart
     │   │           │       password_text_field.dart
     │   │           │       register_option.dart
-    │   │           │       terms_and_condation.dart
+    │   │           │       remember_me.dart
     │   │           │
     │   │           └───sign_in
     │   │                   login_view.dart
