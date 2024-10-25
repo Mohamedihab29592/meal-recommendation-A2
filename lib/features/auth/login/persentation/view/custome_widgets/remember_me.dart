@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:meal_recommendations_a2/core/helper/preferences_helper.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_check_box.dart';
 
-class TermsAndConditionsWidget extends StatefulWidget {
-  const TermsAndConditionsWidget({super.key, required this.onChanged});
+class RememberMe extends StatefulWidget {
+  const RememberMe({super.key, required this.onChanged});
 
   final ValueChanged<bool> onChanged;
 
   @override
-  State<TermsAndConditionsWidget> createState() => _TermsAndConditionsWidgetState();
+  State<RememberMe> createState() => _RememberMeState();
 }
 
-class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
+class _RememberMeState extends State<RememberMe> {
   bool isTermsAccepted = false;
 
   @override
@@ -22,17 +22,11 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
 
   // Load saved checkbox state
   void _loadCheckboxState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isAccepted = await PreferencesHelper.getTermsAccepted();
     setState(() {
-      isTermsAccepted = prefs.getBool('isTermsAccepted') ?? false;
+      isTermsAccepted = isAccepted;
       widget.onChanged(isTermsAccepted);
     });
-  }
-
-  // Save checkbox state when it's changed
-  void _saveCheckboxState(bool value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isTermsAccepted', value);
   }
 
   @override
@@ -46,7 +40,7 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
               setState(() {
                 isTermsAccepted = value;
                 widget.onChanged(value);
-                _saveCheckboxState(value);  // Save state when checkbox is clicked
+                PreferencesHelper.setTermsAccepted(value); 
               });
             },
             isChecked: isTermsAccepted,

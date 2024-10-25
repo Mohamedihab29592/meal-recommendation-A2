@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_recommendations_a2/core/helper/preferences_helper.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_button.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_text_field.dart';
+import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/logo_widget.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/or_divider.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/password_text_field.dart';
-import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/terms_and_condation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/manger/cubit/login_cubit.dart';
+import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/remember_me.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginViewBody> {
   late String email, password;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late bool isTermsAccepted = false;
+  bool isTermsAccepted = false;
 
   @override
   void initState() {
@@ -30,32 +31,26 @@ class _LoginPageState extends State<LoginViewBody> {
 
   // Check if the user has previously accepted the terms and conditions
   void _checkIfRemembered() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool? isRemembered = prefs.getBool('isTermsAccepted');
-    
-    if (isRemembered == true) {
-      // Navigate directly to the home page if the checkbox was marked
-      // Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //  builder: (context) => HomeView(),
-      // ));
+    bool isAccepted = await PreferencesHelper.getTermsAccepted();
+    if (isAccepted) {
+      // Navigate to home page if terms are accepted
     }
   }
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      body: Container(
-        width: screenWidth,
-        height: screenHeight,
-        decoration: BoxDecoration(
+    const boxDecoration = BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.background),
             fit: BoxFit.cover,
           ),
-        ),
+        );
+    return Scaffold(
+      body: Container(
+        width: screenWidth,
+        height: screenHeight,
+        decoration: boxDecoration,
         child: Padding(
           padding: EdgeInsets.only(
             left: screenWidth * 0.05,
@@ -71,12 +66,7 @@ class _LoginPageState extends State<LoginViewBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    Assets.logo,
-                    fit: BoxFit.contain,
-                    height: screenHeight * 0.18,
-                    width: screenHeight * 0.18,
-                  ),
+                  LogoWidget(),
                   const SizedBox(height: 75),
                   CustomTextField(
                     hintText: 'Email',
@@ -96,7 +86,7 @@ class _LoginPageState extends State<LoginViewBody> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  TermsAndConditionsWidget(
+                  RememberMe(
                     onChanged: (value) {
                       setState(() {
                         isTermsAccepted = value;
@@ -119,13 +109,13 @@ class _LoginPageState extends State<LoginViewBody> {
                   const SizedBox(height: 33),
                   Column(
                     children: [
-                      OrDivider(),
+                      const OrDivider(),
                       SizedBox(height: screenHeight * 0.02),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
                             ),
@@ -144,9 +134,9 @@ class _LoginPageState extends State<LoginViewBody> {
                     ],
                   ),
                   const SizedBox(height: 33),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         "Don't have an account? Register now",
                         style: TextStyle(color: Colors.white),
