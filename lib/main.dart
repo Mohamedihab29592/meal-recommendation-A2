@@ -1,14 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 
+import 'core/services/di.dart';
+import 'features/auth/otp/presentation/otp_verification_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setup(); //get it
   runApp(const MyApp());
 }
 
@@ -16,11 +19,17 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp.router(
+  //     routerConfig: AppRouter.router,
+
+  //   );
+  // }
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
-      routerConfig: AppRouter.router,
+    return const MaterialApp(
+      home: OtpVerificationScreen(
+        phoneNumber: "+201118175939",
+      ),
     );
   }
 }
-
-

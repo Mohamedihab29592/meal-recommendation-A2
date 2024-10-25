@@ -39,8 +39,19 @@ dependencies:
   go_router: ^14.3.0
   get_it: ^7.2.0
   
-  #Flutter Secure Local Database to Save Token
+  #Flutter Secure Local Database for saving Token
   flutter_secure_storage: ^9.2.2
+
+  #Firebase Authentication
+  firebase_auth: ^5.3.1
+
+  bloc: ^8.1.4
+  dio: ^5.7.0
+  shared_preferences: ^2.3.2
+  flutter_bloc: ^8.1.6
+  pin_code_fields: ^8.0.1
+  equatable: ^2.0.5
+
   
 
 
