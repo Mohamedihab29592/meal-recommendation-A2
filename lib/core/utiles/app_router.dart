@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meal_recommendations_a2/features/splash_boarding/splash_screen.dart';
+import 'package:meal_recommendations_a2/features/auth/register/presentation/views/register_view.dart';
+
+import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
+import '../../features/onboarding/onboarding.dart';
+import '../../features/splash_boarding/splash_screen.dart';
 
 class AppRouter {
   static const String kSplashScreen = '/';
@@ -12,13 +16,37 @@ class AppRouter {
   static const String kOnBoardingScreen = '/onboarding';
 
   static final GoRouter router = GoRouter(
+
+initialLocation: AppRouter.kSplashScreen,
     routes: <RouteBase>[
       GoRoute(
-        path: '/',
+        path: AppRouter.kSplashScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const SplashScreen();
         },
       ),
+
+      GoRoute(
+        path: AppRouter.kOnBoardingScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const Onboarding();
+
+        },
+      ),
+       GoRoute(
+      path: AppRouter.kLoginScreen,
+      builder: (BuildContext context, GoRouterState state) {
+        return const loginView();
+      },
+    ),
+      GoRoute(
+        path: AppRouter.kRegisterScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterView();
+        },
+      ),
     ],
   );
+
+
 }
