@@ -16,8 +16,8 @@ class loginView extends StatelessWidget {
       create: (context) => 
       LoginCubit(LoginDataSource(FirebaseNetworkServiceImpl())),
       
-      child: Scaffold(
-        body: const LoginViewBodyBlocConsumer(),
+      child: const Scaffold(
+        body: LoginViewBodyBlocConsumer(),
       ),
     );
   }

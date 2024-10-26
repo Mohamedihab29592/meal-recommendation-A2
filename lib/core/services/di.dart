@@ -1,7 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/features/auth/register/data/data_source/data_source.dart';
-import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/data_source/data_source.dart';
 
 final s1 = GetIt.instance;

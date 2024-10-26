@@ -10,6 +10,8 @@ import 'package:meal_recommendations_a2/features/auth/login/persentation/view/cu
 import 'package:meal_recommendations_a2/features/auth/login/persentation/manger/cubit/login_cubit.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/remember_me.dart';
 
+import '../custome_widgets/register_option.dart';
+
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({Key? key}) : super(key: key);
 
@@ -134,15 +136,7 @@ class _LoginPageState extends State<LoginViewBody> {
                     ],
                   ),
                   const SizedBox(height: 33),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don't have an account? Register now",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
+                  RegisterOption(),
                 ],
               ),
             ),
