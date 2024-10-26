@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     Future.delayed(const Duration(seconds: 2)).then(
       (value) {
-        AppRouter.router.go(AppRouter.kLoginScreen);
+        //Todo: Configure route to onboarding screen
       },
     );
   }
