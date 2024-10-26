@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
@@ -13,6 +14,8 @@ import 'package:meal_recommendations_a2/features/auth/register/presentation/view
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/custom_snack_bar.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/google_button.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/login_text_button.dart';
+
+import '../../../../../../core/utiles/app_router.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -27,7 +30,7 @@ class RegisterViewBody extends StatelessWidget {
         listener: (context, state) {
           if (state is RegitserSuccess || state is GoogleSignInSuccess) {
             customSnackBar(context, AppStrings.registerSuccess);
-            //context.go(AppRouter.kOtpScreen);
+            context.push(AppRouter.kOtpScreen);
           } else if (state is RegitserError) {
             customSnackBar(context, state.errMsg);
           } else if (state is GoogleSignInError) {

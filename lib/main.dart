@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'core/services/di.dart';
 import 'core/utiles/app_router.dart';
-import 'features/auth/otp/presentation/otp_verification_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
