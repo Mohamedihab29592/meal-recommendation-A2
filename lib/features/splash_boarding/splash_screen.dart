@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
-import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
