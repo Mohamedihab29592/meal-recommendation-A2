@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 
@@ -27,7 +29,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     Future.delayed(const Duration(seconds: 2)).then(
       (value) {
-        //Todo: Configure route to onboarding screen
+        if(mounted) {
+          GoRouter.of(context).go(AppRouter.kOnBoardingScreen);
+        }
       },
     );
   }
