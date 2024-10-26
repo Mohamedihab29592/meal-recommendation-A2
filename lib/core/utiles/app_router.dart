@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_recommendations_a2/features/onboarding/onboarding.dart';
 import 'package:meal_recommendations_a2/features/splash_boarding/splash_screen.dart';
 
 class AppRouter {
@@ -20,9 +21,10 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: kLoginScreen,
+        path: '/onboarding',
         builder: (BuildContext context, GoRouterState state) {
-          return const Placeholder();
+          return const Onboarding();
+
         },
       ),
     ],
