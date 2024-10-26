@@ -24,6 +24,7 @@ class AppRouter {
         path: '/onboarding',
         builder: (BuildContext context, GoRouterState state) {
           return const Onboarding();
+
         },
       ),
     ],
