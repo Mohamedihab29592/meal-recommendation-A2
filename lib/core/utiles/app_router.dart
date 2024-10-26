@@ -12,13 +12,35 @@ class AppRouter {
   static const String kOnBoardingScreen = '/onboarding';
 
   static final GoRouter router = GoRouter(
+initialLocation: AppRouter.kSplashScreen,
     routes: <RouteBase>[
       GoRoute(
-        path: '/',
+        path: AppRouter.kSplashScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SplashScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRouter.kOnBoardingScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const Onboarding();
+
+        },
+      ),
+       GoRoute(
+      path: AppRouter.kLoginScreen,
+      builder: (BuildContext context, GoRouterState state) {
+        return const loginView();
+      },
+    ),
+      GoRoute(
+        path: AppRouter.kRegisterScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const RegisterView();
         },
       ),
     ],
+  );
+
   );
 }

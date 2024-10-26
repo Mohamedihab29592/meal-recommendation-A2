@@ -21,13 +21,7 @@ class Assets {
 
   /// Assets for assetsPizzaPizzaFilledWithTomatoesSalamiOlives 1
   /// assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png
-  static const String Pizza =
-      "assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png";
-
-  /// Assets for assetsRegisterBackground
-  /// assets/register_background.png
-  static const String assetsRegisterBackground =
-      "assets/register_background.png";
+  static const String Pizza = "assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png";
 
   /// Assets for assetsViewTastyShawarmaDish 2
   /// assets/view-tasty-shawarma-dish 2.png
@@ -35,11 +29,19 @@ class Assets {
 
   /// Assets for assetsWellDoneSteakHomemadePotatoes 1
   /// assets/well-done-steak-homemade-potatoes 1.png
-  static const String WellDoneSteak_1x =
-      "assets/well-done-steak-homemade-potatoes 1.png";
+  static const String WellDoneSteak_1x = "assets/well-done-steak-homemade-potatoes 1.png";
 
   /// Assets for assetsWellDoneSteakHomemadePotatoes 12x
   /// assets/well-done-steak-homemade-potatoes 1@2x.png
-  static const String WellDoneSteak_2x =
-      "assets/well-done-steak-homemade-potatoes 1@2x.png";
-}
+  static const String WellDoneSteak_2x = "assets/well-done-steak-homemade-potatoes1@2x.png";
+
+  static const String Login_Register_background = "assets/flat-lay-composition-mexican-food-with-copyspace1.png";
+  static const String background = "assets/login.png";
+  static const String logo = "assets/logo.png";
+  static const String accountIcon = "assets/Account.png";
+  static const String lockIcon = "assets/Lock.png";
+  static const String googleIcon = "assets/Google.png";
+  static const String imagesCheck = "assets/Check.svg";
+
+
+
