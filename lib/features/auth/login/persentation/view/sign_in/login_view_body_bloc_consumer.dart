@@ -17,7 +17,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-         print('success');
+         debugPrint('success');
         }
 
         if (state is LoginError) {
@@ -28,7 +28,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
         // Provide a simple default WeatherModel instance
         return CustomProgressHud(
           isLoading: state is LoginLoading ? true : false,
-          child: LoginViewBody()
+          child: const LoginViewBody()
         );
       },
     );
