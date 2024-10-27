@@ -15,11 +15,19 @@ class RegitserCubit extends Cubit<RegitserState> {
   bool showPassword = false;
 
   final RegisterDataSource registerDataSource;
-  Future<void> regitserUser(
-      {required String email, required String password}) async {
+  Future<void> regitserUser({
+    required String email,
+    required String password,
+    required String mobileNumber,
+    required String profilePic,
+    required String name,
+  }) async {
     emit(RegitserLoading());
     var res = await registerDataSource.signUpWithEmail(
       email: email,
+      mobileNumber: mobileNumber,
+      name: name,
+      profilePic: profilePic,
       password: password,
     );
     return res.fold(

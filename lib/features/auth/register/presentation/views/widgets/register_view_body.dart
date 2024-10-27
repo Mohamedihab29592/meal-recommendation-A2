@@ -28,13 +28,16 @@ class RegisterViewBody extends StatelessWidget {
           RegitserCubit(RegisterDataSource(FirebaseNetworkServiceImpl())),
       child: BlocConsumer<RegitserCubit, RegitserState>(
         listener: (context, state) {
-          if (state is RegitserSuccess || state is GoogleSignInSuccess) {
+          if (state is RegitserSuccess) {
             customSnackBar(context, AppStrings.registerSuccess);
             context.push(AppRouter.kOtpScreen);
           } else if (state is RegitserError) {
             customSnackBar(context, state.errMsg);
           } else if (state is GoogleSignInError) {
             customSnackBar(context, state.errMsg);
+          } else if (state is GoogleSignInSuccess) {
+            customSnackBar(context, AppStrings.registerSuccess);
+            context.push(AppRouter.kLoginScreen);
           }
         },
         builder: (context, state) {
@@ -160,6 +163,11 @@ class RegisterViewBody extends StatelessWidget {
                             onPressed: () {
                               if (cubit.formKey.currentState!.validate()) {
                                 cubit.regitserUser(
+                                  mobileNumber:
+                                      cubit.mobileNumberController.text,
+                                  name: cubit.userNameController.text,
+                                  profilePic:
+                                      'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3396.jpg',
                                   email: cubit.emailController.text,
                                   password: cubit.passwordController.text,
                                 );

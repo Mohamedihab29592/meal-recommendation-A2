@@ -4,10 +4,14 @@ import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
 
 abstract class FirebaseNetworkService {
   // Authentication methods
-  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email,required String password});
+  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail(
+      {required String email, required String password});
   Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({
     required String email,
     required String password,
+    required String name,
+    required String profilePic,
+    required String mobileNumber,
   });
   Future<void> signOut();
   Future<bool> isUserSignedIn();

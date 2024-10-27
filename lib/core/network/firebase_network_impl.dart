@@ -11,9 +11,11 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Sign In using email and password
   @override
-  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email,required String password}) async {
+  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail(
+      {required String email, required String password}) async {
     try {
-      var user = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      var user = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       return right(user);
     } on FirebaseAuthException catch (e) {
       return left(FirebaseServerFailure.fromFirebaseErr(e));
@@ -24,9 +26,17 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Sign Up using email and password
   @override
-  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({required String email, required String password}) async {
+  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({
+    required String email,
+    required String password,
+    required String mobileNumber,
+    required String profilePic,
+    required String name,
+  }) async {
     try {
-      var user = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      var user = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
       return right(user);
     } on FirebaseAuthException catch (e) {
       return left(FirebaseServerFailure.fromFirebaseErr(e));
@@ -53,7 +63,8 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Create a document in Firestore
   @override
-  Future<void> createDocument(String collection, Map<String, dynamic> data) async {
+  Future<void> createDocument(
+      String collection, Map<String, dynamic> data) async {
     try {
       await _firestore.collection(collection).add(data);
     } catch (e) {
@@ -63,9 +74,11 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Get a document from Firestore
   @override
-  Future<Map<String, dynamic>?> getDocument(String collection, String docId) async {
+  Future<Map<String, dynamic>?> getDocument(
+      String collection, String docId) async {
     try {
-      DocumentSnapshot docSnapshot = await _firestore.collection(collection).doc(docId).get();
+      DocumentSnapshot docSnapshot =
+          await _firestore.collection(collection).doc(docId).get();
       if (docSnapshot.exists) {
         return docSnapshot.data() as Map<String, dynamic>?;
       } else {
@@ -78,7 +91,8 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Update a document in Firestore
   @override
-  Future<void> updateDocument(String collection, String docId, Map<String, dynamic> data) async {
+  Future<void> updateDocument(
+      String collection, String docId, Map<String, dynamic> data) async {
     try {
       await _firestore.collection(collection).doc(docId).update(data);
     } catch (e) {
