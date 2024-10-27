@@ -14,6 +14,7 @@ class OtpVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // u can delete this line when us GoRoute is ready
     final otpCubit = GetIt.I<OTPCubit>()..sendOTP(phoneNumber);
     print("phoneNumber: $phoneNumber");
     return Scaffold(
