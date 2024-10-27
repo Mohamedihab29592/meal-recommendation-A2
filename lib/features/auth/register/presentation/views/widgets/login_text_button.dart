@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class LoginTextButton extends StatelessWidget {
   const LoginTextButton({
@@ -14,7 +15,7 @@ class LoginTextButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'have an account?',
+          AppStrings.registerHaveAnAccount,
           style: AppTextStyles.style_med_14.copyWith(
             color: Colors.white,
           ),
@@ -24,7 +25,7 @@ class LoginTextButton extends StatelessWidget {
             context.go(AppRouter.kLoginScreen);
           },
           child: Text(
-            'login now',
+            AppStrings.registerLoginNow,
             style: AppTextStyles.style_bold_14.copyWith(
               color: Colors.white,
             ),

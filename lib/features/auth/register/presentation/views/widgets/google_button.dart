@@ -21,8 +21,11 @@ class GoogleButton extends StatelessWidget {
           shape: BoxShape.circle,
           color: Colors.white,
         ),
-        child: Image.asset(
-          Assets.assetsGoogle,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Image.asset(
+            Assets.assetsGoogle,
+          ),
         ),
       ),
     );

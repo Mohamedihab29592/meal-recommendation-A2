@@ -68,7 +68,7 @@ class RegisterViewBody extends StatelessWidget {
                             return null;
                           },
                           controller: cubit.userNameController,
-                          hintText: 'Full name',
+                          hintText: AppStrings.fullName,
                           preIcon: Icons.person_2_outlined,
                         ),
                         SizedBox(
@@ -77,16 +77,16 @@ class RegisterViewBody extends StatelessWidget {
                         CustomRegisterFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
+                              return AppStrings.registerEmpytEmail;
                             } else if (!RegExp(
                                     r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$')
                                 .hasMatch(value)) {
-                              return 'Please enter a valid email address';
+                              return AppStrings.registerErrorEmail;
                             }
                             return null;
                           },
                           controller: cubit.emailController,
-                          hintText: 'email address',
+                          hintText: AppStrings.emailAddress,
                           preIcon: Icons.email_outlined,
                         ),
                         SizedBox(
@@ -100,7 +100,7 @@ class RegisterViewBody extends StatelessWidget {
                             return null;
                           },
                           controller: cubit.mobileNumberController,
-                          hintText: 'Mobile number',
+                          hintText: AppStrings.mobileNumber,
                           preIcon: Icons.phone_android,
                         ),
                         SizedBox(
@@ -110,14 +110,14 @@ class RegisterViewBody extends StatelessWidget {
                           secureText: !cubit.showPassword,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
+                              return AppStrings.registerEmpytPassword;
                             } else if (value.length < 6) {
                               return AppStrings.registerErrorPasswordLength;
                             }
                             return null;
                           },
                           controller: cubit.passwordController,
-                          hintText: 'Create password',
+                          hintText: AppStrings.createPassword,
                           preIcon: Icons.lock_outline_rounded,
                           sufIcon: cubit.showPassword
                               ? Icons.visibility_off_outlined
@@ -133,14 +133,14 @@ class RegisterViewBody extends StatelessWidget {
                           secureText: !cubit.showPassword,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please confirm your password';
+                              return AppStrings.registerErrorEmpty;
                             } else if (value != cubit.passwordController.text) {
                               return AppStrings.registerErrorPasswordMatch;
                             }
                             return null;
                           },
                           controller: cubit.confirmPasswordController,
-                          hintText: 'Confirm password',
+                          hintText: AppStrings.confirmPassword,
                           preIcon: Icons.lock_outline_rounded,
                           sufIcon: cubit.showPassword
                               ? Icons.visibility_off_outlined

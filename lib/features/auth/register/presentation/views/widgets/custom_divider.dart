@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
@@ -20,7 +21,7 @@ class CustomDivider extends StatelessWidget {
           width: 9,
         ),
         Text(
-          'or login with',
+          AppStrings.registerOrLoginWith,
           style: AppTextStyles.style_med_12.copyWith(
             color: Colors.white,
           ),

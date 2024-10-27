@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class CustomRegisterButton extends StatelessWidget {
   const CustomRegisterButton({
@@ -19,7 +20,7 @@ class CustomRegisterButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(
-          'register ',
+          AppStrings.register,
           style: AppTextStyles.style_bold_21.copyWith(
             color: AppColors.c_001A3F,
           ),

@@ -69,12 +69,23 @@ class AppStrings {
 
   //register screen
   static String register = 'Register';
+  static String fullName = 'Full name';
+  static String emailAddress = 'email address';
+  static String mobileNumber = 'Mobile number';
+  static String createPassword = 'Create password';
+  static String confirmPassword = 'Confirm password';
   static String registerSuccess = 'Register Success';
   static String registerFailed = 'Register Failed';
   static String registerMessage = 'Are you sure you want to register?';
   static String registerError = 'Register Error';
   static String registerErrorEmpty = 'Please fill all the fields';
+  static String registerOrLoginWith = 'or login with';
+
   static String registerErrorEmail = 'Please enter valid email';
+  static String registerHaveAnAccount = 'have an account?';
+  static String registerLoginNow = 'login now';
+  static String registerEmpytEmail = 'Please enter your email';
+  static String registerEmpytPassword = 'Please enter your email';
   static String registerErrorPhone = 'Please enter valid phone number';
   static String registerErrorPassword = 'Please enter valid password';
   static String registerErrorPasswordMatch = 'Password does not match';
