@@ -1,5 +1,4 @@
 class AppStrings {
-
   static String userId = "userId";
 
   //login Strings
@@ -27,8 +26,7 @@ class AppStrings {
 
   static String errorNoData = 'No data found.';
 
-
-  //home screen 
+  //home screen
   static String home = 'Home';
   static String logout = 'Logout';
   static String logoutMessage = 'Are you sure you want to logout?';
@@ -37,31 +35,37 @@ class AppStrings {
   static String logoutSuccess = 'Logout Success';
   static String logoutFailed = 'Logout Failed';
 
-
   //profile screen
   static String profile = 'Profile';
   static String profileUpdate = 'Profile Update';
   static String profileUpdateSuccess = 'Profile Update Success';
   static String profileUpdateFailed = 'Profile Update Failed';
-  static String profileUpdateMessage = 'Are you sure you want to update profile?';
+  static String profileUpdateMessage =
+      'Are you sure you want to update profile?';
   static String profileUpdateError = 'Profile Update Error';
   static String profileUpdateErrorEmpty = 'Please fill all the fields';
   static String profileUpdateErrorEmail = 'Please enter valid email';
   static String profileUpdateErrorPhone = 'Please enter valid phone number';
   static String profileUpdateErrorPassword = 'Please enter valid password';
   static String profileUpdateErrorPasswordMatch = 'Password does not match';
-  static String profileUpdateErrorPasswordLength = 'Password length should be greater than 6';
+  static String profileUpdateErrorPasswordLength =
+      'Password length should be greater than 6';
   static String profileUpdateErrorPasswordOld = 'Please enter old password';
   static String profileUpdateErrorPasswordNew = 'Please enter new password';
-  static String profileUpdateErrorPasswordConfirm = 'Please enter confirm password';
-  static String profileUpdateErrorPasswordOldMatch = 'Old password does not match';
-  static String profileUpdateErrorPasswordNewMatch = 'New password does not match';
-  static String profileUpdateErrorPasswordConfirmMatch = 'Confirm password does not match';
-  static String profileUpdateErrorPasswordOldLength = 'Old password length should be greater than 6';
-  static String profileUpdateErrorPasswordNewLength = 'New password length should be greater than 6';
-  static String profileUpdateErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
-
-
+  static String profileUpdateErrorPasswordConfirm =
+      'Please enter confirm password';
+  static String profileUpdateErrorPasswordOldMatch =
+      'Old password does not match';
+  static String profileUpdateErrorPasswordNewMatch =
+      'New password does not match';
+  static String profileUpdateErrorPasswordConfirmMatch =
+      'Confirm password does not match';
+  static String profileUpdateErrorPasswordOldLength =
+      'Old password length should be greater than 6';
+  static String profileUpdateErrorPasswordNewLength =
+      'New password length should be greater than 6';
+  static String profileUpdateErrorPasswordConfirmLength =
+      'Confirm password length should be greater than 6';
 
   //register screen
   static String register = 'Register';
@@ -74,11 +78,13 @@ class AppStrings {
   static String registerErrorPhone = 'Please enter valid phone number';
   static String registerErrorPassword = 'Please enter valid password';
   static String registerErrorPasswordMatch = 'Password does not match';
-  static String registerErrorPasswordLength = 'Password length should be greater than 6';
+  static String registerErrorPasswordLength =
+      'Password length should be greater than 6';
   static String registerErrorPasswordConfirm = 'Please enter confirm password';
-  static String registerErrorPasswordConfirmMatch = 'Confirm password does not match';
-  static String registerErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
-
+  static String registerErrorPasswordConfirmMatch =
+      'Confirm password does not match';
+  static String registerErrorPasswordConfirmLength =
+      'Confirm password length should be greater than 6';
 
   //otp screen
   static String otp = 'OTP';
@@ -93,9 +99,4 @@ class AppStrings {
   static String otpErrorResendSuccess = 'OTP resend success';
   static String otpErrorResendFailed = 'OTP resend failed';
   static String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
-
-
-  
-
-
 }

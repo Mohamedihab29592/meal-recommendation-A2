@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
+import 'package:meal_recommendations_a2/features/auth/register/data/data_source/data_source.dart';
+import 'package:meal_recommendations_a2/features/auth/login/data/data_source/data_source.dart';
 
 import '../../features/auth/otp/data/repository/otp_repository_impl.dart';
 import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
@@ -14,6 +17,10 @@ void setup() {
   // s1.registerSingleton<AuthService>(AuthService());
   // s1.registerSingleton<FirestoreService>(FirestoreService());
   // s1.registerSingleton<StorageService>(StorageService());
+  s1.registerSingleton<RegisterDataSource>(
+      RegisterDataSource(FirebaseNetworkServiceImpl()));
+  s1.registerSingleton<LoginDataSource>(
+      LoginDataSource(FirebaseNetworkServiceImpl()));
 
   // Register repositories
   // s1.registerSingleton<AuthRepository>(AuthRepository());
