@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class RowTopRecipes extends StatelessWidget {
   const RowTopRecipes({
@@ -10,14 +10,14 @@ class RowTopRecipes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Top Recipes",
+          AppStrings.toprecipes,
           style: AppTextStyles.style_bold_18,
         ),
         Text(
-          "See All",
+          AppStrings.seeall,
           style: AppTextStyles.style_med_18,
         ),
       ],
