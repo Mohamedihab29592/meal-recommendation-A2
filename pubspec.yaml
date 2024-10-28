@@ -48,6 +48,7 @@ dependencies:
 
   pin_code_fields: ^8.0.1
   equatable: ^2.0.5
+  device_preview: ^1.2.0
 
   
 
