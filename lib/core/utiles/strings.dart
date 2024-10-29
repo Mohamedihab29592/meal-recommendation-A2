@@ -36,6 +36,7 @@ class AppStrings {
   static String logoutFailed = 'Logout Failed';
 
   //profile screen
+  static String svaeButton = 'Save';
   static String profile = 'Profile';
   static String profileUpdate = 'Profile Update';
   static String profileUpdateSuccess = 'Profile Update Success';

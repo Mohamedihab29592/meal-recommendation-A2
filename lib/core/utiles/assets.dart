@@ -44,6 +44,7 @@ class Assets {
   static const String lockIcon = "assets/Lock.png";
   static const String googleIcon = "assets/Google.png";
   static const String imagesCheck = "assets/Check.svg";
+  static const String editIcon = "assets/Edit.svg";
 
 
 }
