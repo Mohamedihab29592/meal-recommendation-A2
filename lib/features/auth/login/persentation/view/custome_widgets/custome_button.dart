@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -19,7 +20,7 @@ class CustomButton extends StatelessWidget {
           backgroundColor: Colors.white, // Background color
           foregroundColor: Colors.black, // Text color
         ),
-        child: Text(text, style: const TextStyle(fontSize: 18)),
+        child: Text(text, style: AppTextStyles.style_bold_21),
       ),
     );
   }

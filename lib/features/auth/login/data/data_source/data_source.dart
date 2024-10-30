@@ -28,24 +28,16 @@ class LoginDataSource {
   Future<Either<FirebaseFailure, UserCredential>> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      print(googleUser);
-
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
-
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      print(credential);
-
       UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
-print(userCredential);
       return right(userCredential);
     } catch (e) {
-      print(e.toString());
-
       return left(FirebaseServerFailure(e.toString()));
     }
   }

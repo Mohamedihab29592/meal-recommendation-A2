@@ -1,102 +1,90 @@
 class AppStrings {
-  static String userId = "userId";
+  static const String userId = "userId";
 
-  //login Strings
-  static String login = 'Login';
-  static String userName = 'User Name';
-  static String userNameValidate = "user name cannot be empty";
-  static String passwordValidate = "password cannot be empty";
-  static String password = 'Enter Password';
-  static String loginError = 'Login Error';
+  // Login Strings
+  static const String login = 'login';
+  static const String email = 'email';
+  static const String userNameValidate = "user name cannot be empty";
+  static const String passwordValidate = "password cannot be empty";
+  static const String password = 'password';
+  static const String loginError = 'Login Error';
+  static const String registerOption = "Don't have an account? Register now";
+  static const String orLoginWith = "or login with";
+  static const String rememberMe = "Remember me and keep me logged in";
 
-  //error messages
-  static String ok = "ok";
-  static String cancel = "cancel";
+  
+  // Error messages
+  static const String ok = "ok";
+  static const String cancel = "cancel";
+  static const String errorNetwork = "No Internet connection";
+  static const String errorUnauthorized = 'Unauthorized access.';
+  static const String errorForbidden = 'Forbidden request.';
+  static const String errorResource = 'Resource not found.';
+  static const String errorServer = 'Server not found.';
+  static const String errorInternal = 'Internal server error. Please try again later.';
+  static const String errorTimeout = 'Request timeout. Please try again later.';
+  static const String error = 'Error';
+  static const String errorNoData = 'No data found.';
 
-  static String errorNetwork = "No Internet connection";
-  static String errorUnauthorized = 'Unauthorized access.';
-  static String errorForbidden = 'Forbidden request.';
-  static String errorResource = 'Resource not found.';
-  static String errorServer = 'Server not found.';
-  static String errorInternal =
-      'Internal server error. Please try again later.';
+  // Home screen
+  static const String home = 'Home';
+  static const String logout = 'Logout';
+  static const String logoutMessage = 'Are you sure you want to logout?';
+  static const String yes = 'Yes';
+  static const String no = 'No';
+  static const String logoutSuccess = 'Logout Success';
+  static const String logoutFailed = 'Logout Failed';
 
-  static String errorTimeout = 'Request timeout. Please try again later.';
-  static String error = 'Error';
+  // Profile screen
+  static const String profile = 'Profile';
+  static const String profileUpdate = 'Profile Update';
+  static const String profileUpdateSuccess = 'Profile Update Success';
+  static const String profileUpdateFailed = 'Profile Update Failed';
+  static const String profileUpdateMessage = 'Are you sure you want to update profile?';
+  static const String profileUpdateError = 'Profile Update Error';
+  static const String profileUpdateErrorEmpty = 'Please fill all the fields';
+  static const String profileUpdateErrorEmail = 'Please enter valid email';
+  static const String profileUpdateErrorPhone = 'Please enter valid phone number';
+  static const String profileUpdateErrorPassword = 'Please enter valid password';
+  static const String profileUpdateErrorPasswordMatch = 'Password does not match';
+  static const String profileUpdateErrorPasswordLength = 'Password length should be greater than 6';
+  static const String profileUpdateErrorPasswordOld = 'Please enter old password';
+  static const String profileUpdateErrorPasswordNew = 'Please enter new password';
+  static const String profileUpdateErrorPasswordConfirm = 'Please enter confirm password';
+  static const String profileUpdateErrorPasswordOldMatch = 'Old password does not match';
+  static const String profileUpdateErrorPasswordNewMatch = 'New password does not match';
+  static const String profileUpdateErrorPasswordConfirmMatch = 'Confirm password does not match';
+  static const String profileUpdateErrorPasswordOldLength = 'Old password length should be greater than 6';
+  static const String profileUpdateErrorPasswordNewLength = 'New password length should be greater than 6';
+  static const String profileUpdateErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
 
-  static String errorNoData = 'No data found.';
+  // Register screen
+  static const String register = 'Register';
+  static const String registerSuccess = 'Register Success';
+  static const String registerFailed = 'Register Failed';
+  static const String registerMessage = 'Are you sure you want to register?';
+  static const String registerError = 'Register Error';
+  static const String registerErrorEmpty = 'Please fill all the fields';
+  static const String registerErrorEmail = 'Please enter valid email';
+  static const String registerErrorPhone = 'Please enter valid phone number';
+  static const String registerErrorPassword = 'Please enter valid password';
+  static const String registerErrorPasswordMatch = 'Password does not match';
+  static const String registerErrorPasswordLength = 'Password length should be greater than 6';
+  static const String registerErrorPasswordConfirm = 'Please enter confirm password';
+  static const String registerErrorPasswordConfirmMatch = 'Confirm password does not match';
+  static const String registerErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
 
-  //home screen
-  static String home = 'Home';
-  static String logout = 'Logout';
-  static String logoutMessage = 'Are you sure you want to logout?';
-  static String yes = 'Yes';
-  static String no = 'No';
-  static String logoutSuccess = 'Logout Success';
-  static String logoutFailed = 'Logout Failed';
-
-  //profile screen
-  static String profile = 'Profile';
-  static String profileUpdate = 'Profile Update';
-  static String profileUpdateSuccess = 'Profile Update Success';
-  static String profileUpdateFailed = 'Profile Update Failed';
-  static String profileUpdateMessage =
-      'Are you sure you want to update profile?';
-  static String profileUpdateError = 'Profile Update Error';
-  static String profileUpdateErrorEmpty = 'Please fill all the fields';
-  static String profileUpdateErrorEmail = 'Please enter valid email';
-  static String profileUpdateErrorPhone = 'Please enter valid phone number';
-  static String profileUpdateErrorPassword = 'Please enter valid password';
-  static String profileUpdateErrorPasswordMatch = 'Password does not match';
-  static String profileUpdateErrorPasswordLength =
-      'Password length should be greater than 6';
-  static String profileUpdateErrorPasswordOld = 'Please enter old password';
-  static String profileUpdateErrorPasswordNew = 'Please enter new password';
-  static String profileUpdateErrorPasswordConfirm =
-      'Please enter confirm password';
-  static String profileUpdateErrorPasswordOldMatch =
-      'Old password does not match';
-  static String profileUpdateErrorPasswordNewMatch =
-      'New password does not match';
-  static String profileUpdateErrorPasswordConfirmMatch =
-      'Confirm password does not match';
-  static String profileUpdateErrorPasswordOldLength =
-      'Old password length should be greater than 6';
-  static String profileUpdateErrorPasswordNewLength =
-      'New password length should be greater than 6';
-  static String profileUpdateErrorPasswordConfirmLength =
-      'Confirm password length should be greater than 6';
-
-  //register screen
-  static String register = 'Register';
-  static String registerSuccess = 'Register Success';
-  static String registerFailed = 'Register Failed';
-  static String registerMessage = 'Are you sure you want to register?';
-  static String registerError = 'Register Error';
-  static String registerErrorEmpty = 'Please fill all the fields';
-  static String registerErrorEmail = 'Please enter valid email';
-  static String registerErrorPhone = 'Please enter valid phone number';
-  static String registerErrorPassword = 'Please enter valid password';
-  static String registerErrorPasswordMatch = 'Password does not match';
-  static String registerErrorPasswordLength =
-      'Password length should be greater than 6';
-  static String registerErrorPasswordConfirm = 'Please enter confirm password';
-  static String registerErrorPasswordConfirmMatch =
-      'Confirm password does not match';
-  static String registerErrorPasswordConfirmLength =
-      'Confirm password length should be greater than 6';
-
-  //otp screen
-  static String otp = 'OTP';
-  static String otpSuccess = 'OTP Success';
-  static String otpFailed = 'OTP Failed';
-  static String otpMessage = 'Are you sure you want to verify OTP?';
-  static String otpError = 'OTP Error';
-  static String otpErrorEmpty = 'Please fill all the fields';
-  static String otpErrorLength = 'Please enter valid OTP';
-  static String otpErrorMatch = 'OTP does not match';
-  static String otpErrorResend = 'OTP resend failed';
-  static String otpErrorResendSuccess = 'OTP resend success';
-  static String otpErrorResendFailed = 'OTP resend failed';
-  static String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
+  // OTP screen
+  static const String otp = 'OTP';
+  static const String otpSuccess = 'OTP Success';
+  static const String otpFailed = 'OTP Failed';
+  static const String otpMessage = 'Are you sure you want to verify OTP?';
+  static const String otpError = 'OTP Error';
+  static const String otpErrorEmpty = 'Please fill all the fields';
+  static const String otpErrorLength = 'Please enter valid OTP';
+  static const String otpErrorMatch = 'OTP does not match';
+  static const String otpErrorResend = 'OTP resend failed';
+  static const String otpErrorResendSuccess = 'OTP resend success';
+  static const String otpErrorResendFailed = 'OTP resend failed';
+  static const String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
 }
