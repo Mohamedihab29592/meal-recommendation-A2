@@ -50,4 +50,27 @@ class ProfileRepoImpl extends ProfileRepo {
       return right(FirebaseServerFailure("Error try again"));
     }
   }
+
+  @override
+  Future<Either<void, FirebaseServerFailure>> updateProfileData(UserModel userModel) async {
+    try {
+      await firebaseNetworkService.updateDocument("users", userModel.uId, userModel.toMap());
+      return left(null);
+    } catch (_) {
+      return right(FirebaseServerFailure("Error try again"));
+    }
+  }
+
+  @override
+  Future<Either<void, FirebaseServerFailure>> updatePassword(String newPassword) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        await user.updatePassword(newPassword);
+      }
+      return left(null);
+    } catch (_) {
+      return right(FirebaseServerFailure("Error try again"));
+    }
+  }
 }

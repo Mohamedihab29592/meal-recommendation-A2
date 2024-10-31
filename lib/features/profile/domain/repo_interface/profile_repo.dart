@@ -6,4 +6,6 @@ abstract class ProfileRepo {
   Future<Either<void, FirebaseServerFailure>> pickImage();
   Future<void> deleteImage();
   Future<Either<UserModel, FirebaseServerFailure>> getProfileData();
+  Future<Either<void, FirebaseServerFailure>> updateProfileData(UserModel userModel);
+  Future<Either<void, FirebaseServerFailure>> updatePassword(String newPassword);
 }

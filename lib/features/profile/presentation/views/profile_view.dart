@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_button.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_text_field.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
+import 'package:meal_recommendations_a2/features/profile/data/models/user_model.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/profile_image.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_button.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/TextFieldsSection.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/profile_view_header.dart';
 
 class ProfileView extends StatelessWidget {
@@ -28,40 +29,9 @@ class ProfileView extends StatelessWidget {
                     const SizedBox(height: 10),
                     const ProfileViewImage(),
                     const SizedBox(height: 10),
-                    CustomTextField(
-                      hintText: AppStrings.userName,
-                      hintColor: AppColors.c_001A3F,
-                      textColor: AppColors.c_001A3F,
-                      focusedBorderColor: AppColors.c_001A3F,
-                      enabledBorderColor: Colors.grey,
-                      borderRadius: 8,
-                    ),
-                    const SizedBox(height: 20),
-                    CustomTextField(
-                      hintText: AppStrings.emailHintText,
-                      textColor: AppColors.c_001A3F,
-                      hintColor: AppColors.c_001A3F,
-                      focusedBorderColor: AppColors.c_001A3F,
-                      enabledBorderColor: Colors.grey,
-                      borderRadius: 8,
-                    ),
-                    const SizedBox(height: 20),
-                    CustomTextField(
-                      hintText: AppStrings.phoneHintText,
-                      textColor: AppColors.c_001A3F,
-                      hintColor: AppColors.c_001A3F,
-                      focusedBorderColor: AppColors.c_001A3F,
-                      enabledBorderColor: Colors.grey,
-                      borderRadius: 8,
-                    ),
-                    const SizedBox(height: 20),
-                    CustomTextField(
-                      hintText: AppStrings.passwordHintText,
-                      textColor: AppColors.c_001A3F,
-                      hintColor: AppColors.c_001A3F,
-                      focusedBorderColor: AppColors.c_001A3F,
-                      enabledBorderColor: Colors.grey,
-                      borderRadius: 8,
+                    TextFieldsSection(
+                      userModel: UserModel(email: "", phone: "", profileURL: "", uId: "", userName: ""),
+                      password: "",
                     ),
                     const Expanded(child: SizedBox(height: 10)),
                     Padding(
