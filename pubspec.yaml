@@ -60,6 +60,8 @@ dependencies:
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.3.2
   dartz: ^0.10.1
+  firebase_storage: ^12.3.4
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
