@@ -1,61 +1,38 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:meal_recommendations_a2/features/auth/login/data/data_source/data_source.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
+import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this.loginDataSource) : super(LoginInitial());
+  LoginCubit(this.authRepo) : super(LoginInitial());
 
-  final LoginDataSource loginDataSource;
+  final AutoLogin authRepo;
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey();
-  bool showPassword = false;
-
-  Future<void> loginUser({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signin(String email, String password) async {
     emit(LoginLoading());
 
-    final result = await loginDataSource.signInWithEmail(
-      email: email,
-      password: password,
-    );
-
+    final result = await authRepo.signInWithEmail(email, password);
     result.fold(
-      (failure) => emit(LoginError(failure.errMsg)),
-      (userCredential) async {
-        final uid = userCredential.user?.uid; // Get UID from UserCredential
-        if (uid != null) {
-          await _saveUid(uid);
-          emit(LoginSuccess());
-        } else {
-          emit(LoginError("UID not found."));
-        }
+      (failure) => emit(LogininFailure(message: failure.message)),
+      (userEntity) async {
+        await _saveUid(userEntity.uId);
+        emit(LoginSuccess(userEntity: userEntity));
       },
     );
   }
 
-  Future<void> googleSignIn() async {
-    emit(GoogleSignInLoading());
+  Future<void> signinWithGoogle() async {
+    emit(LoginLoading());
 
-    final result = await loginDataSource.signInWithGoogle();
-
+    final result = await authRepo.signInWithGoogle();
     result.fold(
-      (failure) => emit(GoogleSignInError(failure.errMsg)),
-      (userCredential) async {
-        final uid = userCredential.user?.uid; // Get UID from UserCredential
-        if (uid != null) {
-          await _saveUid(uid);
-          emit(GoogleSignInSuccess());
-        } else {
-          emit(GoogleSignInError("UID not found."));
-        }
+      (failure) => emit(LogininFailure(message: failure.message)),
+      (userEntity) async {
+        await _saveUid(userEntity.uId);
+        emit(LoginSuccess(userEntity: userEntity));
       },
     );
   }
@@ -67,10 +44,5 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       print('Failed to save UID: $e'); // Debug print for errors
     }
-  }
-
-  void toggleIcons() {
-    showPassword = !showPassword;
-    emit(LoginChangeIcons());
   }
 }

@@ -90,7 +90,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        context.read<LoginCubit>().loginUser(email: email, password: password);
+                        context.read<LoginCubit>().signin( email, password);
                       } else {
                         setState(() => autovalidateMode = AutovalidateMode.always);
                       }
@@ -110,7 +110,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               shape: BoxShape.circle,
                             ),
                             child: IconButton(
-                              onPressed: () => context.read<LoginCubit>().googleSignIn(),
+                              onPressed: () => context.read<LoginCubit>().signinWithGoogle(),
                               icon: Image.asset(
                                 Assets.googleIcon,
                                 height: screenHeight * 0.05,

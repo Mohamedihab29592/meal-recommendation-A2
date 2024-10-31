@@ -1,27 +1,19 @@
 part of 'login_cubit.dart';
 
-sealed class LoginState {}
+abstract class LoginState {}
 
-final class LoginInitial extends LoginState {}
+class LoginInitial extends LoginState {}
 
-final class LoginLoading extends LoginState {}
+class LoginLoading extends LoginState {}
 
-final class LoginSuccess extends LoginState {}
+class LoginSuccess extends LoginState {
+  final UserEntity userEntity;
 
-final class GoogleSignInSuccess extends LoginState {}
-
-final class GoogleSignInLoading extends LoginState {}
-
-final class GoogleSignInError extends LoginState {
-  final String errMsg;
-
-  GoogleSignInError(this.errMsg);
+  LoginSuccess({required this.userEntity});
 }
 
-final class LoginChangeIcons extends LoginState {}
+class LogininFailure extends LoginState {
+  final String message;
 
-final class LoginError extends LoginState {
-  final String errMsg;
-
-  LoginError(this.errMsg);
+  LogininFailure({required this.message});
 }

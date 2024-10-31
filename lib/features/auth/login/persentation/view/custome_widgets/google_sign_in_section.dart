@@ -25,7 +25,7 @@ class GoogleSignInSection extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {
-                  context.read<LoginCubit>().googleSignIn();
+                  context.read<LoginCubit>().signinWithGoogle();
                 },
                 icon: Image.asset(
                   Assets.googleIcon,

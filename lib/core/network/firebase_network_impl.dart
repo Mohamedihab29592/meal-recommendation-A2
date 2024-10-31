@@ -1,98 +1,98 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:dartz/dartz.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
 
-import 'firebase_network.dart';
+// import 'firebase_network.dart';
 
-class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+// class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
+//   final FirebaseAuth _auth = FirebaseAuth.instance;
+//   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Sign In using email and password
-  @override
-  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email,required String password}) async {
-    try {
-      var user = await _auth.signInWithEmailAndPassword(email: email, password: password);
-      return right(user);
-    } on FirebaseAuthException catch (e) {
-      return left(FirebaseServerFailure.fromFirebaseErr(e));
-    } catch (e) {
-      return left(FirebaseServerFailure(e.toString()));
-    }
-  }
+//   // Sign In using email and password
+//   @override
+//   Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email,required String password}) async {
+//     try {
+//       var user = await _auth.signInWithEmailAndPassword(email: email, password: password);
+//       return right(user);
+//     } on FirebaseAuthException catch (e) {
+//       return left(FirebaseServerFailure.fromFirebaseErr(e));
+//     } catch (e) {
+//       return left(FirebaseServerFailure(e.toString()));
+//     }
+//   }
 
-  // Sign Up using email and password
-  @override
-  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({required String email, required String password}) async {
-    try {
-      var user = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      return right(user);
-    } on FirebaseAuthException catch (e) {
-      return left(FirebaseServerFailure.fromFirebaseErr(e));
-    } catch (e) {
-      return left(FirebaseServerFailure(e.toString()));
-    }
-  }
+//   // Sign Up using email and password
+//   @override
+//   Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({required String email, required String password}) async {
+//     try {
+//       var user = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+//       return right(user);
+//     } on FirebaseAuthException catch (e) {
+//       return left(FirebaseServerFailure.fromFirebaseErr(e));
+//     } catch (e) {
+//       return left(FirebaseServerFailure(e.toString()));
+//     }
+//   }
 
-  // Sign Out
-  @override
-  Future<void> signOut() async {
-    try {
-      await _auth.signOut();
-    } catch (e) {
-      throw Exception('Failed to sign out: $e');
-    }
-  }
+//   // Sign Out
+//   @override
+//   Future<void> signOut() async {
+//     try {
+//       await _auth.signOut();
+//     } catch (e) {
+//       throw Exception('Failed to sign out: $e');
+//     }
+//   }
 
-  // Check if a user is signed in
-  @override
-  Future<bool> isUserSignedIn() async {
-    return _auth.currentUser != null;
-  }
+//   // Check if a user is signed in
+//   @override
+//   Future<bool> isUserSignedIn() async {
+//     return _auth.currentUser != null;
+//   }
 
-  // Create a document in Firestore
-  @override
-  Future<void> createDocument(String collection, Map<String, dynamic> data) async {
-    try {
-      await _firestore.collection(collection).add(data);
-    } catch (e) {
-      throw Exception('Failed to create document: $e');
-    }
-  }
+//   // Create a document in Firestore
+//   @override
+//   Future<void> createDocument(String collection, Map<String, dynamic> data) async {
+//     try {
+//       await _firestore.collection(collection).add(data);
+//     } catch (e) {
+//       throw Exception('Failed to create document: $e');
+//     }
+//   }
 
-  // Get a document from Firestore
-  @override
-  Future<Map<String, dynamic>?> getDocument(String collection, String docId) async {
-    try {
-      DocumentSnapshot docSnapshot = await _firestore.collection(collection).doc(docId).get();
-      if (docSnapshot.exists) {
-        return docSnapshot.data() as Map<String, dynamic>?;
-      } else {
-        return null;
-      }
-    } catch (e) {
-      throw Exception('Failed to get document: $e');
-    }
-  }
+//   // Get a document from Firestore
+//   @override
+//   Future<Map<String, dynamic>?> getDocument(String collection, String docId) async {
+//     try {
+//       DocumentSnapshot docSnapshot = await _firestore.collection(collection).doc(docId).get();
+//       if (docSnapshot.exists) {
+//         return docSnapshot.data() as Map<String, dynamic>?;
+//       } else {
+//         return null;
+//       }
+//     } catch (e) {
+//       throw Exception('Failed to get document: $e');
+//     }
+//   }
 
-  // Update a document in Firestore
-  @override
-  Future<void> updateDocument(String collection, String docId, Map<String, dynamic> data) async {
-    try {
-      await _firestore.collection(collection).doc(docId).update(data);
-    } catch (e) {
-      throw Exception('Failed to update document: $e');
-    }
-  }
+//   // Update a document in Firestore
+//   @override
+//   Future<void> updateDocument(String collection, String docId, Map<String, dynamic> data) async {
+//     try {
+//       await _firestore.collection(collection).doc(docId).update(data);
+//     } catch (e) {
+//       throw Exception('Failed to update document: $e');
+//     }
+//   }
 
-  // Delete a document from Firestore
-  @override
-  Future<void> deleteDocument(String collection, String docId) async {
-    try {
-      await _firestore.collection(collection).doc(docId).delete();
-    } catch (e) {
-      throw Exception('Failed to delete document: $e');
-    }
-  }
-}
+//   // Delete a document from Firestore
+//   @override
+//   Future<void> deleteDocument(String collection, String docId) async {
+//     try {
+//       await _firestore.collection(collection).doc(docId).delete();
+//     } catch (e) {
+//       throw Exception('Failed to delete document: $e');
+//     }
+//   }
+// }

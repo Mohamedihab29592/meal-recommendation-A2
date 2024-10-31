@@ -1,4 +1,0 @@
-data/ datasource: // call firebase service to create user with email and password 
-model : represent user data 
-presentation:manager -> manage register states success error loading
-views -> ui
