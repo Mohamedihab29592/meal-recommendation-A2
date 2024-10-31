@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_recommendations_a2/features/auth/register/data/data_source/data_source.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 
 part 'regitser_state.dart';
 
 class RegitserCubit extends Cubit<RegitserState> {
-  RegitserCubit(this.registerDataSource) : super(RegitserInitial());
+  RegitserCubit(this.createUserWithEmail) : super(RegitserInitial());
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController mobileNumberController = TextEditingController();
@@ -14,7 +14,7 @@ class RegitserCubit extends Cubit<RegitserState> {
   GlobalKey<FormState> formKey = GlobalKey();
   bool showPassword = false;
 
-  final RegisterDataSource registerDataSource;
+  final CreateUserWithEmail createUserWithEmail;
   Future<void> regitserUser({
     required String email,
     required String password,
@@ -23,7 +23,7 @@ class RegitserCubit extends Cubit<RegitserState> {
     required String name,
   }) async {
     emit(RegitserLoading());
-    var res = await registerDataSource.signUpWithEmail(
+    var res = await createUserWithEmail.signUpWithEmail(
       email: email,
       mobileNumber: mobileNumber,
       name: name,
@@ -39,7 +39,7 @@ class RegitserCubit extends Cubit<RegitserState> {
   Future<void> googleSignIn() async {
     emit(GoogleSignInLoading());
 
-    var res = await registerDataSource.signInWithGoogle();
+    var res = await createUserWithEmail.signInWithGoogle();
 
     return res.fold(
       (fail) => emit(GoogleSignInError(fail.errMsg)),

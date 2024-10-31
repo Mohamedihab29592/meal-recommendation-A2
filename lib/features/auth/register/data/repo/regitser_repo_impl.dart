@@ -6,11 +6,8 @@ import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 import 'package:meal_recommendations_a2/features/auth/register/data/model/user_model.dart';
 
-class RegisterDataSource {
-  final FirebaseNetworkService firebaseNetworkService;
-
-  RegisterDataSource(this.firebaseNetworkService);
-
+class RegisterRepoImpl extends CreateUserWithEmail {
+  @override
   Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({
     required String email,
     required String password,
@@ -20,12 +17,8 @@ class RegisterDataSource {
   }) async {
     try {
       FirebaseAuth auth = FirebaseAuth.instance;
-      var user = await firebaseNetworkService.signUpWithEmail(
-          mobileNumber: mobileNumber,
-          name: name,
-          profilePic: profilePic,
-          email: email,
-          password: password);
+      var user = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       User? currentUser = auth.currentUser;
       final String uId = currentUser!.uid;
       saveUserInfo(
@@ -35,7 +28,7 @@ class RegisterDataSource {
         profilePic: profilePic,
         uId: uId,
       );
-      return user;
+      return right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return left(FirebaseServerFailure.fromFirebaseErr(e));
@@ -44,6 +37,7 @@ class RegisterDataSource {
     }
   }
 
+  @override
   Future<Either<FirebaseFailure, UserCredential>> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();

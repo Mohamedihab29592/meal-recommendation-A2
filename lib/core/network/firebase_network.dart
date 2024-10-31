@@ -23,3 +23,14 @@ abstract class FirebaseNetworkService {
       String collection, String docId, Map<String, dynamic> data);
   Future<void> deleteDocument(String collection, String docId);
 }
+
+abstract class CreateUserWithEmail {
+  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({
+    required String email,
+    required String password,
+    required String name,
+    required String profilePic,
+    required String mobileNumber,
+  });
+  Future<Either<FirebaseFailure, UserCredential>> signInWithGoogle();
+}

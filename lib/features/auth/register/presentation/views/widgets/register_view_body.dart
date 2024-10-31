@@ -2,10 +2,9 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
-import 'package:meal_recommendations_a2/features/auth/register/data/data_source/data_source.dart';
+import 'package:meal_recommendations_a2/features/auth/register/data/repo/regitser_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/manager/regitser_cubit/regitser_cubit.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/custom_divider.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/custom_indicator.dart';
@@ -24,8 +23,7 @@ class RegisterViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
     return BlocProvider(
-      create: (context) =>
-          RegitserCubit(RegisterDataSource(FirebaseNetworkServiceImpl())),
+      create: (context) => RegitserCubit(RegisterRepoImpl()),
       child: BlocConsumer<RegitserCubit, RegitserState>(
         listener: (context, state) {
           if (state is RegitserSuccess) {
