@@ -40,7 +40,7 @@ class AppStrings {
   static String profileHintText = 'Profile';
   static String emailHintText = 'Email';
   static String phoneHintText = 'Phone';
-  static String passwordHintText = 'Password';
+  static String passwordHintText = 'Enter New Password';
   static String profileUpdate = 'Profile Update';
   static String profileUpdateSuccess = 'Profile Update Success';
   static String profileUpdateFailed = 'Profile Update Failed';
