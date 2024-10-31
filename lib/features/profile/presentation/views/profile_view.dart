@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
-import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_button.dart';
-import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_text_field.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/widgets/profile_image.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/widgets/profile_view_header.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_button.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_text_field.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/profile_image.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/profile_view_header.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
