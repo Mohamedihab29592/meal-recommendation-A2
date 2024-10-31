@@ -1,0 +1,53 @@
+import 'dart:io';
+import 'package:dartz/dartz.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
+import 'package:meal_recommendations_a2/features/profile/data/models/user_model.dart';
+import 'package:meal_recommendations_a2/features/profile/domain/repo_interface/profile_repo.dart';
+import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
+
+class ProfileRepoImpl extends ProfileRepo {
+  ProfileRepoImpl({required this.firebaseNetworkService, required this.firebaseStorageServices});
+
+  final FirebaseNetworkService firebaseNetworkService;
+  final FirebaseStorageServices firebaseStorageServices;
+  late UserModel userModel;
+
+  @override
+  Future<void> deleteImage() async {
+    // TODO: implement deleteImage
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<void, FirebaseServerFailure>> pickImage() async {
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? imagePicked = await picker.pickImage(source: ImageSource.gallery);
+
+      if (imagePicked != null) {
+        File file = File(imagePicked.path);
+        String uid = FirebaseAuth.instance.currentUser!.uid;
+        String url = await firebaseStorageServices.storeInFirebaseStorage(file, uid);
+        await firebaseNetworkService.updateDocument("users", uid, {UserModel.profileURLKey: url});
+      }
+
+      return left(null);
+    } catch (_) {
+      return right(FirebaseServerFailure("Error try again"));
+    }
+  }
+
+  @override
+  Future<Either<UserModel, FirebaseServerFailure>> getProfileData() async {
+    try {
+      Map<String, dynamic>? res = await firebaseNetworkService.getDocument("users", FirebaseAuth.instance.currentUser!.uid);
+      userModel = UserModel.fromJSON(res);
+      return left(userModel);
+    } catch (e) {
+      return right(FirebaseServerFailure("Error try again"));
+    }
+  }
+}
