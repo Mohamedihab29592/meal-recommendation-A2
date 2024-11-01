@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/core/helper/formatters.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
-import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/features/profile/data/models/user_model.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_text_field.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_profile_text_field.dart';
 
 class TextFieldsSection extends StatefulWidget {
   const TextFieldsSection({super.key, required this.userModel, required this.password});
@@ -21,10 +21,13 @@ class _TextFieldsSectionState extends State<TextFieldsSection> {
 
   @override
   void initState() {
+    userNameController = TextEditingController();
+    emailController = TextEditingController();
+    phoneController = TextEditingController();
+    passwordController = TextEditingController();
     userNameController.text = widget.userModel.userName;
     emailController.text = widget.userModel.email;
     phoneController.text = widget.userModel.phone;
-    passwordController.text = widget.password;
 
     super.initState();
   }
@@ -33,43 +36,26 @@ class _TextFieldsSectionState extends State<TextFieldsSection> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextField(
+        CustomProfileTextField(
           hintText: AppStrings.userName,
-          hintColor: AppColors.c_001A3F,
-          textColor: AppColors.c_001A3F,
-          focusedBorderColor: AppColors.c_001A3F,
-          enabledBorderColor: Colors.grey,
-          borderRadius: 8,
           controller: userNameController,
         ),
         const SizedBox(height: 20),
-        CustomTextField(
+        CustomProfileTextField(
           hintText: AppStrings.emailHintText,
-          textColor: AppColors.c_001A3F,
-          hintColor: AppColors.c_001A3F,
-          focusedBorderColor: AppColors.c_001A3F,
-          enabledBorderColor: Colors.grey,
-          borderRadius: 8,
+          inputFormatters: [Formatters.emailRegExp],
           controller: emailController,
         ),
         const SizedBox(height: 20),
-        CustomTextField(
+        CustomProfileTextField(
           hintText: AppStrings.phoneHintText,
-          textColor: AppColors.c_001A3F,
-          hintColor: AppColors.c_001A3F,
-          focusedBorderColor: AppColors.c_001A3F,
-          enabledBorderColor: Colors.grey,
-          borderRadius: 8,
+          inputFormatters: [Formatters.phoneNumbersRegExp],
           controller: phoneController,
         ),
         const SizedBox(height: 20),
-        CustomTextField(
+        CustomProfileTextField(
+          obscureText: true,
           hintText: AppStrings.passwordHintText,
-          textColor: AppColors.c_001A3F,
-          hintColor: AppColors.c_001A3F,
-          focusedBorderColor: AppColors.c_001A3F,
-          enabledBorderColor: Colors.grey,
-          borderRadius: 8,
           controller: passwordController,
         ),
       ],

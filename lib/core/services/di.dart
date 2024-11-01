@@ -71,10 +71,10 @@ void setup() {
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 
   //Profile View
-  s1.registerLazySingleton<FirebaseStorageServices>(() => FirebaseStorageServices(firebaseNetworkService: s1.get<FirebaseNetworkServiceImpl>()));
+  s1.registerLazySingleton<FirebaseStorageServices>(() => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()));
   s1.registerLazySingleton<ProfileRepoImpl>(
     () => ProfileRepoImpl(
-      firebaseNetworkService: s1.get<FirebaseNetworkServiceImpl>(),
+      firebaseNetworkService: FirebaseNetworkServiceImpl(),
       firebaseStorageServices: s1.get<FirebaseStorageServices>(),
     ),
   );

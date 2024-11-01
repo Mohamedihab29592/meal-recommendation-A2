@@ -19,6 +19,16 @@ class UserModel {
   static const String profileURLKey = "profilePic";
   static const String uIdKey = "uId";
 
+  factory UserModel.initState() {
+    return UserModel(
+      userName: "",
+      email: "",
+      phone: "",
+      profileURL: "",
+      uId: "",
+    );
+  }
+
   factory UserModel.fromJSON(dynamic data) {
     return UserModel(
       userName: data[userNameKey],
