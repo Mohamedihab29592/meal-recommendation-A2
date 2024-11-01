@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
+import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/AddYourIngredients.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/RecipesBuilder.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTopRecipes.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubit/home_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,38 +17,97 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: AppColors.c_FFFFFF,
-      body: Padding(
-        padding: EdgeInsets.only(
-          top: screenHeight * 0.05,
-          left: screenWidth * 0.02,
-          right: screenWidth * 0.02,
-          // bottom: screenHeight * 0.02,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            //Done
-            SideBarAndNotifications(),
-            SizedBox(height: screenHeight * 0.015),
-            //Done
-            SearchAndFilter(),
-            SizedBox(height: screenHeight * 0.03),
-            //Done
-            AddYourIngredients(),
-            SizedBox(height: screenHeight * 0.015), RowTopRecipes(),
+    return BlocProvider(
+      create: (context) => NavigationCubit(),
+      child: BlocBuilder<NavigationCubit, NavState>(
+        builder: (context, state) {
+          return Scaffold(
+            // backgroundColor: AppColors.c_FFFFFF,
+            body: Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.05,
+                left: screenWidth * 0.02,
+                right: screenWidth * 0.02,
+                // bottom: screenHeight * 0.02,
+              ),
+              child: state.currentScreen,
+              // Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // children: [
+              // Done
+              //     SideBarAndNotifications(),
+              //     SizedBox(height: screenHeight * 0.015),
+              //     //Done
+              //     SearchAndFilter(),
+              //     SizedBox(height: screenHeight * 0.03),
+              //     //Done
+              //     AddYourIngredients(),
+              //     SizedBox(height: screenHeight * 0.015), RowTopRecipes(),
 
-            RecipesBuilder(),
-            // MyNavigationBar(),
-          ],
-        ),
+              //     RecipesBuilder(),
+              //     // MyNavigationBar(),
+              //   ],
+              // ),
+            ),
+            //Navigation bar
+            bottomNavigationBar: MyNavigationBar(),
+          );
+        },
       ),
-      //Navigation bar
-      bottomNavigationBar: MyNavigationBar(),
     );
   }
 }
+
+class MyHomeScreen extends StatelessWidget {
+  const MyHomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Done
+          SideBarAndNotifications(),
+          SizedBox(height: screenHeight * 0.015),
+          //Done
+          SearchAndFilter(),
+          SizedBox(height: screenHeight * 0.03),
+          //Done
+          AddYourIngredients(),
+          SizedBox(height: screenHeight * 0.015), RowTopRecipes(),
+
+          RecipesBuilder(),
+          // MyNavigationBar(),
+        ],
+      ),
+    );
+  }
+}
+
+class OrderScreen extends StatelessWidget {
+  const OrderScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: RecipesBuilder(),
+    );
+  }
+}
+
+class PersonScreen extends StatelessWidget {
+  const PersonScreen({super.key});
+    @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SearchAndFilter(),
+    );
+  }
+}
+
 
 
 // class MyNavigationBar extends StatelessWidget {
