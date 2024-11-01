@@ -12,61 +12,55 @@ class RecipesBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    return Container(
-      // height: screenHeight,
-      // width: screenWidth,
-      child: Expanded(
-          flex: 1,
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: EdgeInsets.all(7),
-                margin: EdgeInsets.all(7),
-                decoration: BoxDecoration(
-                  color: AppColors.c_FFFFFF,
-                  border: Border.all(
-                    color: AppColors.c_8D8D8D,
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 5,
-                      blurStyle: BlurStyle.inner,
-                      color: AppColors.c_8D8D8D,
-                      offset: const Offset(
-                        2,
-                        3,
-                      ),
-                    ),
-                  ],
-
-                  //details
+    return Expanded(child: ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Container(
+          padding: EdgeInsets.all(7),
+          margin: EdgeInsets.all(7),
+          decoration: BoxDecoration(
+            color: AppColors.c_FFFFFF,
+            border: Border.all(
+              color: AppColors.c_8D8D8D,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 5,
+                blurStyle: BlurStyle.inner,
+                color: AppColors.c_8D8D8D,
+                offset: const Offset(
+                  2,
+                  3,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ImageOfFood(),
-                    DetailsFood(),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite),
-                      color: AppColors.c_001A3F,
-                    )
-                  ],
-                ),
-              );
-            },
-            // separatorBuilder: (context, index) {
-            //   return SizedBox(
-            //     // height: screenHeight * 0.01,
-            //     // width: screenWidth * 0.01,
-            //   );
-            // },
-          )),
-    );
+              ),
+            ],
+    
+            //details
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ImageOfFood(),
+              DetailsFood(),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.favorite),
+                color: AppColors.c_001A3F,
+              )
+            ],
+          ),
+        );
+      },
+      // separatorBuilder: (context, index) {
+      //   return SizedBox(
+      //     // height: screenHeight * 0.01,
+      //     // width: screenWidth * 0.01,
+      //   );
+      // },
+    ));
   }
 }
 
