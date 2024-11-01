@@ -30,5 +30,4 @@ abstract class AppColors {
   static Color c_1E1E1E = const Color(0xFF1E1E1E);
   static Color c_8D8D8D = const Color(0xFF8D8D8D);
   static Color c_000000_with_opacity_70 = const Color(0xB3000000);
-
 }

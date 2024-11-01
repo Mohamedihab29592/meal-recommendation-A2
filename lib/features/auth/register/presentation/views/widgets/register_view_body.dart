@@ -158,12 +158,18 @@ class RegisterViewBody extends StatelessWidget {
                           fallback: (context) => CustomRegisterButton(
                             height: height,
                             onPressed: () {
-                              if (cubit.formKey.currentState!.validate()) {
-                                cubit.regitserUser(
-                                  email: cubit.emailController.text,
-                                  password: cubit.passwordController.text,
-                                );
-                              }
+                              //TODO: here where  I edit the code m.shhab
+                              // if (cubit.formKey.currentState!.validate())
+                              // {
+                              //   cubit.regitserUser(
+                              //     email: cubit.emailController.text,
+                              //     password: cubit.passwordController.text,
+                              //   );
+                              // }
+                              //navigate to otp screen passing mobile number as parameter
+                              context.push(AppRouter.kOtpScreen,
+                                  extra:
+                                      "+2${cubit.mobileNumberController.text}");
                             },
                           ),
                         ),
