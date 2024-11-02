@@ -11,7 +11,17 @@ final class ProfileViewInitial extends ProfileViewState {}
 
 final class ProfileViewLoading extends ProfileViewState {}
 
-final class ProfileViewSuccess extends ProfileViewState {}
+final class ProfileViewSuccess extends ProfileViewState {
+  final String message;
+
+  const ProfileViewSuccess(this.message);
+}
+
+final class ProfileViewImageUpdated extends ProfileViewState {
+  final String profileURL;
+
+  const ProfileViewImageUpdated(this.profileURL);
+}
 
 final class ProfileViewGetUserDataSuccess extends ProfileViewState {
   final UserModel userModel;

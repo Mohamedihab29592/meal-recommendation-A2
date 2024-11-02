@@ -11,15 +11,15 @@ class ProfileViewCubit extends Cubit<ProfileViewState> {
 
   final ProfileRepo profileRepo;
 
-  Future<void> pickImage() async {
+  Future<void> updateImage() async {
     emit(ProfileViewLoading());
-    var res = await profileRepo.pickImage();
+    var res = await profileRepo.updateImage();
     res.fold(
-      (left) {
-        emit(ProfileViewSuccess());
+      (url) {
+        emit(ProfileViewImageUpdated(url));
       },
-      (right) {
-        emit(ProfileViewFailure(right));
+      (exc) {
+        emit(ProfileViewFailure(exc));
       },
     );
   }
@@ -28,11 +28,11 @@ class ProfileViewCubit extends Cubit<ProfileViewState> {
     emit(ProfileViewLoading());
     var res = await profileRepo.getProfileData();
     res.fold(
-      (left) {
-        emit(ProfileViewGetUserDataSuccess(left));
+      (userModel) {
+        emit(ProfileViewGetUserDataSuccess(userModel));
       },
-      (right) {
-        emit(ProfileViewFailure(right));
+      (exc) {
+        emit(ProfileViewFailure(exc));
       },
     );
   }
@@ -41,11 +41,11 @@ class ProfileViewCubit extends Cubit<ProfileViewState> {
     emit(ProfileViewLoading());
     var res = await profileRepo.updateProfileData(userModel);
     res.fold(
-      (left) {
-        emit(ProfileViewSuccess());
+      (success) {
+        emit(const ProfileViewSuccess("Profile Data Updated"));
       },
-      (right) {
-        emit(ProfileViewFailure(right));
+      (exc) {
+        emit(ProfileViewFailure(exc));
       },
     );
   }
@@ -54,11 +54,11 @@ class ProfileViewCubit extends Cubit<ProfileViewState> {
     emit(ProfileViewLoading());
     var res = await profileRepo.updatePassword(newPassword);
     res.fold(
-      (left) {
-        emit(ProfileViewSuccess());
+      (success) {
+        emit(const ProfileViewSuccess("Password Updated"));
       },
-      (right) {
-        emit(ProfileViewFailure(right));
+      (exc) {
+        emit(ProfileViewFailure(exc));
       },
     );
   }

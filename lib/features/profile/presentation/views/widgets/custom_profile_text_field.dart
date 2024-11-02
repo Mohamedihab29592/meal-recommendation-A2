@@ -11,6 +11,7 @@ class CustomProfileTextField extends StatefulWidget {
     this.onSaved,
     this.onChanged,
     this.obscureText = false,
+    this.enableValidator = true,
   });
 
   final String hintText;
@@ -19,6 +20,7 @@ class CustomProfileTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final void Function(String?)? onSaved;
   final void Function(String?)? onChanged;
+  final bool enableValidator;
 
   @override
   State<CustomProfileTextField> createState() => _CustomProfileTextFieldState();
@@ -49,13 +51,15 @@ class _CustomProfileTextFieldState extends State<CustomProfileTextField> {
       },
       child: TextFormField(
         validator: (value) {
-          if (value == null || value.isEmpty) {
-            color = Colors.red;
-            setState(() {});
-            return "Field is required";
-          } else if (foucsed) {
-            color = AppColors.c_001A3F;
-            setState(() {});
+          if (widget.enableValidator) {
+            if (value == null || value.isEmpty) {
+              color = Colors.red;
+              setState(() {});
+              return "Field is required";
+            } else if (foucsed) {
+              color = AppColors.c_001A3F;
+              setState(() {});
+            }
           }
           return null;
         },
