@@ -1,50 +1,48 @@
-
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:meal_recommendations_a2/features/auth/login/data/data_source/data_source.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
+import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this.loginDataSource) : super(LoginInitial());
+  LoginCubit(this.authRepo) : super(LoginInitial());
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey();
-  bool showPassword = false;
+  final AutoLogin authRepo;
+  final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
-  final LoginDataSource loginDataSource;
-
-  Future<void> loginUser({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signin(String email, String password) async {
     emit(LoginLoading());
 
-    var res = await loginDataSource.signInWithEmail(
-      email: email,
-      password: password,
-    );
-
-    return res.fold(
-      (fail) => emit(LoginError(fail.errMsg)),
-      (success) => emit(LoginSuccess()),
-    );
-  }
-
-  Future<void> googleSignIn() async {
-    emit(GoogleSignInLoading());
-
-    var res = await loginDataSource.signInWithGoogle();
-
-    return res.fold(
-      (fail) => emit(GoogleSignInError(fail.errMsg)),
-      (user) => emit(GoogleSignInSuccess()),
+    final result = await authRepo.signInWithEmail(email, password);
+    result.fold(
+      (failure) => emit(LogininFailure(message: failure.message)),
+      (userEntity) async {
+        await _saveUid(userEntity.uId);
+        emit(LoginSuccess(userEntity: userEntity));
+      },
     );
   }
 
-  void toggleIcons() {
-    showPassword = !showPassword;
-    emit(LoginChangeIcons());
+  Future<void> signinWithGoogle() async {
+    emit(LoginLoading());
+
+    final result = await authRepo.signInWithGoogle();
+    result.fold(
+      (failure) => emit(LogininFailure(message: failure.message)),
+      (userEntity) async {
+        await _saveUid(userEntity.uId);
+        emit(LoginSuccess(userEntity: userEntity));
+      },
+    );
+  }
+
+  Future<void> _saveUid(String uid) async {
+    try {
+      await secureStorage.write(key: 'uid', value: uid);
+      print('UID successfully saved: $uid'); // Debug print
+    } catch (e) {
+      print('Failed to save UID: $e'); // Debug print for errors
+    }
   }
 }
