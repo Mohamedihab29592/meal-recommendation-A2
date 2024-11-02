@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meal_recommendations_a2/features/auth/register/presentation/views/register_view.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
 import '../../features/auth/otp/presentation/otp_verification_screen.dart';

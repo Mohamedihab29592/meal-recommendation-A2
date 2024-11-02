@@ -107,8 +107,7 @@ class _OnboardingState extends State<Onboarding> {
           textButton1: '',
           textbutton2: 'login',
           onTap2: () {
-        //TODO:change route to login
-            GoRouter.of(context).push(AppRouter.kHomeScreen,);
+            GoRouter.of(context).push(AppRouter.kLoginScreen,);
           },
         )
       ],
