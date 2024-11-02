@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/helper/preferences_helper.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custome_check_box.dart';
 
 class RememberMe extends StatefulWidget {
@@ -48,9 +49,9 @@ class _RememberMeState extends State<RememberMe> {
           const SizedBox(
             width: 10,
           ),
-          Expanded(
+         const Expanded(
             child: Text(
-              "Remember me and keep me logged in",
+              AppStrings.rememberMe,
               style: TextStyle(color: Colors.white),
             ),
           ),

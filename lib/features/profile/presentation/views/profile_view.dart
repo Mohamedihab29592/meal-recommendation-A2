@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_recommendations_a2/core/helper/snack_bar.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
@@ -8,7 +9,6 @@ import 'package:meal_recommendations_a2/features/profile/presentation/views/widg
 import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/custom_button.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/text_fields_section.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/widgets/profile_view_header.dart';
-import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/custom_snack_bar.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 
 class ProfileView extends StatefulWidget {
@@ -56,11 +56,11 @@ class _ProfileViewState extends State<ProfileView> {
           emailController.text = userModel.email;
           phoneController.text = userModel.phone;
         } else if (state is ProfileViewSuccess) {
-          customSnackBar(context, state.message);
+          showSnackBar(context, state.message);
         } else if (state is ProfileViewImageUpdated) {
           userModel.profileURL = state.profileURL;
         } else if (state is ProfileViewFailure) {
-          customSnackBar(context, state.error.errMsg);
+          showSnackBar(context, state.error.errMsg);
         }
         isLoading = false;
       },

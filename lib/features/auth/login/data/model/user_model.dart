@@ -1,29 +1,10 @@
-class UserModel {
-  final String userName;
-  final String email;
-  final String mobileNumber;
-  final String uId;
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
 
-  UserModel(
-      {required this.userName,
-      required this.email,
-      required this.mobileNumber,
-      required this.uId});
-
-  factory UserModel.fromJson(Map<String, dynamic> json) {
+class UserModel extends UserEntity {
+  UserModel({required super.email, required super.name, required super.uId});
+  factory UserModel.fromFirestore(User user) {
     return UserModel(
-      userName: json['userName'],
-      email: json['email'],
-      mobileNumber: json['mobileNumber'],
-      uId: json['uId'],
-    );
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      'userName': userName,
-      'email': email,
-      'mobileNumber': mobileNumber,
-      'uId': uId,
-    };
+        email: user.email??'', name: user.displayName??'', uId: user.uid);
   }
 }

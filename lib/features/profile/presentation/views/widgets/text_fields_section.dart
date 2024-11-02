@@ -17,7 +17,7 @@ class TextFieldsSection extends StatelessWidget {
     return Column(
       children: [
         CustomProfileTextField(
-          hintText: AppStrings.userName,
+          hintText: AppStrings.userNameHintText,
           controller: userNameController,
           onSaved: (userName) {
             userModel.userName = userName!;
