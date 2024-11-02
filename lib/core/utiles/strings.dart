@@ -99,4 +99,21 @@ class AppStrings {
   static String otpErrorResendSuccess = 'OTP resend success';
   static String otpErrorResendFailed = 'OTP resend failed';
   static String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
+
+//home =>mohsen
+  static String searchrecipes = 'Search Recipes';
+  static String toprecipes = 'Top Recipes';
+  static String seeall = 'See All';
+  static String addyouringredient = 'Add Your Ingredients';
+
+  static String filter = "Filter";
+
+  static String reset = "Reset";
+  static String Mael = "Mael";
+  static String Time = "Time";
+  static String diffeculty = "Diffeculty";
+  static String numofindredients = "Number Of Ingredients";
+
+  // static String searchre"Filter"cipes = 'Search Recipes';
+  // static String searchrecipes = 'Search Recipes';
 }
