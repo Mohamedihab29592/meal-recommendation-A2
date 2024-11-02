@@ -43,6 +43,10 @@ class ProfileRepoImpl extends ProfileRepo {
   @override
   Future<Either<UserModel, FirebaseServerFailure>> getProfileData() async {
     try {
+      if (FirebaseAuth.instance.currentUser == null) {
+        return right(FirebaseServerFailure("User not logged in"));
+      }
+      
       Map<String, dynamic>? res = await firebaseNetworkService.getDocument("users", FirebaseAuth.instance.currentUser!.uid);
       userModel = UserModel.fromJSON(res);
       return left(userModel);
