@@ -74,17 +74,95 @@ class AppStrings {
   static const String registerErrorPasswordConfirmMatch = 'Confirm password does not match';
   static const String registerErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
 
-  // OTP screen
-  static const String otp = 'OTP';
-  static const String otpSuccess = 'OTP Success';
-  static const String otpFailed = 'OTP Failed';
-  static const String otpMessage = 'Are you sure you want to verify OTP?';
-  static const String otpError = 'OTP Error';
-  static const String otpErrorEmpty = 'Please fill all the fields';
-  static const String otpErrorLength = 'Please enter valid OTP';
-  static const String otpErrorMatch = 'OTP does not match';
-  static const String otpErrorResend = 'OTP resend failed';
-  static const String otpErrorResendSuccess = 'OTP resend success';
-  static const String otpErrorResendFailed = 'OTP resend failed';
-  static const String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
+
+  //home screen
+  static String home = 'Home';
+  static String logout = 'Logout';
+  static String logoutMessage = 'Are you sure you want to logout?';
+  static String yes = 'Yes';
+  static String no = 'No';
+  static String logoutSuccess = 'Logout Success';
+  static String logoutFailed = 'Logout Failed';
+
+  //profile screen
+  static String profile = 'Profile';
+  static String profileUpdate = 'Profile Update';
+  static String profileUpdateSuccess = 'Profile Update Success';
+  static String profileUpdateFailed = 'Profile Update Failed';
+  static String profileUpdateMessage =
+      'Are you sure you want to update profile?';
+  static String profileUpdateError = 'Profile Update Error';
+  static String profileUpdateErrorEmpty = 'Please fill all the fields';
+  static String profileUpdateErrorEmail = 'Please enter valid email';
+  static String profileUpdateErrorPhone = 'Please enter valid phone number';
+  static String profileUpdateErrorPassword = 'Please enter valid password';
+  static String profileUpdateErrorPasswordMatch = 'Password does not match';
+  static String profileUpdateErrorPasswordLength =
+      'Password length should be greater than 6';
+  static String profileUpdateErrorPasswordOld = 'Please enter old password';
+  static String profileUpdateErrorPasswordNew = 'Please enter new password';
+  static String profileUpdateErrorPasswordConfirm =
+      'Please enter confirm password';
+  static String profileUpdateErrorPasswordOldMatch =
+      'Old password does not match';
+  static String profileUpdateErrorPasswordNewMatch =
+      'New password does not match';
+  static String profileUpdateErrorPasswordConfirmMatch =
+      'Confirm password does not match';
+  static String profileUpdateErrorPasswordOldLength =
+      'Old password length should be greater than 6';
+  static String profileUpdateErrorPasswordNewLength =
+      'New password length should be greater than 6';
+  static String profileUpdateErrorPasswordConfirmLength =
+      'Confirm password length should be greater than 6';
+
+  //register screen
+  static String register = 'Register';
+  static String registerSuccess = 'Register Success';
+  static String registerFailed = 'Register Failed';
+  static String registerMessage = 'Are you sure you want to register?';
+  static String registerError = 'Register Error';
+  static String registerErrorEmpty = 'Please fill all the fields';
+  static String registerErrorEmail = 'Please enter valid email';
+  static String registerErrorPhone = 'Please enter valid phone number';
+  static String registerErrorPassword = 'Please enter valid password';
+  static String registerErrorPasswordMatch = 'Password does not match';
+  static String registerErrorPasswordLength =
+      'Password length should be greater than 6';
+  static String registerErrorPasswordConfirm = 'Please enter confirm password';
+  static String registerErrorPasswordConfirmMatch =
+      'Confirm password does not match';
+  static String registerErrorPasswordConfirmLength =
+      'Confirm password length should be greater than 6';
+
+  //otp screen
+  static String otp = 'OTP';
+  static String otpSuccess = 'OTP Success';
+  static String otpFailed = 'OTP Failed';
+  static String otpMessage = 'Are you sure you want to verify OTP?';
+  static String otpError = 'OTP Error';
+  static String otpErrorEmpty = 'Please fill all the fields';
+  static String otpErrorLength = 'Please enter valid OTP';
+  static String otpErrorMatch = 'OTP does not match';
+  static String otpErrorResend = 'OTP resend failed';
+  static String otpErrorResendSuccess = 'OTP resend success';
+  static String otpErrorResendFailed = 'OTP resend failed';
+  static String otpErrorResendMessage = 'Are you sure you want to resend OTP?';
+
+//home =>mohsen
+  static String searchrecipes = 'Search Recipes';
+  static String toprecipes = 'Top Recipes';
+  static String seeall = 'See All';
+  static String addyouringredient = 'Add Your Ingredients';
+
+  static String filter = "Filter";
+
+  static String reset = "Reset";
+  static String Mael = "Mael";
+  static String Time = "Time";
+  static String diffeculty = "Diffeculty";
+  static String numofindredients = "Number Of Ingredients";
+
+  // static String searchre"Filter"cipes = 'Search Recipes';
+  // static String searchrecipes = 'Search Recipes';
 }
