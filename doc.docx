@@ -1,47 +1,44 @@
-│   firebase_options.dart
-│   main.dart
-│
 ├───core
 │   ├───errors
+│   │       exception.dart
 │   │       firebase_errors.dart
 │   │
 │   ├───helper
 │   │       preferences_helper.dart
 │   │
 │   ├───network
+│   │       firebase_auth_services.dart
 │   │       firebase_network.dart
 │   │       firebase_network_impl.dart
 │   │
 │   ├───services
 │   │       build_error_bar.dart
+│   │       data_service.dart
 │   │       di.dart
+│   │       firesrore_service.dart
+│   │       secure_storage.dart
 │   │
 │   └───utiles
 │           app_colors.dart
 │           app_router.dart
 │           app_text_styles.dart
 │           assets.dart
+│           backend_endpoint.dart
 │           constant.dart
 │           strings.dart
 │
 └───features
     ├───auth
-    │   ├───data
-    │   │       data_source.dart
-    │   │
-    │   ├───domain
-    │   │       use_case.dart
-    │   │
     │   ├───login
     │   │   ├───data
-    │   │   │   ├───data_source
-    │   │   │   │       data_source.dart
+    │   │   │   ├───auto_repo
+    │   │   │   │       auth_repo_implementation.dart
+    │   │   │   │
+    │   │   │   ├───entites
+    │   │   │   │       user_entity.dart
     │   │   │   │
     │   │   │   └───model
     │   │   │           user_model.dart
-    │   │   │
-    │   │   ├───domain
-    │   │   │       use_case.dart
     │   │   │
     │   │   └───persentation
     │   │       ├───manger
@@ -69,8 +66,30 @@
     │   │                   login_view_body.dart
     │   │                   login_view_body_bloc_consumer.dart
     │   │
-    │   └───persentation
-    │           screen.dart
+    │   └───otp
+    │       │   otp_document.dart
+    │       │
+    │       ├───data
+    │       │   └───repository
+    │       │           otp_repository_impl.dart
+    │       │
+    │       ├───domain
+    │       │   ├───entity
+    │       │   │       otp_entity.dart
+    │       │   │
+    │       │   ├───otp_repository
+    │       │   │       otp_repository.dart
+    │       │   │
+    │       │   └───usecases
+    │       │           send_otp.dart
+    │       │           verify_otp_usecase.dart
+    │       │
+    │       └───presentation
+    │           │   otp_verification_screen.dart
+    │           │
+    │           └───cubit
+    │                   otp_cubit.dart
+    │                   otp_state.dart
     │
     ├───gemini_integrate
     │   ├───data
@@ -91,6 +110,14 @@
     │   │
     │   └───persentation
     │           screen.dart
+    │
+    ├───onboarding
+    │   │   onboarding.dart
+    │   │
+    │   └───widgets
+    │           custom_dot.dart
+    │           dot_indicator.dart
+    │           item_page_view.dart
     │
     └───splash_boarding
             splash_screen.dart

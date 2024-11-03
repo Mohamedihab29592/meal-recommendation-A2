@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
@@ -9,8 +10,8 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            endIndent: 12,
-            indent: 40,
+            endIndent: 5,
+            indent: 35,
             color: Color(0xFFDCDEDE),
           ),
         ),
@@ -18,12 +19,12 @@ class OrDivider extends StatelessWidget {
           width: 0,
         ),
         Text(
-          'or login with',
+          AppStrings.orLoginWith,
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white),
         ),
         SizedBox(
-          width: 4,
+          width: 3,
         ),
         Expanded(
           child: Divider(

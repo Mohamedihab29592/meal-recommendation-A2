@@ -107,7 +107,7 @@ class _OnboardingState extends State<Onboarding> {
           textButton1: '',
           textbutton2: 'login',
           onTap2: () {
-            GoRouter.of(context).push(AppRouter.kLoginScreen);
+            GoRouter.of(context).push(AppRouter.kLoginScreen,);
           },
         )
       ],
