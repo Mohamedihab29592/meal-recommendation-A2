@@ -49,8 +49,11 @@ class ProfileRepoImpl extends ProfileRepo {
       
       Map<String, dynamic>? res = await firebaseNetworkService.getDocument("users", FirebaseAuth.instance.currentUser!.uid);
       userModel = UserModel.fromJSON(res);
+
+      print(userModel.email);
       return left(userModel);
     } catch (e) {
+      print(e.toString());
       return right(FirebaseServerFailure("Error try again"));
     }
   }
