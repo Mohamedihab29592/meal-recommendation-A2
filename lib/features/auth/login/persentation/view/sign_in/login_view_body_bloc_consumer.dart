@@ -20,9 +20,9 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
          debugPrint('success');
         }
 
-        if (state is LoginError) {
-          buildErrorBar(context, state.errMsg);
-        }
+        if (state is LogininFailure) {
+  buildErrorBar(context, state.message);        
+  }
       },
       builder: (context, state) {
         // Provide a simple default WeatherModel instance

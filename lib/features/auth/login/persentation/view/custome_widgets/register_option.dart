@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class RegisterOption extends StatelessWidget {
   const RegisterOption({super.key});
@@ -15,7 +16,7 @@ class RegisterOption extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Don't have an account? Register now",
+            AppStrings.registerOption,
             style: TextStyle(color: Colors.white),
           ),
         ],

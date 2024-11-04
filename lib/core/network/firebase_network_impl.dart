@@ -1,9 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
-
-import 'firebase_network.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 
 class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -11,7 +10,7 @@ class FirebaseNetworkServiceImpl implements FirebaseNetworkService {
 
   // Sign In using email and password
   @override
-  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email,required String password}) async {
+  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email, required String password}) async {
     try {
       var user = await _auth.signInWithEmailAndPassword(email: email, password: password);
       return right(user);
