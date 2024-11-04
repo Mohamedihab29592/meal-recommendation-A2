@@ -1,4 +1,4 @@
-import 'package:either_dart/either.dart';
+import 'package:dartz/dartz.dart';
 import 'package:meal_recommendations_a2/core/errors/exception.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_auth_services.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
+import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
+import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
 import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
 import '../../features/auth/otp/presentation/otp_verification_screen.dart';
 import '../../features/onboarding/onboarding.dart';
@@ -23,7 +28,8 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return const SplashScreen();
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const HomeScreen();
@@ -55,6 +61,15 @@ class AppRouter {
           );
         },
       ),
+      GoRoute(
+        path: AppRouter.kProfileScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) => ProfileViewCubit(s1<ProfileRepoImpl>()),
+            child: const ProfileView(),
+          );
+        },
+      )
     ],
   );
 }

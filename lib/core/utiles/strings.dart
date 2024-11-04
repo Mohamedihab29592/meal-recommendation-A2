@@ -12,7 +12,6 @@ class AppStrings {
   static const String orLoginWith = "or login with";
   static const String rememberMe = "Remember me and keep me logged in";
 
-  
   // Error messages
   static const String ok = "ok";
   static const String cancel = "cancel";
@@ -36,7 +35,12 @@ class AppStrings {
   static const String logoutFailed = 'Logout Failed';
 
   // Profile screen
-  static const String profile = 'Profile';
+  static const String saveButton = 'Save';
+  static const String userNameHintText = 'User Name';
+  static const String profileHintText = 'Profile';
+  static const String emailHintText = 'Email';
+  static const String phoneHintText = 'Phone';
+  static const String passwordHintText = 'Enter New Password';
   static const String profileUpdate = 'Profile Update';
   static const String profileUpdateSuccess = 'Profile Update Success';
   static const String profileUpdateFailed = 'Profile Update Failed';
@@ -73,9 +77,6 @@ class AppStrings {
   static const String registerErrorPasswordConfirm = 'Please enter confirm password';
   static const String registerErrorPasswordConfirmMatch = 'Confirm password does not match';
   static const String registerErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
-
-
-
 
   //otp screen
   static String otp = 'OTP';

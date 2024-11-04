@@ -1,0 +1,12 @@
+lib\features\profile\data\data_source\firebase_storage_services.dart
+    helper functions to deal with firebase storage
+
+lib\features\profile\data\models\user_model.dart
+    contain all the user data that we need in the profile view (userName, email, phone, profileURL, uId)
+
+lib\features\profile\data\repo_implementation\profile_repo_impl.dart
+lib\features\profile\domain\repo_interface\profile_repo.dart
+    contains fucntionalities of profile view (updateImage, getProfileData, updateProfileData, updatePassword)
+
+lib\features\profile\presentation\views\profile_view.dart
+    contains UI of profile view

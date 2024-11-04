@@ -50,4 +50,7 @@ class Assets {
   static const String googleIcon = "assets/Google.png";
   static const String imagesCheck = "assets/Check.svg";
   static const String maskgroup = "assets/Mask_group.png";
+  static const String editIcon = "assets/Edit.png";
+
+
 }
