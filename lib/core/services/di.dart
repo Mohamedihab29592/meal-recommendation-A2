@@ -13,6 +13,7 @@ import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
 import '../../features/auth/otp/domain/usecases/send_otp.dart';
 import '../../features/auth/otp/domain/usecases/verify_otp_usecase.dart';
 import '../../features/auth/otp/presentation/cubit/otp_cubit.dart';
+import 'secure_storage/secure_storage_service.dart';
 
 final s1 = GetIt.instance;
 
@@ -57,21 +58,22 @@ void setup() {
   // s1.registerSingleton<FirestoreBloc>(FirestoreBloc());
   // s1.registerSingleton<StorageBloc>(StorageBloc());
 
+  //**********OTP*********//
   //OTP Repositories
-  s1.registerLazySingleton<OTPRepository>(
-    () => OTPRepositoryImpl(firebaseAuth: s1<FirebaseAuth>()),
-  );
-
+  s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(
+      firebaseAuth: s1<FirebaseAuth>(),
+      secureStorageService: s1<SecureStorageService>()));
   //OTP Use Cases
   s1.registerLazySingleton(() => SendOTP(s1<OTPRepository>()));
   s1.registerLazySingleton(() => VerifyOTP(s1<OTPRepository>()));
-
+  //OTP Cubit
   s1.registerFactory<OTPCubit>(() => OTPCubit(
         sendOTPUseCase: s1<SendOTP>(),
         verifyOTPUseCase: s1<VerifyOTP>(),
       ));
-
-  // Firebase Authentication instance
+  //SecureStorageService
+  s1.registerLazySingleton<SecureStorageService>(() => SecureStorageService());
+  //Firebase Authentication instance
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 
   //Profile View

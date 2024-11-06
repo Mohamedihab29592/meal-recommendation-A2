@@ -47,18 +47,27 @@ class AppRouter {
           return const loginView();
         },
       ),
+      GoRoute(
+        path: AppRouter.kRegisterScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterView();
+        },
+      ),
       // GoRoute(
-      //   path: AppRouter.kRegisterScreen,
+      //   path: AppRouter.kOtpScreen,
       //   builder: (BuildContext context, GoRouterState state) {
-      //     return const RegisterView();
+      //     return const OtpVerificationScreen(
+      //       phoneNumber: '+201118175938',
+      //     );
       //   },
       // ),
+
+      //OTP SCREEN
       GoRoute(
         path: AppRouter.kOtpScreen,
-        builder: (BuildContext context, GoRouterState state) {
-          return const OtpVerificationScreen(
-            phoneNumber: '+201151827070',
-          );
+        builder: (context, state) {
+          final phoneNumber = state.extra as String;
+          return OtpVerificationScreen(phoneNumber: phoneNumber);
         },
       ),
       GoRoute(

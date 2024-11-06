@@ -81,6 +81,10 @@ class AppStrings {
   //otp screen
   static String otp = 'OTP';
   static String otpSuccess = 'OTP Success';
+  static String verification = 'Verification';
+  static String getcode = 'get code ';
+  static String pleaseWait = 'please wait';
+  static String enterVerificationCode = 'Enter the verification code sent to ';
   static String otpFailed = 'OTP Failed';
   static String otpMessage = 'Are you sure you want to verify OTP?';
   static String otpError = 'OTP Error';

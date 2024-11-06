@@ -14,7 +14,7 @@ class OTPCubit extends Cubit<OTPState> {
       : super(OTPInitial());
 
   void sendOTP(String phoneNumber) async {
-    emit(OTPLoading());
+    //emit(OTPLoading());
     try {
       await sendOTPUseCase(phoneNumber: phoneNumber);
       emit(OTPCodeSent());
@@ -27,6 +27,7 @@ class OTPCubit extends Cubit<OTPState> {
     emit(OTPLoading());
     try {
       await verifyOTPUseCase(verificationId: verificationId, otp: otp);
+
       emit(OTPVerified());
     } catch (e) {
       emit(OTPError(e.toString()));
