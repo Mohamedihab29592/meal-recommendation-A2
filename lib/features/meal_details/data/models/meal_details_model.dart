@@ -7,6 +7,7 @@ class MealDetailsModel {
   final Nutritions nutritions;
   final List<Ingrediantes> ingrediantes;
   final List<String> steps;
+  final String mealImagePath;
 
   const MealDetailsModel({
     required this.mealName,
@@ -17,6 +18,7 @@ class MealDetailsModel {
     required this.nutritions,
     required this.ingrediantes,
     required this.steps,
+    required this.mealImagePath,
   });
 
   Map<String, dynamic> toJson() {
@@ -29,6 +31,7 @@ class MealDetailsModel {
       'nutritions': nutritions.toJson(),
       'ingrediantes': ingrediantes.map((ingrediente) => ingrediente.toJson()).toList(),
       'steps': steps,
+      'meal image': mealImagePath,
     };
   }
 
@@ -42,6 +45,7 @@ class MealDetailsModel {
       nutritions: Nutritions.fromJson(json['nutritions']),
       ingrediantes: json['ingrediantes'].map((ingrediente) => Ingrediantes.fromJson(ingrediente)).toList(),
       steps: json['steps'],
+      mealImagePath: json['meal image'],
     );
   }
 }
