@@ -47,12 +47,12 @@ class AppRouter {
           return const loginView();
         },
       ),
-      GoRoute(
-        path: AppRouter.kRegisterScreen,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterView();
-        },
-      ),
+      // GoRoute(
+      //   path: AppRouter.kRegisterScreen,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return const RegisterView();
+      //   },
+      // ),
       // GoRoute(
       //   path: AppRouter.kOtpScreen,
       //   builder: (BuildContext context, GoRouterState state) {

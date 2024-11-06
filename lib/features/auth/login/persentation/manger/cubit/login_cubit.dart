@@ -8,7 +8,7 @@ part 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authRepo) : super(LoginInitial());
 
-  final AutoLogin authRepo;
+  final AuthLogin authRepo;
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
   Future<void> signin(String email, String password) async {
