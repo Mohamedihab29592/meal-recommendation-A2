@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
+import 'package:meal_recommendations_a2/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
@@ -19,9 +20,10 @@ class AppRouter {
   static const String kProfileScreen = '/profile';
   static const String kOtpScreen = '/otp';
   static const String kOnBoardingScreen = '/onboarding';
+  static const String kMealDetailsScreen = '/mealDetails';
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouter.kSplashScreen,
+    initialLocation: AppRouter.kMealDetailsScreen,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouter.kSplashScreen,
@@ -47,12 +49,12 @@ class AppRouter {
           return const loginView();
         },
       ),
-      GoRoute(
-        path: AppRouter.kRegisterScreen,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterView();
-        },
-      ),
+      // GoRoute(
+      //   path: AppRouter.kRegisterScreen,
+      //   builder: (BuildContext context, GoRouterState state) {
+      //     return const RegisterView();
+      //   },
+      // ),
       // GoRoute(
       //   path: AppRouter.kOtpScreen,
       //   builder: (BuildContext context, GoRouterState state) {
@@ -78,7 +80,16 @@ class AppRouter {
             child: const ProfileView(),
           );
         },
-      )
+      ),
+      GoRoute(
+        path: AppRouter.kMealDetailsScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) => ProfileViewCubit(s1<ProfileRepoImpl>()),
+            child: const MealDetailsView(),
+          );
+        },
+      ),
     ],
   );
 }
