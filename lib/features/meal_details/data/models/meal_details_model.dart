@@ -1,5 +1,5 @@
 class MealDetailsModel {
-  final String mealName;
+  final String name;
   final String subtitle;
   final Duration duration;
   final int serving;
@@ -7,10 +7,10 @@ class MealDetailsModel {
   final Nutritions nutritions;
   final List<Ingrediantes> ingrediantes;
   final List<String> steps;
-  final String mealImagePath;
+  final String image;
 
   const MealDetailsModel({
-    required this.mealName,
+    required this.name,
     required this.subtitle,
     required this.duration,
     required this.serving,
@@ -18,12 +18,12 @@ class MealDetailsModel {
     required this.nutritions,
     required this.ingrediantes,
     required this.steps,
-    required this.mealImagePath,
+    required this.image,
   });
 
   Map<String, dynamic> toJson() {
     return {
-      'meal name': mealName,
+      'name': name,
       'subtitle': subtitle,
       'duration': duration.inMinutes,
       'serving': serving,
@@ -31,21 +31,21 @@ class MealDetailsModel {
       'nutritions': nutritions.toJson(),
       'ingrediantes': ingrediantes.map((ingrediente) => ingrediente.toJson()).toList(),
       'steps': steps,
-      'meal image': mealImagePath,
+      'image': image,
     };
   }
 
   factory MealDetailsModel.fromJson(dynamic json) {
     return MealDetailsModel(
-      mealName: json['meal name'],
+      name: json['name'],
       subtitle: json['subtitle'],
       duration: Duration(minutes: json['duration']),
       serving: json['serving'],
       summary: json['summary'],
       nutritions: Nutritions.fromJson(json['nutritions']),
-      ingrediantes: json['ingrediantes'].map((ingrediente) => Ingrediantes.fromJson(ingrediente)).toList(),
-      steps: json['steps'],
-      mealImagePath: json['meal image'],
+      ingrediantes: json['ingrediantes'].map<Ingrediantes>((ingrediente) => Ingrediantes.fromJson(ingrediente)).toList(),
+      steps: json['steps'].map<String>((step) => step.toString()).toList(),
+      image: json['image'],
     );
   }
 }
@@ -77,11 +77,11 @@ class Nutritions {
 
   factory Nutritions.fromJson(dynamic json) {
     return Nutritions(
-      protein: json['protein'],
-      carp: json['carp'],
-      fat: json['fat'],
-      kcal: json['kcal'],
-      vitamenes: json['vitamenes'],
+      protein: double.parse(json['protein'].toString()),
+      carp: double.parse(json['carp'].toString()),
+      fat: double.parse(json['fat'].toString()),
+      kcal: double.parse(json['kcal'].toString()),
+      vitamenes: double.parse(json['vitamenes'].toString()),
     );
   }
 }
