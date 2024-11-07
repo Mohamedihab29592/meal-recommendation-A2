@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+
 import '../../../../core/services/di.dart';
 import '../../../../core/services/secure_storage/secure_storage_service.dart';
 import '../../../../core/utiles/app_colors.dart';
@@ -49,9 +50,9 @@ class OtpVerificationScreen extends StatelessWidget {
             }
           },
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.c_001A3F,
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: AssetImage(Assets.Login_Register_background),
                 fit: BoxFit.cover,
               ),
@@ -104,8 +105,8 @@ class OtpVerificationScreen extends StatelessWidget {
                         onCompleted: (otp) async {
                           final otpCubit = BlocProvider.of<OTPCubit>(context);
                           final verificationId = await s1<
-                                  SecureStorageService>()
-                              .read(SecureStorageService
+                                  SecureStorageServicee>()
+                              .read(SecureStorageServicee
                                   .verificationIdCredential); // Retrieve it securely
 
                           otpCubit.verifyOTP(verificationId!, otp);
@@ -130,7 +131,7 @@ class OtpVerificationScreen extends StatelessWidget {
                         },
                         child: Text(
                           AppStrings.getcode,
-                          style: TextStyle(color: AppColors.c_001A3F),
+                          style: const TextStyle(color: AppColors.c_001A3F),
                         ),
                       ),
                       const Spacer(),

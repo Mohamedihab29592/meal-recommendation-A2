@@ -8,6 +8,7 @@ import 'package:meal_recommendations_a2/core/services/firesrore_service.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/auto_repo/auth_repo_implementation.dart';
 import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
+
 import '../../features/auth/otp/data/repository/otp_repository_impl.dart';
 import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
 import '../../features/auth/otp/domain/usecases/send_otp.dart';
@@ -62,7 +63,7 @@ void setup() {
   //OTP Repositories
   s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(
       firebaseAuth: s1<FirebaseAuth>(),
-      secureStorageService: s1<SecureStorageService>()));
+      secureStorageService: s1<SecureStorageServicee>()));
   //OTP Use Cases
   s1.registerLazySingleton(() => SendOTP(s1<OTPRepository>()));
   s1.registerLazySingleton(() => VerifyOTP(s1<OTPRepository>()));
@@ -72,13 +73,15 @@ void setup() {
         verifyOTPUseCase: s1<VerifyOTP>(),
       ));
   //SecureStorageService
-  s1.registerLazySingleton<SecureStorageService>(() => SecureStorageService());
+  s1.registerLazySingleton<SecureStorageServicee>(
+      () => SecureStorageServicee());
   //Firebase Authentication instance
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 
   //Profile View
   s1.registerLazySingleton<FirebaseStorageServices>(
-    () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
+    () => FirebaseStorageServices(
+        firebaseNetworkService: FirebaseNetworkServiceImpl()),
   );
   s1.registerLazySingleton<ProfileRepoImpl>(
     () => ProfileRepoImpl(
