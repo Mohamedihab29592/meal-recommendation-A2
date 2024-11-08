@@ -23,7 +23,7 @@ class AppRouter {
   static const String kOnBoardingScreen = '/onboarding';
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouter.kRegisterScreen,
+    initialLocation: AppRouter.kSplashScreen,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouter.kSplashScreen,
