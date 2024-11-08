@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_auth_services.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/core/services/data_service.dart';
 import 'package:meal_recommendations_a2/core/services/firesrore_service.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/auto_repo/auth_repo_implementation.dart';
-
+import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
+import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import '../../features/auth/otp/data/repository/otp_repository_impl.dart';
 import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
 import '../../features/auth/otp/domain/usecases/send_otp.dart';
@@ -24,8 +26,7 @@ void setup() {
   s1.registerSingleton<DataBaseServices>(FireStoreService());
   s1.registerSingleton<AutoLogin>(AuthRepoImplementation(
     firebaseServices: s1<FirebaseServices>(),
-    dataBaseServices: s1<DataBaseServices>(),  
-    
+    dataBaseServices: s1<DataBaseServices>(),
   ));
   // Register repositories
   // s1.registerSingleton<AuthRepository>(AuthRepository());
@@ -74,4 +75,15 @@ void setup() {
   s1.registerLazySingleton<SecureStorageService>(() => SecureStorageService());
   //Firebase Authentication instance
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
+
+  //Profile View
+  s1.registerLazySingleton<FirebaseStorageServices>(
+    () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
+  );
+  s1.registerLazySingleton<ProfileRepoImpl>(
+    () => ProfileRepoImpl(
+      firebaseNetworkService: FirebaseNetworkServiceImpl(),
+      firebaseStorageServices: s1.get<FirebaseStorageServices>(),
+    ),
+  );
 }

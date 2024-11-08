@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/AddYourIngredients.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
@@ -50,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               // ),
             ),
             //Navigation bar
-            bottomNavigationBar: MyNavigationBar(),
+            bottomNavigationBar: const MyNavigationBar(),
           );
         },
       ),
@@ -63,23 +62,22 @@ class MyHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Done
-          SideBarAndNotifications(),
+          const SideBarAndNotifications(),
           SizedBox(height: screenHeight * 0.015),
           //Done
-          SearchAndFilter(),
+          const SearchAndFilter(),
           SizedBox(height: screenHeight * 0.03),
           //Done
-          AddYourIngredients(),
-          SizedBox(height: screenHeight * 0.015), RowTopRecipes(),
+          const AddYourIngredients(),
+          SizedBox(height: screenHeight * 0.015), const RowTopRecipes(),
 
-          RecipesBuilder(),
+          const RecipesBuilder(),
           // MyNavigationBar(),
         ],
       ),
