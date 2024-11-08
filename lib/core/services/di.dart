@@ -25,7 +25,7 @@ void setup() {
   // s1.registerSingleton<StorageService>(StorageService());
   s1.registerSingleton<FirebaseServices>(FirebaseServices());
   s1.registerSingleton<DataBaseServices>(FireStoreService());
-  s1.registerSingleton<AutoLogin>(AuthRepoImplementation(
+  s1.registerSingleton<AuthLogin>(AuthRepoImplementation(
     firebaseServices: s1<FirebaseServices>(),
     dataBaseServices: s1<DataBaseServices>(),
   ));

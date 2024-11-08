@@ -50,6 +50,7 @@ class AppRouter {
         },
       ),
 
+
        GoRoute(
         path: AppRouter.kRegisterScreen,
        builder: (BuildContext context, GoRouterState state) {

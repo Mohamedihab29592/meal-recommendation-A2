@@ -7,7 +7,7 @@ import 'package:meal_recommendations_a2/core/utiles/backend_endpoint.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/model/user_model.dart';
 
-class AuthRepoImplementation extends AutoLogin {
+class AuthRepoImplementation extends AuthLogin {
   final FirebaseServices firebaseServices;
   final DataBaseServices dataBaseServices;
 
@@ -32,7 +32,12 @@ class AuthRepoImplementation extends AutoLogin {
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     try {
       var user = await firebaseServices.signInWithGoogle();
-      return Right(UserModel.fromFirestore(user));
+      UserEntity userEntity = UserModel.fromFirestore(user);
+
+      // Save the user data to Firestore
+      await setUserData(userEntity: userEntity);
+
+      return Right(userEntity);
     } on Exception catch (e) {
       return Left(ServerFailure('An error occurred. Please try again.'));
     } catch (e) {
