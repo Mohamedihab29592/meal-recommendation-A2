@@ -27,13 +27,9 @@ class SummaryView extends StatelessWidget {
             runSpacing: 10,
             children: [
               NutritionItem(type: "protein", amount: "${model.nutritions.protein.toInt()}g"),
-              const Expanded(child: SizedBox()),
               NutritionItem(type: "carp", amount: "${model.nutritions.carp.toInt()}g"),
-              const Expanded(child: SizedBox()),
               NutritionItem(type: "fat", amount: "${model.nutritions.fat.toInt()}g"),
-              const Expanded(child: SizedBox()),
               NutritionItem(type: "kcal", amount: "${model.nutritions.kcal.toInt()}"),
-              const Expanded(child: SizedBox()),
               NutritionItem(type: "vitamenes", amount: "${model.nutritions.vitamenes.toInt()}mg"),
             ],
           ),

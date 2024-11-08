@@ -11,7 +11,7 @@ class IngrediantesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [
-      const SizedBox(height: 20),
+      const SizedBox(height: 10),
       Text("total ingrediantes ${model.ingrediantes.length}"),
       const SizedBox(height: 25),
     ];

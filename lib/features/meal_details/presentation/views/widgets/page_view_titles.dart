@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/direction_view.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/ingrediantes_view.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/page_view_title_item.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/summary_view.dart';
@@ -13,7 +14,7 @@ class PageViewTitles extends StatefulWidget {
 
 class _PageViewTitlesState extends State<PageViewTitles> {
   final List<String> titles = ["Summary", "Ingrediantes", "Direction"];
-  final List<Widget> pages = [SummaryView(model: meal!), IngrediantesView(model: meal!), const SizedBox()];
+  final List<Widget> pages = [SummaryView(model: meal!), IngrediantesView(model: meal!), DirectionView(model: meal!)];
   late int selectedIndex;
 
   @override
