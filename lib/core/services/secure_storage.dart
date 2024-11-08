@@ -9,6 +9,6 @@ class SecureStorageService {
   }
 
   Future<String?> getUID() async {
-    return await _storage.read(key: 'userUID');
+    return await _storage.read(key: 'uid');
   }
 }
