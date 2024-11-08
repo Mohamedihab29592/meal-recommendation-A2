@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/build_error_bar.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 
 import 'package:meal_recommendations_a2/features/auth/login/persentation/manger/cubit/login_cubit.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/custom_progress_hud.dart';
@@ -17,7 +19,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-         debugPrint('success');
+         GoRouter.of(context).pushReplacement(AppRouter.kHomeScreen);
         }
 
         if (state is LogininFailure) {
