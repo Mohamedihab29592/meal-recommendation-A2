@@ -5,7 +5,7 @@ import '../../domain/otp_repository/otp_repository.dart';
 
 class OTPRepositoryImpl implements OTPRepository {
   final FirebaseAuth firebaseAuth;
-  final SecureStorageService secureStorageService;
+  final SecureStorageServicee secureStorageService;
 
   OTPRepositoryImpl(
       {required this.firebaseAuth, required this.secureStorageService}) {

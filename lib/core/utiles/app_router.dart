@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
+import 'package:meal_recommendations_a2/features/auth/register/presentation/views/register_view.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/controllers/meal_details_view_cubit/meal_details_view_cubit.dart';
@@ -9,6 +10,7 @@ import 'package:meal_recommendations_a2/features/meal_details/presentation/views
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
+
 import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
 import '../../features/auth/otp/presentation/otp_verification_screen.dart';
 import '../../features/onboarding/onboarding.dart';
@@ -36,7 +38,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const HomeScreen();
+          return ControllerScreen();
         },
       ),
       GoRoute(
@@ -51,20 +53,15 @@ class AppRouter {
           return const loginView();
         },
       ),
-      GoRoute(
+
+
+       GoRoute(
         path: AppRouter.kRegisterScreen,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterView();
+       builder: (BuildContext context, GoRouterState state) {
+           return const RegisterView();
         },
       ),
-      // GoRoute(
-      //   path: AppRouter.kOtpScreen,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const OtpVerificationScreen(
-      //       phoneNumber: '+201118175938',
-      //     );
-      //   },
-      // ),
+
 
       //OTP SCREEN
       GoRoute(
