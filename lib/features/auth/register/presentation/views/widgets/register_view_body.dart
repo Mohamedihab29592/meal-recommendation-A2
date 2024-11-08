@@ -28,7 +28,7 @@ class RegisterViewBody extends StatelessWidget {
         listener: (context, state) {
           if (state is RegitserSuccess) {
             customSnackBar(context, AppStrings.registerSuccess);
-            context.push(AppRouter.kOtpScreen);
+            context.push(AppRouter.kHomeScreen);
           } else if (state is RegisterError) {
             customSnackBar(context, state.errMsg);
           } else if (state is GoogleSignInError) {
