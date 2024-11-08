@@ -49,6 +49,7 @@ class AppRouter {
           return const loginView();
         },
       ),
+
        GoRoute(
         path: AppRouter.kRegisterScreen,
        builder: (BuildContext context, GoRouterState state) {
