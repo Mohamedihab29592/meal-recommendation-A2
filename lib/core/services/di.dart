@@ -6,6 +6,7 @@ import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart'
 import 'package:meal_recommendations_a2/core/services/data_service.dart';
 import 'package:meal_recommendations_a2/core/services/firesrore_service.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/auto_repo/auth_repo_implementation.dart';
+import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import '../../features/auth/otp/data/repository/otp_repository_impl.dart';
@@ -85,5 +86,10 @@ void setup() {
       firebaseNetworkService: FirebaseNetworkServiceImpl(),
       firebaseStorageServices: s1.get<FirebaseStorageServices>(),
     ),
+  );
+
+  //Meal Details View
+  s1.registerLazySingleton<MealDetailsRepoImpl>(
+    () => MealDetailsRepoImpl(firebaseNetworkService: FirebaseNetworkServiceImpl()),
   );
 }

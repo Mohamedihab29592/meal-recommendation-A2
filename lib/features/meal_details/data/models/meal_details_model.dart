@@ -48,6 +48,20 @@ class MealDetailsModel {
       image: json['image'],
     );
   }
+
+  factory MealDetailsModel.init() {
+    return const MealDetailsModel(
+      name: "",
+      subtitle: "",
+      duration: Duration(),
+      serving: 0,
+      summary: "",
+      nutritions: Nutritions(carp: 0, fat: 0, kcal: 0, protein: 0, vitamenes: 0),
+      ingrediantes: [],
+      steps: [],
+      image: "",
+    );
+  }
 }
 
 class Nutritions {
@@ -84,6 +98,10 @@ class Nutritions {
       vitamenes: double.parse(json['vitamenes'].toString()),
     );
   }
+
+  factory Nutritions.init() {
+    return const Nutritions(protein: 0, carp: 0, fat: 0, kcal: 0, vitamenes: 0);
+  }
 }
 
 class Ingrediantes {
@@ -107,5 +125,9 @@ class Ingrediantes {
       name: json['name'],
       pieces: json['pieces'],
     );
+  }
+
+  factory Ingrediantes.init(dynamic json) {
+    return const Ingrediantes(name: "", pieces: 0);
   }
 }

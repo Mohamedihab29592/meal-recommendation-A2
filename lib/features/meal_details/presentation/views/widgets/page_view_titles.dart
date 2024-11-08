@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:meal_recommendations_a2/features/meal_details/data/models/meal_details_model.dart';
+import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/summary_view.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/direction_view.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/ingrediantes_view.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/page_view_title_item.dart';
-import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/summary_view.dart';
-import 'package:meal_recommendations_a2/main.dart';
 
 class PageViewTitles extends StatefulWidget {
-  const PageViewTitles({super.key});
+  const PageViewTitles({super.key, required this.model});
+
+  final MealDetailsModel model;
 
   @override
   State<PageViewTitles> createState() => _PageViewTitlesState();
 }
 
 class _PageViewTitlesState extends State<PageViewTitles> {
-  final List<String> titles = ["Summary", "Ingrediantes", "Direction"];
-  final List<Widget> pages = [SummaryView(model: meal!), IngrediantesView(model: meal!), DirectionView(model: meal!)];
+  late final List<String> titles;
+  late final List<Widget> pages;
   late int selectedIndex;
 
   @override
   void initState() {
     selectedIndex = 0;
+    titles = ["Summary", "Ingrediantes", "Direction"];
+    pages = [SummaryView(model: widget.model), IngrediantesView(model: widget.model), DirectionView(model: widget.model)];
     super.initState();
   }
 
