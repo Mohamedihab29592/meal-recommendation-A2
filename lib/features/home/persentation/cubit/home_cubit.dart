@@ -16,7 +16,7 @@ class NavigationCubit extends Cubit<NavState> {
       : super(
           NavState(
             navValue: 0,
-            currentScreen: const MyHomeScreen(),
+            currentScreen: MyHomeScreen(),
           ),
         );
 
@@ -24,10 +24,10 @@ class NavigationCubit extends Cubit<NavState> {
     Widget screen;
     switch (selectIndex) {
       case 0:
-        screen = const MyHomeScreen();
+        screen = MyHomeScreen();
         break;
       case 1:
-        screen = const OrderScreen();
+        screen = FavoriteScreen();
         break;
       case 2:
         screen = BlocProvider(
@@ -36,7 +36,7 @@ class NavigationCubit extends Cubit<NavState> {
         );
         break;
       default:
-        screen = const MyHomeScreen();
+        screen = MyHomeScreen();
     }
     emit(
       NavState(
