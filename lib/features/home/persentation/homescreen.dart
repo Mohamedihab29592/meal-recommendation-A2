@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
+import 'package:meal_recommendations_a2/features/home/data/repo_imp.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/AddYourIngredients.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
@@ -9,8 +11,8 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/Search
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubit/home_cubit.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class ControllerScreen extends StatelessWidget {
+  ControllerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,34 +23,14 @@ class HomeScreen extends StatelessWidget {
       child: BlocBuilder<NavigationCubit, NavState>(
         builder: (context, state) {
           return Scaffold(
-            // backgroundColor: AppColors.c_FFFFFF,
             body: Padding(
               padding: EdgeInsets.only(
                 top: screenHeight * 0.05,
                 left: screenWidth * 0.02,
-                right: screenWidth * 0.02,
-                // bottom: screenHeight * 0.02,
+                right: screenWidth * 0.02,                
               ),
               child: state.currentScreen,
-              // Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // children: [
-              // Done
-              //     SideBarAndNotifications(),
-              //     SizedBox(height: screenHeight * 0.015),
-              //     //Done
-              //     SearchAndFilter(),
-              //     SizedBox(height: screenHeight * 0.03),
-              //     //Done
-              //     AddYourIngredients(),
-              //     SizedBox(height: screenHeight * 0.015), RowTopRecipes(),
-
-              //     RecipesBuilder(),
-              //     // MyNavigationBar(),
-              //   ],
-              // ),
             ),
-            //Navigation bar
             bottomNavigationBar: const MyNavigationBar(),
           );
         },
@@ -58,7 +40,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class MyHomeScreen extends StatelessWidget {
-  const MyHomeScreen({super.key});
+  MyHomeScreen({super.key});
+  final FirestoreService firestoreService = FirestoreService();
 
   @override
   Widget build(BuildContext context) {
@@ -76,29 +59,75 @@ class MyHomeScreen extends StatelessWidget {
           //Done
           const AddYourIngredients(),
           SizedBox(height: screenHeight * 0.015), const RowTopRecipes(),
+          StreamBuilder<List<Meal>>(
+            stream: firestoreService.getMeals(),
+            builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return Center(child: Text("Error fetching data"));
+              }
+              if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(child: Text("No favorite meals found"));
+              }
 
-          const RecipesBuilder(),
-          // MyNavigationBar(),
+              final meals = snapshot.data!;
+              return Expanded(
+                child: ListView.builder(
+                  itemCount: meals.length,
+                  itemBuilder: (context, index) {
+                    return RecipesBuilder(
+                      meal: meals[index],
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-class OrderScreen extends StatelessWidget {
-  const OrderScreen({super.key});
-
+class FavoriteScreen extends StatelessWidget {
+  FavoriteScreen({super.key});
+  final FirestoreService firestoreService = FirestoreService();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: RecipesBuilder(),
+    return Scaffold(
+      body: StreamBuilder<List<Meal>>(
+        stream: firestoreService.getMeals(),
+        builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasError) {
+            return Center(child: Text("Error fetching data"));
+          }
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text("No favorite meals found"));
+          }
+
+          final meals = snapshot.data!;
+          return ListView.builder(
+            itemCount: meals.length,
+            itemBuilder: (context, index) {
+              return RecipesBuilder(
+                meal: meals[index],
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
 
 class PersonScreen extends StatelessWidget {
   const PersonScreen({super.key});
-    @override
+  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SearchAndFilter(),
