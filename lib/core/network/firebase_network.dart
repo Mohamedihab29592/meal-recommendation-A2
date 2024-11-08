@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meal_recommendations_a2/core/errors/exception.dart';
 import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
+import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
 
 abstract class AutoLogin {
@@ -37,4 +38,7 @@ abstract class CreateUserWithEmail {
     required String mobileNumber,
   });
   Future<Either<FirebaseFailure, UserCredential>> signInWithGoogle();
+}
+abstract class MealService {
+  Stream<List<Meal>> getMeals();
 }

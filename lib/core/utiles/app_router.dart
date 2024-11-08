@@ -23,7 +23,7 @@ class AppRouter {
   static const String kOnBoardingScreen = '/onboarding';
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouter.kSplashScreen,
+    initialLocation: AppRouter.kRegisterScreen,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouter.kSplashScreen,
@@ -34,7 +34,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const HomeScreen();
+          return ControllerScreen();
         },
       ),
       GoRoute(
@@ -49,20 +49,14 @@ class AppRouter {
           return const loginView();
         },
       ),
-      GoRoute(
+
+       GoRoute(
         path: AppRouter.kRegisterScreen,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterView();
+       builder: (BuildContext context, GoRouterState state) {
+           return const RegisterView();
         },
       ),
-      // GoRoute(
-      //   path: AppRouter.kOtpScreen,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const OtpVerificationScreen(
-      //       phoneNumber: '+201118175938',
-      //     );
-      //   },
-      // ),
+
 
       //OTP SCREEN
       GoRoute(
