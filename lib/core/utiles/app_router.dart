@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/see_all_screen.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
@@ -19,6 +20,7 @@ class AppRouter {
   static const String kProfileScreen = '/profile';
   static const String kOtpScreen = '/otp';
   static const String kOnBoardingScreen = '/onboarding';
+  static const String kSeeAllScreen = '/seeAll';
 
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.kSplashScreen,
@@ -78,7 +80,14 @@ class AppRouter {
             child: const ProfileView(),
           );
         },
-      )
+      ),
+
+      GoRoute(
+        path: AppRouter.kSeeAllScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SeeAll();
+        },
+      ),
     ],
   );
 }

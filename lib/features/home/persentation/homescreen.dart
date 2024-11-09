@@ -7,7 +7,7 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/Recipe
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTopRecipes.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/cubit/home_cubit.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -98,7 +98,7 @@ class OrderScreen extends StatelessWidget {
 
 class PersonScreen extends StatelessWidget {
   const PersonScreen({super.key});
-    @override
+  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SearchAndFilter(),

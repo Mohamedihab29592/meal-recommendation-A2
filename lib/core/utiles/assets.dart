@@ -17,7 +17,7 @@ class Assets {
 
   /// Assets for assetsMask group
   /// assets/Mask group.png
-  static const String Burger = "assets/Mask group.png";
+  static const String Burger = "assets/Maskgroup.png";
 
   /// Assets for assetsPizzaPizzaFilledWithTomatoesSalamiOlives 1
   /// assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png
@@ -51,6 +51,4 @@ class Assets {
   static const String imagesCheck = "assets/Check.svg";
   static const String maskgroup = "assets/Mask_group.png";
   static const String editIcon = "assets/Edit.png";
-
-
 }
