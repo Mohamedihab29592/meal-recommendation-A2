@@ -12,7 +12,7 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBa
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
 
 class ControllerScreen extends StatelessWidget {
-  ControllerScreen({super.key});
+  const ControllerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ControllerScreen extends StatelessWidget {
               padding: EdgeInsets.only(
                 top: screenHeight * 0.05,
                 left: screenWidth * 0.02,
-                right: screenWidth * 0.02,                
+                right: screenWidth * 0.02,
               ),
               child: state.currentScreen,
             ),
@@ -63,13 +63,13 @@ class MyHomeScreen extends StatelessWidget {
             stream: firestoreService.getMeals(),
             builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
               if (snapshot.hasError) {
-                return Center(child: Text("Error fetching data"));
+                return const Center(child: Text("Error fetching data"));
               }
               if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return Center(child: Text("No favorite meals found"));
+                return const Center(child: Text("No favorite meals found"));
               }
 
               final meals = snapshot.data!;

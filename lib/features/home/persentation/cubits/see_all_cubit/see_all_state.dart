@@ -7,8 +7,9 @@ class SeeAllInitial extends SeeAllCubitState {}
 class SeeAllLoading extends SeeAllCubitState {}
 
 class SeeAllLoaded extends SeeAllCubitState {
-  final SeeAllModel seeAllModel;
-  SeeAllLoaded(this.seeAllModel);
+  final List<SeeAllModel> seeAllModels;
+
+  SeeAllLoaded(this.seeAllModels);
 }
 
 class SeeAllError extends SeeAllCubitState {
