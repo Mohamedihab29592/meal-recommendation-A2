@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/register_view.dart';
+import 'package:meal_recommendations_a2/features/fav_screen/presentation/cubit/fav_cubit.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/controllers/meal_details_view_cubit/meal_details_view_cubit.dart';
@@ -25,6 +27,7 @@ class AppRouter {
   static const String kOtpScreen = '/otp';
   static const String kOnBoardingScreen = '/onboarding';
   static const String kMealDetailsScreen = '/mealDetails';
+  static const String kFavScreen = '/fav';
 
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.kSplashScreen,
@@ -86,6 +89,16 @@ class AppRouter {
           return BlocProvider(
             create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
             child: MealDetailsView(mealID: state.extra as int),
+
+      GoRoute(
+        path: AppRouter.kFavScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) => FavCubit()..loadFavorites(),
+            child: Scaffold(
+              body: FavoriteScreen(),
+              bottomNavigationBar: const MyNavigationBar(),
+            ),
           );
         },
       ),

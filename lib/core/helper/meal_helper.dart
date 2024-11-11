@@ -41,4 +41,5 @@ class Meal {
       subtitle: data['subtitle'] ?? 'No subtitle',
     );
   }
+
 }
