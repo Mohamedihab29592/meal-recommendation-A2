@@ -12,7 +12,6 @@ import 'package:meal_recommendations_a2/features/meal_details/presentation/views
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
-
 import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
 import '../../features/auth/otp/presentation/otp_verification_screen.dart';
 import '../../features/onboarding/onboarding.dart';
@@ -56,15 +55,12 @@ class AppRouter {
           return const loginView();
         },
       ),
-
-
-       GoRoute(
+      GoRoute(
         path: AppRouter.kRegisterScreen,
-       builder: (BuildContext context, GoRouterState state) {
-           return const RegisterView();
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterView();
         },
       ),
-
 
       //OTP SCREEN
       GoRoute(
@@ -89,7 +85,9 @@ class AppRouter {
           return BlocProvider(
             create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
             child: MealDetailsView(mealID: state.extra as int),
-
+          );
+        },
+      ),
       GoRoute(
         path: AppRouter.kFavScreen,
         builder: (BuildContext context, GoRouterState state) {
