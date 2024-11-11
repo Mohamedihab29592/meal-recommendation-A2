@@ -91,17 +91,17 @@ class AppRouter {
         },
       ),
       GoRoute(
-          path: AppRouter.kFavScreen,
-          builder: (BuildContext context, GoRouterState state) {
-            return BlocProvider(
-              create: (context) => FavCubit()..loadFavorites(),
-              child: Scaffold(
-                body: FavoriteScreen(),
-                bottomNavigationBar: const MyNavigationBar(),
-              ),
-            );
-          }),
-
+        path: AppRouter.kFavScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) => FavCubit()..loadFavorites(),
+            child: Scaffold(
+              body: FavoriteScreen(),
+              bottomNavigationBar: const MyNavigationBar(),
+            ),
+          );
+        },
+      ),
       GoRoute(
         path: AppRouter.kSeeAllScreen,
         builder: (BuildContext context, GoRouterState state) {
