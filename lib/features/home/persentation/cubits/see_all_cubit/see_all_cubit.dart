@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,7 +11,7 @@ class SeeAllCubit extends Cubit<SeeAllCubitState> {
   Future<void> fetchMealData() async {
     emit(SeeAllLoading());
     try {
-      DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance.collection('meals').doc('MD50MoYK2JdVGNKxk0LRSRxlqav2').get();
+      DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance.collection('meals').doc(FirebaseAuth.instance.currentUser!.uid).get();
 
       if (snapshot.exists && snapshot.data() != null) {
         debugPrint("Data fetched: ${snapshot.data()}");
