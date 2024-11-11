@@ -86,7 +86,7 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
             create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
-            child: MealDetailsView(mealID: state.extra as int),
+            child: MealDetailsView(mealID: state.extra as String),
           );
         },
       ),

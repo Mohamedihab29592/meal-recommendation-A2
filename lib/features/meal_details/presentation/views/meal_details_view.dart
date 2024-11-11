@@ -7,7 +7,7 @@ import 'package:meal_recommendations_a2/features/meal_details/presentation/contr
 class MealDetailsView extends StatelessWidget {
   const MealDetailsView({super.key, required this.mealID});
 
-  final int mealID;
+  final String mealID;
 
   @override
   Widget build(BuildContext context) {

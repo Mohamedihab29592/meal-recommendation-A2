@@ -11,7 +11,7 @@ class MealDetailsRepoImpl extends MealDetailsRepo {
   final FirebaseNetworkService firebaseNetworkService;
 
   @override
-  Future<Either<MealDetailsModel, FirebaseServerFailure>> getMealDetailsModel(int mealID) async {
+  Future<Either<MealDetailsModel, FirebaseServerFailure>> getMealDetailsModel(String mealID) async {
     try {
       Map<String, dynamic>? res = await firebaseNetworkService.getDocument("meals", FirebaseAuth.instance.currentUser!.uid);
 
@@ -19,7 +19,7 @@ class MealDetailsRepoImpl extends MealDetailsRepo {
         return right(FirebaseServerFailure("No meals found"));
       }
 
-      MealDetailsModel meal = MealDetailsModel.fromJson(res["meals"][mealID]);
+      MealDetailsModel meal = MealDetailsModel.fromJson(res["meals"].elementAt(int.parse(mealID)));
       return left(meal);
     } on FirebaseAuthException catch (e) {
       return right(FirebaseServerFailure.fromFirebaseErr(e));

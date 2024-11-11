@@ -12,7 +12,7 @@ class MealDetailsViewCubit extends Cubit<MealDetailsViewState> {
 
   final MealDetailsRepo mealDetailsRepo;
 
-  Future<void> getMealDetailsModel(int mealID) async {
+  Future<void> getMealDetailsModel(String mealID) async {
     try {
       emit(MealDetailsViewLoading());
       Either<MealDetailsModel, FirebaseServerFailure> res = await mealDetailsRepo.getMealDetailsModel(mealID);
