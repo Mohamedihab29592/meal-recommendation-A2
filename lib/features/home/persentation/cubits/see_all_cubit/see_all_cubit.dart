@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:meal_recommendations_a2/features/home/data/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/see_all_cubit/see_all_state.dart';
 
 class SeeAllCubit extends Cubit<SeeAllCubitState> {

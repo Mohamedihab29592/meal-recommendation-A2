@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
-import 'package:meal_recommendations_a2/features/home/data/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
 
 class ItemHorizontalSeeAll extends StatelessWidget {
   const ItemHorizontalSeeAll({super.key, required this.seeAllModel});

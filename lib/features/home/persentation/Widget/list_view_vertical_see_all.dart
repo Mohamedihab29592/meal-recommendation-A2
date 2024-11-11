@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_recommendations_a2/features/home/data/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/item_vertical_see_all.dart';
 
 class ListViewVerticalSeeAll extends StatelessWidget {
