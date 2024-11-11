@@ -6,12 +6,12 @@ import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 class FavRecipesBuilder extends StatelessWidget {
   final FavMeal meal;
 
-  const FavRecipesBuilder({Key? key, required this.meal}) : super(key: key);
+  const FavRecipesBuilder({super.key, required this.meal});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
       ),
@@ -27,9 +27,9 @@ class FavRecipesBuilder extends StatelessWidget {
                 radius: 30,
                 backgroundImage: meal.imageUrl.isNotEmpty
                     ? NetworkImage(meal.imageUrl)
-                    : AssetImage('assets/placeholder.png') as ImageProvider,
+                    : const AssetImage('assets/placeholder.png') as ImageProvider,
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,21 +42,21 @@ class FavRecipesBuilder extends StatelessWidget {
                       meal.title.isNotEmpty ? meal.title : 'No title',
                       style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_000000),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Row(
                       children: [
                         Text(
                           '${meal.ingredients} ingredients',
                           style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_8A8A8A),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           meal.time,
                           style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_001A3F),
                         ),
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       children: List.generate(meal.rating.toInt(), (index) {
                         return Icon(
@@ -70,7 +70,7 @@ class FavRecipesBuilder extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.favorite, color: AppColors.c_001A3F),
+                icon: const Icon(Icons.favorite, color: AppColors.c_001A3F),
                 onPressed: () {},
               ),
             ],

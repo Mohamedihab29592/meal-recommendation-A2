@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_recommendations_a2/features/fav_screen/domain/model/FavModel.dart';
 import 'package:meal_recommendations_a2/features/fav_screen/presentation/widget/FavRecipesBuilder.dart';
 import 'package:meal_recommendations_a2/features/fav_screen/presentation/cubit/fav_cubit.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTopRecipes.dart';
@@ -9,7 +8,7 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBa
 
 
 class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+  const FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +25,10 @@ class FavoriteScreen extends StatelessWidget {
           BlocBuilder<FavCubit, FavState>(
             builder: (context, state) {
               if (state is FavLoading) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               } else if (state is FavLoaded) {
                 if (state.meals.isEmpty) {
-                  return Center(child: Text("No favorite meals found"));
+                  return const Center(child: Text("No favorite meals found"));
                 }
                 return Expanded(
                   child: ListView.builder(
@@ -42,7 +41,7 @@ class FavoriteScreen extends StatelessWidget {
               } else if (state is FavError) {
                 return Center(child: Text(state.message));
               }
-              return Center(child: Text("Unexpected error"));
+              return const Center(child: Text("Unexpected error"));
             },
           ),
         ],

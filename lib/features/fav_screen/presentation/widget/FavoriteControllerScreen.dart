@@ -5,15 +5,15 @@ import 'package:meal_recommendations_a2/features/fav_screen/presentation/widget/
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
 
 class FavoriteControllerScreen extends StatelessWidget {
-  const FavoriteControllerScreen({Key? key}) : super(key: key);
+  const FavoriteControllerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FavCubit()..loadFavorites(),
-      child: Scaffold(
+      child: const Scaffold(
         body: FavoriteScreen(),
-        bottomNavigationBar: const MyNavigationBar(),
+        bottomNavigationBar: MyNavigationBar(),
       ),
     );
   }

@@ -9,7 +9,7 @@ class FavoriteService implements FavoriteDataSource {
   Stream<List<FavMeal>> getFavoriteMeals() {
     return _firestore.collection('favoriteMeals').snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
-        return FavMeal.fromMap(doc.data() as Map<String, dynamic>);
+        return FavMeal.fromMap(doc.data());
       }).toList();
     });
   }
