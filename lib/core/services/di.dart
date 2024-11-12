@@ -5,6 +5,7 @@ import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/core/services/data_service.dart';
 import 'package:meal_recommendations_a2/core/services/firesrore_service.dart';
+import 'package:meal_recommendations_a2/core/services/secure_storage.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/auto_repo/auth_repo_implementation.dart';
 import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
@@ -62,9 +63,7 @@ void setup() {
 
   //**********OTP*********//
   //OTP Repositories
-  s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(
-      firebaseAuth: s1<FirebaseAuth>(),
-      secureStorageService: s1<SecureStorageServicee>()));
+  s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(firebaseAuth: s1<FirebaseAuth>(), secureStorageService: s1<SecureStorageServicee>()));
   //OTP Use Cases
   s1.registerLazySingleton(() => SendOTP(s1<OTPRepository>()));
   s1.registerLazySingleton(() => VerifyOTP(s1<OTPRepository>()));
@@ -74,15 +73,13 @@ void setup() {
         verifyOTPUseCase: s1<VerifyOTP>(),
       ));
   //SecureStorageService
-  s1.registerLazySingleton<SecureStorageServicee>(
-      () => SecureStorageServicee());
+  s1.registerLazySingleton<SecureStorageServicee>(() => SecureStorageServicee());
   //Firebase Authentication instance
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 
   //Profile View
   s1.registerLazySingleton<FirebaseStorageServices>(
-    () => FirebaseStorageServices(
-        firebaseNetworkService: FirebaseNetworkServiceImpl()),
+    () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
   );
   s1.registerLazySingleton<ProfileRepoImpl>(
     () => ProfileRepoImpl(
@@ -93,6 +90,9 @@ void setup() {
 
   //Meal Details View
   s1.registerLazySingleton<MealDetailsRepoImpl>(
-    () => MealDetailsRepoImpl(firebaseNetworkService: FirebaseNetworkServiceImpl()),
+    () => MealDetailsRepoImpl(
+      firebaseNetworkService: FirebaseNetworkServiceImpl(),
+      secureStorageService: SecureStorageService(),
+    ),
   );
 }
