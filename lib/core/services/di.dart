@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get_it/get_it.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_auth_services.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
@@ -14,6 +15,9 @@ import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
 import '../../features/auth/otp/domain/usecases/send_otp.dart';
 import '../../features/auth/otp/domain/usecases/verify_otp_usecase.dart';
 import '../../features/auth/otp/presentation/cubit/otp_cubit.dart';
+import '../../features/gemini_integrate/data/gemini_repo.dart';
+import '../../features/gemini_integrate/domain/gemini_chat_use_case.dart';
+import '../../features/gemini_integrate/persentation/controller/gemini_chat_cubit.dart';
 import 'secure_storage/secure_storage_service.dart';
 
 final s1 = GetIt.instance;
@@ -89,4 +93,19 @@ void setup() {
       firebaseStorageServices: s1.get<FirebaseStorageServices>(),
     ),
   );
+
+
+  // GEMINI
+
+  // Register Gemini instance (Singleton pattern)
+  s1.registerLazySingleton<Gemini>(() => Gemini.instance);
+
+  // Register Repository
+  s1.registerLazySingleton<GeminiRepository>(() => GeminiRepository());
+
+  // Register UseCase and pass the repository
+  s1.registerFactory<ChatUseCase>(() => ChatUseCase(s1<Gemini>()));
+
+  // Register Cubit and pass the use case
+  s1.registerFactory<ChatCubit>(() => ChatCubit(s1<ChatUseCase>()));
 }

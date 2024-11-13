@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/register_view.dart';
 import 'package:meal_recommendations_a2/features/fav_screen/presentation/cubit/fav_cubit.dart';
+import 'package:meal_recommendations_a2/features/gemini_integrate/persentation/gemini_screen.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/MyNavigationBar.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
@@ -24,6 +25,7 @@ class AppRouter {
   static const String kOtpScreen = '/otp';
   static const String kOnBoardingScreen = '/onboarding';
   static const String kFavScreen = '/fav';
+  static const String kGeminiScreen = '/gemini_screen';
 
   static final GoRouter router = GoRouter(
     initialLocation: AppRouter.kSplashScreen,
@@ -53,14 +55,12 @@ class AppRouter {
         },
       ),
 
-
-       GoRoute(
+      GoRoute(
         path: AppRouter.kRegisterScreen,
-       builder: (BuildContext context, GoRouterState state) {
-           return const RegisterView();
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterView();
         },
       ),
-
 
       //OTP SCREEN
       GoRoute(
@@ -90,6 +90,12 @@ class AppRouter {
               bottomNavigationBar: const MyNavigationBar(),
             ),
           );
+        },
+      ),
+      GoRoute(
+        path: AppRouter.kGeminiScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const GeminiScreen();
         },
       ),
     ],
