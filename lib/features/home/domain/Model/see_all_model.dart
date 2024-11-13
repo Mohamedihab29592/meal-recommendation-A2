@@ -1,4 +1,5 @@
 class SeeAllModel {
+  String mealID;
   String image;
   String mealName;
   int ingredientsCount;
@@ -7,6 +8,7 @@ class SeeAllModel {
   double evaluation;
 
   SeeAllModel({
+    required this.mealID,
     required this.image,
     required this.mealName,
     required this.ingredientsCount,
@@ -15,13 +17,13 @@ class SeeAllModel {
     this.evaluation = 0.0,
   });
 
-  factory SeeAllModel.fromJson(Map<String, dynamic> json) {
+  factory SeeAllModel.fromJson(Map<String, dynamic> json, String mealID) {
     return SeeAllModel(
-      image: json['meals'][0]['image'] ?? '',
-      mealName: json['meals'][0]['name'] ?? '',
-      ingredientsCount:
-          (json['meals'][0]['ingrediantes'] as List<dynamic>?)?.length ?? 0,
-      time: json['meals'][0]['duration'] ?? 0,
+      mealID: mealID,
+      image: json['image'] ?? '',
+      mealName: json['name'] ?? '',
+      ingredientsCount: (json['ingrediantes'] as List<dynamic>?)?.length ?? 0,
+      time: json['duration'] ?? 0,
       isFavorite: json['isFavorite'] ?? false,
       evaluation: (json['evaluation'] as num?)?.toDouble() ?? 0.0,
     );
