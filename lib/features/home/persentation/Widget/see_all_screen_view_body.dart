@@ -17,7 +17,8 @@ class SeeAllScreenViewBody extends StatelessWidget {
         if (state is SeeAllLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is SeeAllError) {
-          return const Center(child: Text('There was an error. Please try again later.'));
+          return const Center(
+              child: Text('There was an error. Please try again later.'));
         } else if (state is SeeAllLoaded) {
           return SingleChildScrollView(
             child: Column(
@@ -38,7 +39,7 @@ class SeeAllScreenViewBody extends StatelessWidget {
                   height: 20,
                 ),
                 ListViewHorizontalSeeAll(
-                  seeAllModels: state.seeAllModels,
+                  seeAllModel: state.seeAllModel,
                 ),
                 const SizedBox(
                   height: 10,
@@ -54,7 +55,7 @@ class SeeAllScreenViewBody extends StatelessWidget {
                   height: 20,
                 ),
                 ListViewVerticalSeeAll(
-                  seeAllModels: state.seeAllModels,
+                  seeAllModel: state.seeAllModel,
                 ),
               ],
             ),

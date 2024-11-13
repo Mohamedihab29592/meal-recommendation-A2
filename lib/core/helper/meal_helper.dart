@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Ingredient {
   final String name;
   final int pieces;
@@ -13,7 +15,6 @@ class Ingredient {
 }
 
 class Meal {
-  final String mealID;
   final String name;
   final int duration;
   final String image;
@@ -21,7 +22,6 @@ class Meal {
   final String subtitle;
 
   Meal({
-    required this.mealID,
     required this.name,
     required this.duration,
     required this.image,
@@ -29,14 +29,17 @@ class Meal {
     required this.subtitle,
   });
 
-  factory Meal.fromMap(Map<String, dynamic> data, String mealID) {
+  factory Meal.fromMap(Map<String, dynamic> data) {
     return Meal(
-      mealID: mealID,
       name: data['name'] ?? 'No name',
       duration: data['duration'] ?? 0,
       image: data['image'] ?? '',
-      ingredients: (data['ingrediantes'] as List<dynamic>?)?.map((item) => Ingredient.fromMap(item as Map<String, dynamic>)).toList() ?? [],
+      ingredients: (data['ingrediantes'] as List<dynamic>?)
+              ?.map((item) => Ingredient.fromMap(item as Map<String, dynamic>))
+              .toList() ??
+          [],
       subtitle: data['subtitle'] ?? 'No subtitle',
     );
   }
+
 }
