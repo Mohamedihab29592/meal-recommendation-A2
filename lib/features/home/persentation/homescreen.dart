@@ -11,6 +11,9 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/Search
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
 
+import '../../side_bar/side_bar_view.dart';
+import '../../side_bar/side_bar_view_body.dart';
+
 class ControllerScreen extends StatelessWidget {
   ControllerScreen({super.key});
 
@@ -47,6 +50,7 @@ class MyHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      drawer: Sidebar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
