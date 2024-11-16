@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
@@ -16,9 +18,14 @@ class RowTopRecipes extends StatelessWidget {
           AppStrings.toprecipes,
           style: AppTextStyles.style_bold_18,
         ),
-        Text(
-          AppStrings.seeall,
-          style: AppTextStyles.style_med_18,
+        GestureDetector(
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kSeeAllScreen);
+          },
+          child: Text(
+            AppStrings.seeall,
+            style: AppTextStyles.style_med_18,
+          ),
         ),
       ],
     );
