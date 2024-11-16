@@ -11,17 +11,19 @@ class SideBarAndNotifications extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: () {},
-          icon: Icon(
+          onPressed: () {
+
+          },
+          icon: const Icon(
             Icons.menu,
             color: AppColors.c_001A3F,
             size: 30,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.notifications,
             color: AppColors.c_001A3F,
             size: 30,

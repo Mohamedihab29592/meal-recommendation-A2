@@ -10,6 +10,7 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTop
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
+import '../../side_bar/side_bar_view_body.dart';
 
 class ControllerScreen extends StatelessWidget {
   const ControllerScreen({super.key});
@@ -47,6 +48,7 @@ class MyHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      drawer: Sidebar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -101,13 +103,13 @@ class FavoriteScreen extends StatelessWidget {
         stream: firestoreService.getMeals(),
         builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(child: Text("Error fetching data"));
+            return const Center(child: Text("Error fetching data"));
           }
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text("No favorite meals found"));
+            return const Center(child: Text("No favorite meals found"));
           }
 
           final meals = snapshot.data!;
