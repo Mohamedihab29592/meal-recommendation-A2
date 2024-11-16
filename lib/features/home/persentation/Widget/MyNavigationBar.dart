@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubit/home_cubit.dart';
 
 class MyNavigationBar extends StatelessWidget {
   const MyNavigationBar({super.key});
@@ -17,7 +17,12 @@ class MyNavigationBar extends StatelessWidget {
       onTap: (index) {
         context.read<NavigationCubit>().getNavValue(index);
       },
-      currentIndex: context.read<NavigationCubit>().state.navValue,
+      currentIndex: context
+          .watch<NavigationCubit>()
+          .state
+          .navValue, // Use watch to listen for changes
+
+      // currentIndex: context.read<NavigationCubit>().state.navValue,
       items: [
         BottomNavigationBarItem(
           activeIcon: CircleAvatar(

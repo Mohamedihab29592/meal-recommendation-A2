@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_recommendations_a2/core/services/secure_storage/secure_storage_service.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/features/onboarding/widgets/item_page_view.dart';
@@ -107,7 +108,13 @@ class _OnboardingState extends State<Onboarding> {
           textButton1: '',
           textbutton2: 'login',
           onTap2: () {
-            GoRouter.of(context).push(AppRouter.kLoginScreen,);
+            GoRouter.of(context).push(
+              AppRouter.kLoginScreen,
+            );
+            SecureStorageServicee().write(
+              'onBoardDone',
+              'done',
+            );
           },
         )
       ],
