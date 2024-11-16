@@ -18,7 +18,7 @@ class SeeAllCubit extends Cubit<SeeAllCubitState> {
         return emit(SeeAllError("User not logged In"));
       }
 
-      DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance.collection('meals').doc(uid).get();
+      DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
       if (snapshot.exists && snapshot.data() != null) {
         debugPrint("Data fetched: ${snapshot.data()}");

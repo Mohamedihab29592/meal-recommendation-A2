@@ -21,7 +21,7 @@ class MealDetailsRepoImpl extends MealDetailsRepo {
         return right(FirebaseServerFailure("User not logged In"));
       }
 
-      Map<String, dynamic>? res = await firebaseNetworkService.getDocument("meals", uid);
+      Map<String, dynamic>? res = await firebaseNetworkService.getDocument("users", uid);
 
       if (res!["meals"] == null || res["meals"].isEmpty) {
         return right(FirebaseServerFailure("No meals found"));
