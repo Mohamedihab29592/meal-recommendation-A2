@@ -8,6 +8,10 @@ import 'package:meal_recommendations_a2/features/profile/presentation/controller
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
 import '../../features/auth/login/persentation/view/sign_in/login_view.dart';
 import '../../features/auth/otp/presentation/otp_verification_screen.dart';
+import '../../features/auth/register/presentation/views/register_view.dart';
+import '../../features/fav_screen/presentation/cubit/fav_cubit.dart';
+import '../../features/home/persentation/Widget/MyNavigationBar.dart';
+import '../../features/home/persentation/see_all_screen.dart';
 import '../../features/onboarding/onboarding.dart';
 import '../../features/splash_boarding/splash_screen.dart';
 
@@ -88,7 +92,7 @@ class AppRouter {
           return const SeeAll();
         },
       ),
-      ),
+
 
       GoRoute(
         path: AppRouter.kFavScreen,

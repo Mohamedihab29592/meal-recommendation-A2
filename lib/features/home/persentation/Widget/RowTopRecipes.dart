@@ -20,16 +20,11 @@ class RowTopRecipes extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).go(AppRouter.kOnBoardingScreen);
+            GoRouter.of(context).push(AppRouter.kSeeAllScreen);
           },
-          child: GestureDetector(
-            onTap: () {
-              GoRouter.of(context).go(AppRouter.kSeeAllScreen);
-            },
-            child: Text(
-              AppStrings.seeall,
-              style: AppTextStyles.style_med_18,
-            ),
+          child: Text(
+            AppStrings.seeall,
+            style: AppTextStyles.style_med_18,
           ),
         ),
       ],
