@@ -4,7 +4,8 @@ import '../data/gemini_repo.dart';
 import '../../gemini_integrate/persentation/controller/gemini_chat_cubit.dart';
 import '../../gemini_integrate/persentation/controller/gemini_chat_states.dart';
 import '../domain/gemini_chat_use_case.dart';
-import 'gemini_screen_content.dart';
+import 'geminiScreen_content.dart';
+
 
 
 class GeminiScreen extends StatelessWidget {
