@@ -158,7 +158,7 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
                           _controller.clear();
                         }
                       },
-                      backgroundColor: Colors.indigo[600],
+                      backgroundColor: Colors.indigo[500],
                       child: const Icon(Icons.send, color: Colors.white),
                     ),
                   ],
@@ -171,5 +171,6 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
     );
   }
 }
+
 
 
