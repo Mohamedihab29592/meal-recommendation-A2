@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meal_recommendations_a2/core/helper/build_menu_item.dart';
+import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/backend_endpoint.dart';
 
 class Sidebar extends StatefulWidget {
@@ -53,7 +54,7 @@ class _SidebarState extends State<Sidebar> {
             ),
           ),
           MenuItem(
-            imagePath: "assets/Home.png",
+            imagePath: Assets.home,
             title: "Home",
             index: 0,
             selectedIndex: selectedIndex,
@@ -64,7 +65,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           MenuItem(
-            imagePath: "assets/Mask group.png",
+            imagePath: Assets.maskGroup,
             title: "Profile",
             index: 1,
             selectedIndex: selectedIndex,
@@ -75,7 +76,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           MenuItem(
-            imagePath: "assets/love.png",
+            imagePath: Assets.favorite,
             title: "Favorite",
             index: 2,
             selectedIndex: selectedIndex,
@@ -86,7 +87,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           MenuItem(
-            imagePath: "assets/settings.png",
+            imagePath: Assets.settings,
             title: "Settings",
             index: 3,
             selectedIndex: selectedIndex,
@@ -100,7 +101,7 @@ class _SidebarState extends State<Sidebar> {
           const Divider(endIndent: 25, indent: 25),
           const SizedBox(height: 20.0),
           MenuItem(
-            imagePath: "assets/log_out.png",
+            imagePath: Assets.logout,
             title: "Logout",
             index: 4,
             selectedIndex: selectedIndex,

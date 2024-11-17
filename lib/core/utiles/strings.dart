@@ -11,7 +11,7 @@ class AppStrings {
   static const String registerOption = "Don't have an account? Register now";
   static const String orLoginWith = "or login with";
   static const String rememberMe = "Remember me and keep me logged in";
-
+  
   // Error messages
   static const String ok = "ok";
   static const String cancel = "cancel";
