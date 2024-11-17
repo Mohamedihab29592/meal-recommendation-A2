@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
+import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
+import 'package:meal_recommendations_a2/features/meal_details/presentation/controllers/meal_details_view_cubit/meal_details_view_cubit.dart';
+import 'package:meal_recommendations_a2/features/meal_details/presentation/views/meal_details_view.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
@@ -23,6 +26,7 @@ class AppRouter {
   static const String kProfileScreen = '/profile';
   static const String kOtpScreen = '/otp';
   static const String kOnBoardingScreen = '/onboarding';
+  static const String kMealDetailsScreen = '/mealDetails';
   static const String kFavScreen = '/fav';
   static const String kSeeAllScreen = '/seeAll';
 
@@ -38,7 +42,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return ControllerScreen();
+          return const ControllerScreen();
         },
       ),
       GoRoute(
@@ -59,14 +63,6 @@ class AppRouter {
           return const RegisterView();
         },
       ),
-      // GoRoute(
-      //   path: AppRouter.kOtpScreen,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const OtpVerificationScreen(
-      //       phoneNumber: '+201118175938',
-      //     );
-      //   },
-      // ),
 
       //OTP SCREEN
       GoRoute(
@@ -85,14 +81,12 @@ class AppRouter {
           );
         },
       ),
-
       GoRoute(
         path: AppRouter.kSeeAllScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const SeeAll();
         },
       ),
-
 
       GoRoute(
         path: AppRouter.kFavScreen,
@@ -104,6 +98,21 @@ class AppRouter {
               bottomNavigationBar: const MyNavigationBar(),
             ),
           );
+        },
+      ),
+      GoRoute(
+        path: AppRouter.kMealDetailsScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
+            child: MealDetailsView(mealID: state.extra as String),
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRouter.kSeeAllScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SeeAll();
         },
       ),
     ],

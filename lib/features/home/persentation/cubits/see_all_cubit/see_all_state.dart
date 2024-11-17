@@ -1,4 +1,4 @@
-import 'package:meal_recommendations_a2/features/home/data/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
 
 abstract class SeeAllCubitState {}
 
@@ -7,8 +7,9 @@ class SeeAllInitial extends SeeAllCubitState {}
 class SeeAllLoading extends SeeAllCubitState {}
 
 class SeeAllLoaded extends SeeAllCubitState {
-  final SeeAllModel seeAllModel;
-  SeeAllLoaded(this.seeAllModel);
+  final List<SeeAllModel> seeAllModels;
+
+  SeeAllLoaded(this.seeAllModels);
 }
 
 class SeeAllError extends SeeAllCubitState {

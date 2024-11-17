@@ -17,8 +17,7 @@ class RegisterRepoImpl extends CreateUserWithEmail {
   }) async {
     try {
       FirebaseAuth auth = FirebaseAuth.instance;
-      var user = await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      var user = await auth.createUserWithEmailAndPassword(email: email, password: password);
       User? currentUser = auth.currentUser;
       final String uId = currentUser!.uid;
       saveUserInfo(
@@ -42,20 +41,15 @@ class RegisterRepoImpl extends CreateUserWithEmail {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithCredential(credential);
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
       final String uId = userCredential.user!.uid;
       if (userCredential.additionalUserInfo!.isNewUser) {
-        FirebaseFirestore.instance
-            .collection('users')
-            .doc(uId)
-            .set(RegisterUserModel(
+        FirebaseFirestore.instance.collection('users').doc(uId).set(RegisterUserModel(
               email: userCredential.user!.email!,
               userName: userCredential.user!.displayName!,
               profilePic: userCredential.user!.photoURL!,
@@ -76,14 +70,15 @@ class RegisterRepoImpl extends CreateUserWithEmail {
     required String mobileNumber,
     required String profilePic,
   }) {
-    FirebaseFirestore.instance.collection('users').doc(uId).set(
-          RegisterUserModel(
-            userName: name,
-            email: email,
-            uId: uId,
-            mobileNumber: mobileNumber,
-            profilePic: profilePic,
-          ).toJson(),
-        );
+    Map<String, dynamic> userData = RegisterUserModel(
+      userName: name,
+      email: email,
+      uId: uId,
+      mobileNumber: mobileNumber,
+      profilePic: profilePic,
+    ).toJson();
+    userData["meals"] = [];
+
+    FirebaseFirestore.instance.collection('users').doc(uId).set(userData);
   }
 }

@@ -28,7 +28,7 @@ class ControllerScreen extends StatelessWidget {
               padding: EdgeInsets.only(
                 top: screenHeight * 0.05,
                 left: screenWidth * 0.02,
-                right: screenWidth * 0.02,                
+                right: screenWidth * 0.02,
               ),
               child: state.currentScreen,
             ),
