@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meal_recommendations_a2/core/helper/build_menu_item.dart';
+import 'package:meal_recommendations_a2/core/helper/last_name_sign.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
-import 'package:meal_recommendations_a2/core/utiles/backend_endpoint.dart';
+import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class Sidebar extends StatefulWidget {
   @override
@@ -12,6 +12,7 @@ class Sidebar extends StatefulWidget {
 class _SidebarState extends State<Sidebar> {
   int selectedIndex = -1;
   String lastName = "Loading..."; // Initial placeholder text
+  final UserService userService = UserService(); // Create an instance of UserService
 
   @override
   void initState() {
@@ -20,9 +21,9 @@ class _SidebarState extends State<Sidebar> {
   }
 
   Future<void> fetchLastName() async {
-    final userDoc = await FirebaseFirestore.instance.collection(BackendEndpoint.setUserData).doc('userId').get();
+    String fetchedName = await userService.fetchLastName();
     setState(() {
-      lastName = userDoc.data()?['lastName'] ?? 'No Name'; 
+      lastName = fetchedName;
     });
   }
 
@@ -55,7 +56,7 @@ class _SidebarState extends State<Sidebar> {
           ),
           MenuItem(
             imagePath: Assets.home,
-            title: "Home",
+            title: AppStrings.home,
             index: 0,
             selectedIndex: selectedIndex,
             onTap: () {
@@ -66,7 +67,7 @@ class _SidebarState extends State<Sidebar> {
           ),
           MenuItem(
             imagePath: Assets.maskGroup,
-            title: "Profile",
+            title: AppStrings.profileHintText,
             index: 1,
             selectedIndex: selectedIndex,
             onTap: () {
@@ -77,7 +78,7 @@ class _SidebarState extends State<Sidebar> {
           ),
           MenuItem(
             imagePath: Assets.favorite,
-            title: "Favorite",
+            title: AppStrings.favorite,
             index: 2,
             selectedIndex: selectedIndex,
             onTap: () {
@@ -88,7 +89,7 @@ class _SidebarState extends State<Sidebar> {
           ),
           MenuItem(
             imagePath: Assets.settings,
-            title: "Settings",
+            title: AppStrings.settings,
             index: 3,
             selectedIndex: selectedIndex,
             onTap: () {
@@ -102,7 +103,7 @@ class _SidebarState extends State<Sidebar> {
           const SizedBox(height: 20.0),
           MenuItem(
             imagePath: Assets.logout,
-            title: "Logout",
+            title: AppStrings.logout,
             index: 4,
             selectedIndex: selectedIndex,
             onTap: () {

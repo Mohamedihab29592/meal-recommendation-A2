@@ -161,4 +161,10 @@ class AppStrings {
       'Confirm password does not match';
   static String registerErrorPasswordConfirmLength =
       'Confirm password length should be greater than 6';
+
+  static String favorite="Favorite";
+
+  static String settings="Settings";
+
 }
+
