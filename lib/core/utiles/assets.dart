@@ -51,4 +51,10 @@ class Assets {
   static const String imagesCheck = "assets/Check.svg";
   static const String maskgroup = "assets/Mask_group.png";
   static const String editIcon = "assets/Edit.png";
+  static const String favorite='assets/love.png';
+  static const String settings='assets/settings.png';
+  static const String logout="assets/log_out.png";
+  static const String home="assets/Home.png";
+  static const String maskGroup="assets/Mask group.png";
+
 }
