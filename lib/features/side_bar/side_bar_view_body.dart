@@ -87,7 +87,7 @@ class _SidebarState extends State<Sidebar> {
               });
             },
           ),
-          MenuItem(
+         /* MenuItem(
             imagePath: Assets.settings,
             title: AppStrings.settings,
             index: 3,
@@ -97,7 +97,7 @@ class _SidebarState extends State<Sidebar> {
                 selectedIndex = 3;
               });
             },
-          ),
+          ),*/
           const SizedBox(height: 20.0),
           const Divider(endIndent: 25, indent: 25),
           const SizedBox(height: 20.0),
