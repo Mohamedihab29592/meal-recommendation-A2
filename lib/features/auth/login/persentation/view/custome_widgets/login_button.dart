@@ -12,8 +12,8 @@ class LoginButton extends StatelessWidget {
     required this.email,
     required this.password,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

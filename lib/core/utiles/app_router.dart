@@ -42,7 +42,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return ControllerScreen();
+          return const ControllerScreen();
         },
       ),
       GoRoute(
@@ -93,9 +93,9 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
             create: (context) => FavCubit()..loadFavorites(),
-            child: Scaffold(
+            child: const Scaffold(
               body: FavoriteScreen(),
-              bottomNavigationBar: const MyNavigationBar(),
+              bottomNavigationBar: MyNavigationBar(),
             ),
           );
         },

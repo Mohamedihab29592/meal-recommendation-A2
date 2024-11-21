@@ -58,52 +58,48 @@ class MyHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return Scaffold(
-          drawer: Sidebar(),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Done
-              const SideBarAndNotifications(),
-              SizedBox(height: screenHeight * 0.015),
-              //Done
-              const SearchAndFilter(),
-              SizedBox(height: screenHeight * 0.03),
-              //Done
-              const AddYourIngredients(),
-              SizedBox(height: screenHeight * 0.015), const RowTopRecipes(),
-              StreamBuilder<List<Meal>>(
-                stream: firestoreService.getMeals(),
-                builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  if (snapshot.hasError) {
-                    return const Center(child: Text("Error fetching data"));
-                  }
-                  if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return const Center(child: Text("No favorite meals found"));
-                  }
+    return Scaffold(
+      drawer: const Sidebar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Done
+          const SideBarAndNotifications(),
+          SizedBox(height: screenHeight * 0.015),
+          //Done
+          const SearchAndFilter(),
+          SizedBox(height: screenHeight * 0.03),
+          //Done
+          const AddYourIngredients(),
+          SizedBox(height: screenHeight * 0.015), const RowTopRecipes(),
+          StreamBuilder<List<Meal>>(
+            stream: firestoreService.getMeals(),
+            builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return const Center(child: Text("Error fetching data"));
+              }
+              if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Center(child: Text("No favorite meals found"));
+              }
 
-                  final meals = snapshot.data!;
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: meals.length,
-                      itemBuilder: (context, index) {
-                        return RecipesBuilder(
-                          meal: meals[index],
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
-            ],
+              final meals = snapshot.data!;
+              return Expanded(
+                child: ListView.builder(
+                  itemCount: meals.length,
+                  itemBuilder: (context, index) {
+                    return RecipesBuilder(
+                      meal: meals[index],
+                    );
+                  },
+                ),
+              );
+            },
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }

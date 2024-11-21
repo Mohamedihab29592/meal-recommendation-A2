@@ -32,7 +32,7 @@ class MyNavigationBar extends StatelessWidget {
             ),
           ),
           label: "Home",
-          icon: Icon(
+          icon: const Icon(
             Icons.home,
             color: AppColors.c_001A3F,
           ),
@@ -48,7 +48,7 @@ class MyNavigationBar extends StatelessWidget {
               size: 40,
             ),
           ),
-          icon: Icon(
+          icon: const Icon(
             color: AppColors.c_001A3F,
             Icons.favorite_border,
           ),
@@ -64,7 +64,7 @@ class MyNavigationBar extends StatelessWidget {
               size: 40,
             ),
           ),
-          icon: Icon(
+          icon: const Icon(
             color: AppColors.c_001A3F,
             Icons.person,
           ),

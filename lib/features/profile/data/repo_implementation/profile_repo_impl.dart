@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meal_recommendations_a2/core/utiles/constant.dart';
@@ -50,10 +51,10 @@ class ProfileRepoImpl extends ProfileRepo {
       Map<String, dynamic>? res = await firebaseNetworkService.getDocument("users", FirebaseAuth.instance.currentUser!.uid);
       userModel = UserModel.fromJSON(res);
 
-      print(userModel.email);
+      debugPrint(userModel.email);
       return left(userModel);
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
       return right(FirebaseServerFailure("Error try again"));
     }
   }

@@ -92,7 +92,7 @@ void setup() {
   s1.registerLazySingleton<MealDetailsRepoImpl>(
     () => MealDetailsRepoImpl(
       firebaseNetworkService: FirebaseNetworkServiceImpl(),
-      secureStorageService: SecureStorageService(),
+      secureStorageService: const SecureStorageService(),
     ),
   );
 }

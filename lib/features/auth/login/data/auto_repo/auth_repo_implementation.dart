@@ -21,7 +21,7 @@ class AuthRepoImplementation extends AuthLogin {
     try {
       var user = await firebaseServices.signInWithEmail(email: email, password: password);
       return Right(UserModel.fromFirestore(user));
-    } on Exception catch (e) {
+    } on Exception catch (_) {
       return Left(ServerFailure('An error occurred. Please try again.'));
     } catch (e) {
       return Left(ServerFailure('An error occurred. Please try again.'));
@@ -38,7 +38,7 @@ class AuthRepoImplementation extends AuthLogin {
       await setUserData(userEntity: userEntity);
 
       return Right(userEntity);
-    } on Exception catch (e) {
+    } on Exception catch (_) {
       return Left(ServerFailure('An error occurred. Please try again.'));
     } catch (e) {
       return Left(ServerFailure('An error occurred. Please try again.'));

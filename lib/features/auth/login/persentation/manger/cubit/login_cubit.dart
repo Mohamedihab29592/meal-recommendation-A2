@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/entites/user_entity.dart';
@@ -40,9 +41,9 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> _saveUid(String uid) async {
     try {
       await secureStorage.write(key: 'uid', value: uid);
-      print('UID successfully saved: $uid'); // Debug print
+      debugPrint('UID successfully saved: $uid'); // Debug print
     } catch (e) {
-      print('Failed to save UID: $e'); // Debug print for errors
+      debugPrint('Failed to save UID: $e'); // Debug print for errors
     }
   }
 }

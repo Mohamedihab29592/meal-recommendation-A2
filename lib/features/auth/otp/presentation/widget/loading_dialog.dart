@@ -31,7 +31,7 @@ class LoadingDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            CupertinoActivityIndicator(
+            const CupertinoActivityIndicator(
               radius: 15,
               color: AppColors.c_001A3F,
             ),

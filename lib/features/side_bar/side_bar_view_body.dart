@@ -5,8 +5,10 @@ import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 
 class Sidebar extends StatefulWidget {
+  const Sidebar({super.key});
+
   @override
-  _SidebarState createState() => _SidebarState();
+  State<Sidebar> createState() => _SidebarState();
 }
 
 class _SidebarState extends State<Sidebar> {

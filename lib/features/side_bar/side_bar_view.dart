@@ -15,7 +15,7 @@ class SideBarView extends StatelessWidget {
         ),
         drawer: SizedBox(
           width: MediaQuery.of(context).size.width * 0.85,
-          child: Sidebar(),
+          child: const Sidebar(),
         ),
         body: const Center(
           child: Text("Main Content Area"),

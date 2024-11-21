@@ -5,15 +5,20 @@ import 'package:meal_recommendations_a2/features/meal_details/presentation/views
 import 'package:meal_recommendations_a2/features/meal_details/presentation/views/widgets/page_view_titles.dart';
 import 'package:meal_recommendations_a2/features/meal_details/presentation/controllers/meal_details_view_cubit/meal_details_view_cubit.dart';
 
-class MealDetailsView extends StatelessWidget {
+class MealDetailsView extends StatefulWidget {
   const MealDetailsView({super.key, required this.mealID});
 
   final String mealID;
 
   @override
+  State<MealDetailsView> createState() => _MealDetailsViewState();
+}
+
+class _MealDetailsViewState extends State<MealDetailsView> {
+  @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await BlocProvider.of<MealDetailsViewCubit>(context).getMealDetailsModel(mealID);
+      await BlocProvider.of<MealDetailsViewCubit>(context).getMealDetailsModel(widget.mealID);
     });
 
     return BlocBuilder<MealDetailsViewCubit, MealDetailsViewState>(

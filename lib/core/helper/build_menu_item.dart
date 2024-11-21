@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MenuItem extends StatelessWidget {
@@ -9,13 +8,13 @@ class MenuItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const MenuItem({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.title,
     required this.index,
     required this.selectedIndex,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
