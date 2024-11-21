@@ -4,4 +4,5 @@ import 'package:meal_recommendations_a2/features/meal_details/data/models/meal_d
 
 abstract class MealDetailsRepo {
   Future<Either<MealDetailsModel, FirebaseServerFailure>> getMealDetailsModel(String mealID);
+  Future<Either<MealDetailsModel, FirebaseServerFailure>> changeFavourateStatus(String mealID);
 }

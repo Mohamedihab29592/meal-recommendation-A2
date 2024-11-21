@@ -1,4 +1,5 @@
 class MealDetailsModel {
+  final String id;
   final String name;
   final String subtitle;
   final Duration duration;
@@ -8,8 +9,10 @@ class MealDetailsModel {
   final List<Ingrediantes> ingrediantes;
   final List<String> steps;
   final String image;
+  final bool isFav;
 
   const MealDetailsModel({
+    required this.id,
     required this.name,
     required this.subtitle,
     required this.duration,
@@ -19,6 +22,7 @@ class MealDetailsModel {
     required this.ingrediantes,
     required this.steps,
     required this.image,
+    required this.isFav,
   });
 
   Map<String, dynamic> toJson() {
@@ -32,11 +36,13 @@ class MealDetailsModel {
       'ingrediantes': ingrediantes.map((ingrediente) => ingrediente.toJson()).toList(),
       'steps': steps,
       'image': image,
+      'isFav': isFav,
     };
   }
 
-  factory MealDetailsModel.fromJson(dynamic json) {
+  factory MealDetailsModel.fromJson(dynamic json, String id) {
     return MealDetailsModel(
+      id: id,
       name: json['name'],
       subtitle: json['subtitle'],
       duration: Duration(minutes: json['duration']),
@@ -46,11 +52,13 @@ class MealDetailsModel {
       ingrediantes: json['ingrediantes'].map<Ingrediantes>((ingrediente) => Ingrediantes.fromJson(ingrediente)).toList(),
       steps: json['steps'].map<String>((step) => step.toString()).toList(),
       image: json['image'],
+      isFav: json['isFav'],
     );
   }
 
   factory MealDetailsModel.init() {
     return const MealDetailsModel(
+      id: "",
       name: "",
       subtitle: "",
       duration: Duration(),
@@ -60,6 +68,7 @@ class MealDetailsModel {
       ingrediantes: [],
       steps: [],
       image: "",
+      isFav: false,
     );
   }
 }
