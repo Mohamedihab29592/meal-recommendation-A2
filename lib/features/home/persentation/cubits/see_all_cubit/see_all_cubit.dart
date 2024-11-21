@@ -36,4 +36,29 @@ class SeeAllCubit extends Cubit<SeeAllCubitState> {
       emit(SeeAllError("Failed to load meal data: $e"));
     }
   }
+
+  Future<void> changeFavoriteStatus(String id) async {
+    emit(SeeAllLoading());
+    try {
+      String? uid = await secureStorageService.getUID();
+      if (uid == null) {
+        return emit(SeeAllError("User not logged In"));
+      }
+
+      DocumentReference<Map<String, dynamic>> documentRef = FirebaseFirestore.instance.collection('users').doc(uid);
+      DocumentSnapshot<Map<String, dynamic>> snapshot = await documentRef.get();
+      List<dynamic> meals = snapshot.data()?['meals'] ?? [];
+      meals[int.parse(id)]['isFav'] = !meals[int.parse(id)]['isFav'];
+      await documentRef.update({'meals': meals});
+      List<SeeAllModel> seeAllModels = [];
+      for (int i = 0; i < meals.length; i++) {
+        seeAllModels.add(SeeAllModel.fromJson(meals[i], i.toString()));
+      }
+
+      emit(SeeAllLoaded(seeAllModels));
+    } catch (e) {
+      debugPrint(e.toString());
+      emit(SeeAllError("Failed to load meal data: $e"));
+    }
+  }
 }

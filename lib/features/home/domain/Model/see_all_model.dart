@@ -13,7 +13,7 @@ class SeeAllModel {
     required this.mealName,
     required this.ingredientsCount,
     required this.time,
-    this.isFavorite = false,
+    required this.isFavorite,
     this.evaluation = 0.0,
   });
 
@@ -24,7 +24,7 @@ class SeeAllModel {
       mealName: json['name'] ?? '',
       ingredientsCount: (json['ingrediantes'] as List<dynamic>?)?.length ?? 0,
       time: json['duration'] ?? 0,
-      isFavorite: json['isFavorite'] ?? false,
+      isFavorite: json['isFav'] ?? false,
       evaluation: (json['evaluation'] as num?)?.toDouble() ?? 0.0,
     );
   }

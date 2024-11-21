@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/see_all_cubit/see_all_cubit.dart';
 
 class ItemVerticalSeeAll extends StatelessWidget {
   const ItemVerticalSeeAll({super.key, required this.seeAllModel});
@@ -29,30 +31,39 @@ class ItemVerticalSeeAll extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: SizedBox(
-                      height: MediaQuery.sizeOf(context).height * 0.13,
-                      width: double.infinity,
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          seeAllModel.image,
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.13,
+                        width: double.infinity,
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            seeAllModel.image,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 15,
-                    right: 15,
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 35,
-                      color: AppColors.c_FFFFFF,
+                    Positioned(
+                      top: 15,
+                      right: 15,
+                      child: IconButton(
+                        onPressed: () async {
+                          seeAllModel.isFavorite = !seeAllModel.isFavorite;
+                          await BlocProvider.of<SeeAllCubit>(context).changeFavoriteStatus(seeAllModel.mealID);
+                        },
+                        padding: EdgeInsets.zero,
+                        icon: Icon(
+                          seeAllModel.isFavorite ? Icons.favorite : Icons.favorite_border,
+                          size: 35,
+                          color: AppColors.c_FFFFFF,
+                        ),
+                      ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
                 const SizedBox(
                   height: 10,
                 ),
