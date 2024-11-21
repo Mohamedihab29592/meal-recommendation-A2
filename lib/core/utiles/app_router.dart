@@ -42,7 +42,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kHomeScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const ControllerScreen();
+          return ControllerScreen();
         },
       ),
       GoRoute(
