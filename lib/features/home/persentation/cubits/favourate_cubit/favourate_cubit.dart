@@ -5,27 +5,27 @@ import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
 import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 
-part 'home_state.dart';
+part 'favourate_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.mealService) : super(HomeInitial());
+class FavourateCubit extends Cubit<FavourateState> {
+  FavourateCubit(this.mealService) : super(FavourateInitial());
 
   final MealService mealService;
 
   Future<void> changeFavourateStatus(String mealID) async {
     try {
-      emit(HomeLoading());
-      Either<List<Meal>, FirebaseServerFailure> res = await mealService.changeFavourateStatus(mealID);
+      emit(FavourateLoading());
+      Either<List<Meal>, FirebaseServerFailure> res = await mealService.modifyFavList(mealID);
       res.fold(
         (model) {
-          return emit(HomeSuccess(model));
+          return emit(FavourateSuccess(model));
         },
         (error) {
-          return emit(HomeFailed(error));
+          return emit(FavourateFailed(error));
         },
       );
     } catch (e) {
-      return emit(HomeFailed(FirebaseServerFailure("Error, try again")));
+      return emit(FavourateFailed(FirebaseServerFailure("Error, try again")));
     }
   }
 }
