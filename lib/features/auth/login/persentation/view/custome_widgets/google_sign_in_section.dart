@@ -5,7 +5,7 @@ import 'package:meal_recommendations_a2/features/auth/login/persentation/manger/
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/or_divider.dart';
 
 class GoogleSignInSection extends StatelessWidget {
-  const GoogleSignInSection({Key? key}) : super(key: key);
+  const GoogleSignInSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,13 @@ class GoogleSignInSection extends StatelessWidget {
 
     return Column(
       children: [
-        OrDivider(),
+        const OrDivider(),
         SizedBox(height: screenHeight * 0.02),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),

@@ -1,48 +1,30 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meal_recommendations_a2/core/services/di.dart';
-import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
-import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
-import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
+import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
+import 'package:meal_recommendations_a2/core/errors/firebase_errors.dart';
+import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 
 part 'home_state.dart';
 
-class NavigationCubit extends Cubit<NavState> {
-  NavigationCubit()
-      : super(
-          NavState(
-            navValue: 0,
-            currentScreen: MyHomeScreen(),
-          ),
-        );
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit(this.mealService) : super(HomeInitial());
+  final MealService mealService;
 
-  void getNavValue(int selectIndex) {
-    Widget screen;
-    switch (selectIndex) {
-      case 0:
-        screen = MyHomeScreen();
-        break;
-      case 1:
-        screen = FavoriteScreen();
-        break;
-      case 2:
-        screen = BlocProvider(
-          create: (context) => ProfileViewCubit(s1<ProfileRepoImpl>()),
-          child: const ProfileView(),
-        );
-        break;
-      default:
-        screen = MyHomeScreen();
+  Future<void> changeFavourateStatus(String mealID) async {
+    try {
+      emit(HomeLoading());
+      Either<List<Meal>, FirebaseServerFailure> res = await mealService.changeFavourateStatus(mealID);
+      res.fold(
+        (model) {
+          return emit(HomeSuccess(model));
+        },
+        (error) {
+          return emit(HomeFailed(error));
+        },
+      );
+    } catch (e) {
+      return emit(HomeFailed(FirebaseServerFailure("Error, try again")));
     }
-    emit(
-      NavState(
-        navValue: selectIndex,
-        currentScreen: screen,
-      ),
-    );
   }
 }

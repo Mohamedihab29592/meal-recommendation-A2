@@ -9,4 +9,16 @@ sealed class HomeState extends Equatable {
 
 final class HomeInitial extends HomeState {}
 
-final class HomeChange extends HomeState {}
+final class HomeLoading extends HomeState {}
+
+final class HomeSuccess extends HomeState {
+  const HomeSuccess(this.meals);
+
+  final List<Meal> meals;
+}
+
+final class HomeFailed extends HomeState {
+  const HomeFailed(this.error);
+
+  final FirebaseServerFailure error;
+}

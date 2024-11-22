@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/see_all_model.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/see_all_cubit/see_all_cubit.dart';
 
-class ItemVerticalSeeAll extends StatelessWidget {
+class ItemVerticalSeeAll extends StatefulWidget {
   const ItemVerticalSeeAll({super.key, required this.seeAllModel});
+
   final SeeAllModel seeAllModel;
+
+  @override
+  State<ItemVerticalSeeAll> createState() => _ItemVerticalSeeAllState();
+}
+
+class _ItemVerticalSeeAllState extends State<ItemVerticalSeeAll> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(AppRouter.kMealDetailsScreen, extra: seeAllModel.mealID),
+      onTap: () async {
+        await GoRouter.of(context).push(AppRouter.kMealDetailsScreen, extra: widget.seeAllModel.mealID);
+        if (context.mounted) {
+          await BlocProvider.of<SeeAllCubit>(context).fetchMealData();
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.only(
           right: 10,
@@ -29,41 +43,50 @@ class ItemVerticalSeeAll extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: SizedBox(
-                      height: MediaQuery.sizeOf(context).height * 0.13,
-                      width: double.infinity,
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          seeAllModel.image,
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.13,
+                        width: double.infinity,
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            widget.seeAllModel.image,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 15,
-                    right: 15,
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 35,
-                      color: AppColors.c_FFFFFF,
+                    Positioned(
+                      top: 15,
+                      right: 15,
+                      child: IconButton(
+                        onPressed: () async {
+                          widget.seeAllModel.isFavorite = !widget.seeAllModel.isFavorite;
+                          await BlocProvider.of<SeeAllCubit>(context).changeFavoriteStatus(widget.seeAllModel.mealID);
+                        },
+                        padding: EdgeInsets.zero,
+                        icon: Icon(
+                          widget.seeAllModel.isFavorite ? Icons.favorite : Icons.favorite_border,
+                          size: 35,
+                          color: AppColors.c_FFFFFF,
+                        ),
+                      ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  seeAllModel.mealName,
+                  widget.seeAllModel.mealName,
                   style: AppTextStyles.style_bold_20,
                 ),
                 Row(
                   children: [
                     Text(
-                      '${seeAllModel.ingredientsCount} ingrediuanets',
+                      '${widget.seeAllModel.ingredientsCount} ingrediuanets',
                       style: AppTextStyles.style_med_15.copyWith(
                         color: AppColors.c_8A8A8A,
                       ),
@@ -72,7 +95,7 @@ class ItemVerticalSeeAll extends StatelessWidget {
                       width: 20,
                     ),
                     Text(
-                      '${seeAllModel.time} min',
+                      '${widget.seeAllModel.time} min',
                       style: AppTextStyles.style_med_15.copyWith(
                         color: AppColors.c_001A3F,
                       ),

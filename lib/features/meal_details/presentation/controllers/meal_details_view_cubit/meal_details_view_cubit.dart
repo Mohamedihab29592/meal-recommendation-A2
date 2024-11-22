@@ -28,4 +28,21 @@ class MealDetailsViewCubit extends Cubit<MealDetailsViewState> {
       return emit(MealDetailsViewFailed(FirebaseServerFailure("Error, try again")));
     }
   }
+
+  Future<void> changeFavourateStatus(String mealID) async {
+    try {
+      emit(MealDetailsViewLoading());
+      Either<MealDetailsModel, FirebaseServerFailure> res = await mealDetailsRepo.changeFavourateStatus(mealID);
+      res.fold(
+        (model) {
+          return emit(MealDetailsModelReceived(model));
+        },
+        (error) {
+          return emit(MealDetailsViewFailed(error));
+        },
+      );
+    } catch (e) {
+      return emit(MealDetailsViewFailed(FirebaseServerFailure("Error, try again")));
+    }
+  }
 }

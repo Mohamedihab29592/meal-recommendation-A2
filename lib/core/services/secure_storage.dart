@@ -2,6 +2,8 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SecureStorageService {
+  const SecureStorageService();
+
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   Future<void> saveUID(String uid) async {

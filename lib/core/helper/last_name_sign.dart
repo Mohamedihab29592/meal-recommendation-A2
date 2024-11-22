@@ -1,5 +1,6 @@
 // user_service.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class UserService {
   /// Fetches the name of the last user who logged in from Firestore.
@@ -15,7 +16,7 @@ class UserService {
         return 'No Users Found';
       }
     } catch (e) {
-      print('Error fetching last name: $e');
+      debugPrint('Error fetching last name: $e');
       return 'Error Fetching Name';
     }
   }

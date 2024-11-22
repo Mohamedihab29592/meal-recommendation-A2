@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
+import 'package:meal_recommendations_a2/core/services/secure_storage.dart';
 import 'package:meal_recommendations_a2/features/home/data/repo_imp.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/AddYourIngredients.dart';
@@ -10,17 +11,26 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTop
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/navigation_cubit/navigation_cubit.dart';
 import '../../side_bar/side_bar_view_body.dart';
 
 class ControllerScreen extends StatelessWidget {
   const ControllerScreen({super.key});
+  final FirestoreService firestoreService = const FirestoreService(SecureStorageService());
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    return BlocProvider(
-      create: (context) => NavigationCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => NavigationCubit(),
+        ),
+        BlocProvider(
+          create: (context) => HomeCubit(firestoreService),
+        ),
+      ],
       child: BlocBuilder<NavigationCubit, NavState>(
         builder: (context, state) {
           return Scaffold(
@@ -41,14 +51,15 @@ class ControllerScreen extends StatelessWidget {
 }
 
 class MyHomeScreen extends StatelessWidget {
-  MyHomeScreen({super.key});
-  final FirestoreService firestoreService = FirestoreService();
+  const MyHomeScreen({super.key});
+
+  final FirestoreService firestoreService = const FirestoreService(SecureStorageService());
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: Sidebar(),
+      drawer: const Sidebar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -94,8 +105,9 @@ class MyHomeScreen extends StatelessWidget {
 }
 
 class FavoriteScreen extends StatelessWidget {
-  FavoriteScreen({super.key});
-  final FirestoreService firestoreService = FirestoreService();
+  const FavoriteScreen({super.key});
+  final FirestoreService firestoreService = const FirestoreService(SecureStorageService());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -14,7 +14,7 @@ import 'package:meal_recommendations_a2/features/auth/login/persentation/view/cu
 import 'package:meal_recommendations_a2/features/auth/login/persentation/view/custome_widgets/remember_me.dart';
 
 class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({Key? key}) : super(key: key);
+  const LoginViewBody({super.key});
 
   @override
   State<LoginViewBody> createState() => _LoginViewBodyState();
@@ -65,7 +65,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  LogoWidget(),
+                  const LogoWidget(),
                   const SizedBox(height: 75),
                   CustomTextField(
                     hintText: AppStrings.email,
@@ -90,7 +90,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        context.read<LoginCubit>().signin( email, password);
+                        context.read<LoginCubit>().signin(email, password);
                       } else {
                         setState(() => autovalidateMode = AutovalidateMode.always);
                       }
@@ -122,7 +122,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     ],
                   ),
                   const SizedBox(height: 33),
-                  RegisterOption(),
+                  const RegisterOption(),
                 ],
               ),
             ),

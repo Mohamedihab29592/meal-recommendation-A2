@@ -19,6 +19,7 @@ class Meal {
   final String image;
   final List<Ingredient> ingredients;
   final String subtitle;
+  bool isFav;
 
   Meal({
     required this.mealID,
@@ -27,6 +28,7 @@ class Meal {
     required this.image,
     required this.ingredients,
     required this.subtitle,
+    required this.isFav,
   });
 
   factory Meal.fromMap(Map<String, dynamic> data, String mealID) {
@@ -37,6 +39,7 @@ class Meal {
       image: data['image'] ?? '',
       ingredients: (data['ingrediantes'] as List<dynamic>?)?.map((item) => Ingredient.fromMap(item as Map<String, dynamic>)).toList() ?? [],
       subtitle: data['subtitle'] ?? 'No subtitle',
+      isFav: data['isFav'] ?? false,
     );
   }
 }
