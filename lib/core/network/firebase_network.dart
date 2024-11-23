@@ -10,23 +10,19 @@ abstract class AuthLogin {
 
   Future<Either<Failure, UserEntity>> signInWithGoogle();
   Future setUserData({required UserEntity userEntity});
-  
 }
 
 abstract class FirebaseNetworkService {
   // Authentication methods
-  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail(
-      {required String email, required String password});
-  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail(
-      {required String email, required String password});
+  Future<Either<FirebaseFailure, UserCredential>> signInWithEmail({required String email, required String password});
+  Future<Either<FirebaseFailure, UserCredential>> signUpWithEmail({required String email, required String password});
   Future<void> signOut();
   Future<bool> isUserSignedIn();
 
   // Firestore data operations
   Future<void> createDocument(String collection, Map<String, dynamic> data);
   Future<Map<String, dynamic>?> getDocument(String collection, String docId);
-  Future<void> updateDocument(
-      String collection, String docId, Map<String, dynamic> data);
+  Future<void> updateDocument(String collection, String docId, Map<String, dynamic> data);
   Future<void> deleteDocument(String collection, String docId);
 }
 
@@ -40,6 +36,10 @@ abstract class CreateUserWithEmail {
   });
   Future<Either<FirebaseFailure, UserCredential>> signInWithGoogle();
 }
+
 abstract class MealService {
   Stream<List<Meal>> getMeals();
+  Stream<List<Meal>> getFavMeals();
+  Future<Either<List<Meal>, FirebaseServerFailure>> changeFavourateStatus(String mealID);
+  Future<Either<List<Meal>, FirebaseServerFailure>> modifyFavList(String mealID);
 }

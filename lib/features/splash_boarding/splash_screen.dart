@@ -13,8 +13,7 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   String? userId;
@@ -23,8 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 1));
 
     _animation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.bounceOut),
@@ -72,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> navigatoTo() async {
-    userId = await SecureStorageService().getUID();
+    userId = await const SecureStorageService().getUID();
     onBoardDone = await SecureStorageServicee().read('onBoardDone');
     Future.delayed(const Duration(seconds: 2)).then(
       (value) {

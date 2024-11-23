@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
@@ -13,7 +12,7 @@ class SearchAndFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    // final screenHeight = MediaQuery.of(context).size.height;
     return Row(
       children: [
         SizedBox(width: screenWidth * 0.02),
@@ -26,7 +25,7 @@ class SearchAndFilter extends StatelessWidget {
                   color: AppColors.c_999999,
                   blurRadius: 7,
                   spreadRadius: 4,
-                  offset: Offset(4, 5),
+                  offset: const Offset(4, 5),
                 ),
               ],
               color: Colors.white,
@@ -34,14 +33,14 @@ class SearchAndFilter extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 border: InputBorder.none,
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 suffixIcon: IconButton(
                   onPressed: () {
                     showModalBottomSheet(
                       backgroundColor: AppColors.c_FFFFFF,
                       context: context,
                       // isScrollControlled: true,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(
                             20,
@@ -79,8 +78,8 @@ class MyBottomSheet extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,41 +88,36 @@ class MyBottomSheet extends StatelessWidget {
             children: [
               Text(
                 AppStrings.filter,
-                style: AppTextStyles.style_bold_24
-                    .copyWith(color: AppColors.c_001A3F),
+                style: AppTextStyles.style_bold_24.copyWith(color: AppColors.c_001A3F),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 AppStrings.reset,
-                style: AppTextStyles.style_med_18
-                    .copyWith(color: AppColors.c_0047FF),
+                style: AppTextStyles.style_med_18.copyWith(color: AppColors.c_0047FF),
               ),
             ],
           ),
           Text(
             AppStrings.Mael,
-            style:
-                AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
           ),
-          Container(
+          SizedBox(
             height: screenHeight * 0.05,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 3,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: Container(
-                    margin: EdgeInsets.all(5),
-                    padding: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       border: Border.all(width: 1),
                       borderRadius: BorderRadius.circular(5),
                       // color: AppColors.c_00A72F,
                     ),
-                    child: Text("Name of -  "),
+                    child: const Text("Name of -  "),
                   ),
                 );
               },
@@ -131,10 +125,9 @@ class MyBottomSheet extends StatelessWidget {
           ),
           Text(
             AppStrings.Time,
-            style:
-                AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
           ),
-          Container(
+          SizedBox(
             width: screenWidth,
             height: screenHeight * 0.05,
             child: ListView.builder(
@@ -144,14 +137,14 @@ class MyBottomSheet extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {},
                   child: Container(
-                    margin: EdgeInsets.all(5),
-                    padding: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       border: Border.all(width: 1),
                       borderRadius: BorderRadius.circular(5),
                       // color: AppColors.c_00A72F,
                     ),
-                    child: Text('Name of -'),
+                    child: const Text('Name of -'),
                   ),
                 );
               },
@@ -159,10 +152,9 @@ class MyBottomSheet extends StatelessWidget {
           ),
           Text(
             AppStrings.diffeculty,
-            style:
-                AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
           ),
-          Container(
+          SizedBox(
             width: screenWidth,
             height: screenHeight * 0.05,
             child: ListView.builder(
@@ -172,14 +164,14 @@ class MyBottomSheet extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {},
                   child: Container(
-                    margin: EdgeInsets.all(5),
-                    padding: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       border: Border.all(width: 1),
                       borderRadius: BorderRadius.circular(5),
                       // color: AppColors.c_00A72F,
                     ),
-                    child: Text("Name of -"),
+                    child: const Text("Name of -"),
                   ),
                 );
               },
@@ -189,20 +181,19 @@ class MyBottomSheet extends StatelessWidget {
             children: [
               Text(
                 AppStrings.numofindredients,
-                style: AppTextStyles.style_bold_22
-                    .copyWith(color: AppColors.c_001A3F),
+                style: AppTextStyles.style_bold_22.copyWith(color: AppColors.c_001A3F),
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1),
                     borderRadius: BorderRadius.circular(5),
                     // color: AppColors.c_00A72F,
                   ),
-                  child: Text("5"),
+                  child: const Text("5"),
                 ),
               ),
             ],

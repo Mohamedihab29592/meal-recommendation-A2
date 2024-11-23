@@ -1,5 +1,3 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
@@ -9,14 +7,12 @@ import 'package:meal_recommendations_a2/features/profile/data/repo_implementatio
 import 'package:meal_recommendations_a2/features/profile/presentation/controllers/cubit/profile_view_cubit.dart';
 import 'package:meal_recommendations_a2/features/profile/presentation/views/profile_view.dart';
 
-part 'home_state.dart';
-
 class NavigationCubit extends Cubit<NavState> {
   NavigationCubit()
       : super(
           NavState(
             navValue: 0,
-            currentScreen: MyHomeScreen(),
+            currentScreen: const MyHomeScreen(),
           ),
         );
 
@@ -24,10 +20,10 @@ class NavigationCubit extends Cubit<NavState> {
     Widget screen;
     switch (selectIndex) {
       case 0:
-        screen = MyHomeScreen();
+        screen = const MyHomeScreen();
         break;
       case 1:
-        screen = FavoriteScreen();
+        screen = const FavoriteScreen();
         break;
       case 2:
         screen = BlocProvider(
@@ -36,7 +32,7 @@ class NavigationCubit extends Cubit<NavState> {
         );
         break;
       default:
-        screen = MyHomeScreen();
+        screen = const MyHomeScreen();
     }
     emit(
       NavState(

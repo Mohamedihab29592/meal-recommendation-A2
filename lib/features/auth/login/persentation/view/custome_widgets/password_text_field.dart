@@ -5,14 +5,15 @@ class CustomPasswordField extends StatefulWidget {
   final Function(String?)? onSaved;
   final String iconPath; // Path for the prefix icon
 
-  CustomPasswordField({
+  const CustomPasswordField({
+    super.key,
     required this.hintText,
     this.onSaved,
     required this.iconPath,
   });
 
   @override
-  _CustomPasswordFieldState createState() => _CustomPasswordFieldState();
+  State<CustomPasswordField> createState() => _CustomPasswordFieldState();
 }
 
 class _CustomPasswordFieldState extends State<CustomPasswordField> {
@@ -26,17 +27,17 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 324,
       height: 55,
       child: TextFormField(
         obscureText: _obscureText,
-              validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'This field is required';
-            }
-            return null;
-          },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'This field is required';
+          }
+          return null;
+        },
         style: const TextStyle(color: Colors.white),
         onSaved: widget.onSaved,
         decoration: InputDecoration(

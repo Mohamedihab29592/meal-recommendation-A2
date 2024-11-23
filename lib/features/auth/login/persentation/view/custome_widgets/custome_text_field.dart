@@ -7,7 +7,8 @@ class CustomTextField extends StatelessWidget {
   final Function(String?)? onSaved;
   final String iconPath; // Added iconPath for the prefixIcon
 
-  CustomTextField({
+  const CustomTextField({
+    super.key,
     required this.hintText,
     required this.textInputType,
     required this.obscureText,
@@ -17,21 +18,20 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 324,
       height: 55,
       child: TextFormField(
-        
         keyboardType: textInputType,
         obscureText: obscureText,
         style: const TextStyle(color: Colors.white),
         onSaved: onSaved,
         validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'This field is required';
-            }
-            return null;
-          },
+          if (value == null || value.isEmpty) {
+            return 'This field is required';
+          }
+          return null;
+        },
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(

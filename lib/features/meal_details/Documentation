@@ -1,0 +1,12 @@
+lib\features\meal_details\data\models\meal_details_model.dart
+    contain all the meal data that we need in the meal details view (name, subtitle, duration, serving, summary, nutritions, ingrediantes, steps, image)
+
+lib\features\meal_details\data\repo_impl\meal_details_repo_impl.dart
+lib\features\meal_details\domain\repo_interface\meal_details_repo.dart
+    contains fucntionalities of meal details view (getMealDetailsModel)
+
+lib\features\meal_details\presentation\controllers
+    contains all the cubits that manage states of the UI
+
+lib\features\meal_details\presentation\views\meal_details_view.dart
+    contains UI of the view

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/cubit/home_cubit.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/navigation_cubit/navigation_cubit.dart';
 
 class MyNavigationBar extends StatelessWidget {
   const MyNavigationBar({super.key});
@@ -17,10 +17,7 @@ class MyNavigationBar extends StatelessWidget {
       onTap: (index) {
         context.read<NavigationCubit>().getNavValue(index);
       },
-      currentIndex: context
-          .watch<NavigationCubit>()
-          .state
-          .navValue, // Use watch to listen for changes
+      currentIndex: context.watch<NavigationCubit>().state.navValue, // Use watch to listen for changes
 
       // currentIndex: context.read<NavigationCubit>().state.navValue,
       items: [
@@ -35,7 +32,7 @@ class MyNavigationBar extends StatelessWidget {
             ),
           ),
           label: "Home",
-          icon: Icon(
+          icon: const Icon(
             Icons.home,
             color: AppColors.c_001A3F,
           ),
@@ -51,7 +48,7 @@ class MyNavigationBar extends StatelessWidget {
               size: 40,
             ),
           ),
-          icon: Icon(
+          icon: const Icon(
             color: AppColors.c_001A3F,
             Icons.favorite_border,
           ),
@@ -67,7 +64,7 @@ class MyNavigationBar extends StatelessWidget {
               size: 40,
             ),
           ),
-          icon: Icon(
+          icon: const Icon(
             color: AppColors.c_001A3F,
             Icons.person,
           ),

@@ -7,15 +7,7 @@ import 'package:meal_recommendations_a2/features/onboarding/widgets/dot_indicato
 
 class ItemPageView extends StatelessWidget {
   const ItemPageView(
-      {super.key,
-      required this.curcurrentPageIndex,
-      required this.image,
-      required this.title,
-      required this.subtitle,
-      required this.textButton1,
-      required this.textbutton2,
-      this.onTap1,
-      this.onTap2});
+      {super.key, required this.curcurrentPageIndex, required this.image, required this.title, required this.subtitle, required this.textButton1, required this.textbutton2, this.onTap1, this.onTap2});
   final int curcurrentPageIndex;
   final String image;
   final String title;
@@ -37,9 +29,9 @@ class ItemPageView extends StatelessWidget {
               Container(
                 height: MediaQuery.sizeOf(context).height * 0.5,
                 width: MediaQuery.sizeOf(context).width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: AppColors.c_001A3F,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(227),
                       bottomRight: Radius.circular(227),
                     )),
