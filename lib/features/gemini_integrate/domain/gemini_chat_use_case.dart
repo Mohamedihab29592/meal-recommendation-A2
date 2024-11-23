@@ -1,14 +1,16 @@
-import 'package:flutter_gemini/flutter_gemini.dart';
+import '../data/gemini_repo.dart';
+import '../data/gemini_response.dart';
 
 class ChatUseCase {
-  final Gemini _gemini;
+  final GeminiRepository _repository;
 
-  ChatUseCase(this._gemini);
+  ChatUseCase(this._repository);
 
-  Future<String> getMealRecommendation(String ingredients) async {
-    final request = "Recommend a meal based on these ingredients: $ingredients. "
+  Future<MealRecommendationResponse> getMealRecommendation(
+      String ingredients) async {
+    final request =
+        "Recommend a meal based on these ingredients: $ingredients. "
         "Your role is Nutrition Assistant only, not else. Include steps and nutrition facts.";
-    final response = await _gemini.text(request);
-    return response?.output ?? 'No response';
+    return await _repository.getMealRecommendation(request);
   }
 }

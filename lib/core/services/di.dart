@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get_it/get_it.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_auth_services.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network.dart';
 import 'package:meal_recommendations_a2/core/network/firebase_network_impl.dart';
 import 'package:meal_recommendations_a2/core/services/data_service.dart';
 import 'package:meal_recommendations_a2/core/services/firesrore_service.dart';
+import 'package:meal_recommendations_a2/core/services/secure_storage.dart';
 import 'package:meal_recommendations_a2/features/auth/login/data/auto_repo/auth_repo_implementation.dart';
+import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
 import 'package:meal_recommendations_a2/features/profile/data/data_source/firebase_storage_services.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';
 
@@ -15,9 +16,6 @@ import '../../features/auth/otp/domain/otp_repository/otp_repository.dart';
 import '../../features/auth/otp/domain/usecases/send_otp.dart';
 import '../../features/auth/otp/domain/usecases/verify_otp_usecase.dart';
 import '../../features/auth/otp/presentation/cubit/otp_cubit.dart';
-import '../../features/gemini_integrate/data/gemini_repo.dart';
-import '../../features/gemini_integrate/domain/gemini_chat_use_case.dart';
-import '../../features/gemini_integrate/persentation/controller/gemini_chat_cubit.dart';
 import 'secure_storage/secure_storage_service.dart';
 
 final s1 = GetIt.instance;
@@ -65,47 +63,36 @@ void setup() {
 
   //**********OTP*********//
   //OTP Repositories
-  s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(
-      firebaseAuth: s1<FirebaseAuth>(),
-      secureStorageService: s1<SecureStorageServicee>()));
+  s1.registerLazySingleton<OTPRepository>(() => OTPRepositoryImpl(firebaseAuth: s1<FirebaseAuth>(), secureStorageService: s1<SecureStorageServicee>()));
   //OTP Use Cases
   s1.registerLazySingleton(() => SendOTP(s1<OTPRepository>()));
   s1.registerLazySingleton(() => VerifyOTP(s1<OTPRepository>()));
   //OTP Cubit
   s1.registerFactory<OTPCubit>(() => OTPCubit(
-        sendOTPUseCase: s1<SendOTP>(),
-        verifyOTPUseCase: s1<VerifyOTP>(),
-      ));
+    sendOTPUseCase: s1<SendOTP>(),
+    verifyOTPUseCase: s1<VerifyOTP>(),
+  ));
   //SecureStorageService
-  s1.registerLazySingleton<SecureStorageServicee>(
-      () => SecureStorageServicee());
+  s1.registerLazySingleton<SecureStorageServicee>(() => SecureStorageServicee());
   //Firebase Authentication instance
   s1.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 
   //Profile View
   s1.registerLazySingleton<FirebaseStorageServices>(
-    () => FirebaseStorageServices(
-        firebaseNetworkService: FirebaseNetworkServiceImpl()),
+        () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
   );
   s1.registerLazySingleton<ProfileRepoImpl>(
-    () => ProfileRepoImpl(
+        () => ProfileRepoImpl(
       firebaseNetworkService: FirebaseNetworkServiceImpl(),
       firebaseStorageServices: s1.get<FirebaseStorageServices>(),
     ),
   );
 
-
-  // GEMINI
-
-  // Register Gemini instance (Singleton pattern)
-  s1.registerLazySingleton<Gemini>(() => Gemini.instance);
-
-  // Register Repository
-  s1.registerLazySingleton<GeminiRepository>(() => GeminiRepository());
-
-  // Register UseCase and pass the repository
-  s1.registerFactory<ChatUseCase>(() => ChatUseCase(s1<Gemini>()));
-
-  // Register Cubit and pass the use case
-  s1.registerFactory<ChatCubit>(() => ChatCubit(s1<ChatUseCase>()));
+  //Meal Details View
+  s1.registerLazySingleton<MealDetailsRepoImpl>(
+        () => MealDetailsRepoImpl(
+      firebaseNetworkService: FirebaseNetworkServiceImpl(),
+      secureStorageService: const SecureStorageService(),
+    ),
+  );
 }

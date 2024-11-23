@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../core/utiles/app_colors.dart';
 import '../../../core/utiles/app_router.dart';
-import 'controller/gemini_chat_cubit.dart';
-import 'controller/gemini_chat_states.dart';
+import 'gemini_cubit.dart';
+import 'gemini_states.dart';
 
 class GeminiScreenContent extends StatefulWidget {
   const GeminiScreenContent({super.key});
@@ -74,7 +73,7 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gemini Chat',style: TextStyle(color: Colors.white),),
+        title: const Text('Gemini Chat', style: TextStyle(color: Colors.white)),
         backgroundColor: AppColors.c_001A3F,
         centerTitle: true,
         elevation: 2,
@@ -88,9 +87,11 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
           if (state is ChatStatesLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is ChatStatesSuccess) {
-            _messages.add({'sender': 'Gemini', 'message': state.response});
+            _messages.add(
+                {'sender': 'Gemini', 'message': state.response.output ?? ''});
           } else if (state is ChatStatesError) {
-            _messages.add({'sender': 'Gemini', 'message': 'Error: ${state.error}'});
+            _messages
+                .add({'sender': 'Gemini', 'message': 'Error: ${state.error}'});
           }
 
           return Column(
@@ -137,14 +138,16 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
                         controller: _controller,
                         decoration: InputDecoration(
                           hintText: 'Enter your ingredients',
-                          prefixIcon: const Icon(Icons.fastfood, color: Colors.grey),
+                          prefixIcon:
+                              const Icon(Icons.fastfood, color: Colors.grey),
                           fillColor: Colors.grey[200],
                           filled: true,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide: BorderSide.none,
                           ),
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
                         ),
                       ),
                     ),
@@ -153,7 +156,8 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
                       onPressed: () {
                         final userInput = _controller.text.trim();
                         if (userInput.isNotEmpty) {
-                          _messages.add({'sender': 'User', 'message': userInput});
+                          _messages
+                              .add({'sender': 'User', 'message': userInput});
                           context.read<ChatCubit>().sendMessage(userInput);
                           _controller.clear();
                         }
@@ -171,6 +175,3 @@ class _GeminiScreenContentState extends State<GeminiScreenContent> {
     );
   }
 }
-
-
-
