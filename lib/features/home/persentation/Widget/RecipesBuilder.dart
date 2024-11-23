@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
+import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
+import 'package:meal_recommendations_a2/core/helper/meal_helper.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
-import 'package:meal_recommendations_a2/core/utiles/assets.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
 
 class RecipesBuilder extends StatelessWidget {
-  const RecipesBuilder({super.key, required this.meal});
+  const RecipesBuilder({super.key, required this.meal, this.onPressed});
 
   final Meal meal;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +78,7 @@ class RecipesBuilder extends StatelessWidget {
                     meal.isFav ? Icons.favorite : Icons.favorite_border,
                     color: AppColors.c_001A3F,
                   ),
-                  onPressed: () async {
-                    await BlocProvider.of<HomeCubit>(context).changeFavourateStatus(meal.mealID);
-                  },
+                  onPressed: onPressed,
                 ),
               ],
             ),
@@ -91,6 +88,7 @@ class RecipesBuilder extends StatelessWidget {
     );
   }
 }
+
 // class RecipesBuilder extends StatelessWidget {
 //   const RecipesBuilder({
 //     super.key,

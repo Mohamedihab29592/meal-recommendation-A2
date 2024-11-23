@@ -10,6 +10,7 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/Recipe
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTopRecipes.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
+import 'package:meal_recommendations_a2/features/home/persentation/cubits/favourate_cubit/favourate_cubit.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/home_cubit/home_cubit.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/cubits/navigation_cubit/navigation_cubit.dart';
 import '../../side_bar/side_bar_view_body.dart';
@@ -29,6 +30,9 @@ class ControllerScreen extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeCubit(firestoreService),
+        ),
+        BlocProvider(
+          create: (context) => FavourateCubit(firestoreService),
         ),
       ],
       child: BlocBuilder<NavigationCubit, NavState>(
@@ -91,6 +95,9 @@ class MyHomeScreen extends StatelessWidget {
                   itemCount: meals.length,
                   itemBuilder: (context, index) {
                     return RecipesBuilder(
+                      onPressed: () async {
+                        await BlocProvider.of<HomeCubit>(context).changeFavourateStatus(meals[index].mealID);
+                      },
                       meal: meals[index],
                     );
                   },
@@ -112,7 +119,7 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<List<Meal>>(
-        stream: firestoreService.getMeals(),
+        stream: firestoreService.getFavMeals(),
         builder: (context, AsyncSnapshot<List<Meal>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -129,22 +136,15 @@ class FavoriteScreen extends StatelessWidget {
             itemCount: meals.length,
             itemBuilder: (context, index) {
               return RecipesBuilder(
+                onPressed: () async {
+                  await BlocProvider.of<FavourateCubit>(context).changeFavourateStatus(meals[index].mealID);
+                },
                 meal: meals[index],
               );
             },
           );
         },
       ),
-    );
-  }
-}
-
-class PersonScreen extends StatelessWidget {
-  const PersonScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SearchAndFilter(),
     );
   }
 }

@@ -39,5 +39,7 @@ abstract class CreateUserWithEmail {
 
 abstract class MealService {
   Stream<List<Meal>> getMeals();
+  Stream<List<Meal>> getFavMeals();
   Future<Either<List<Meal>, FirebaseServerFailure>> changeFavourateStatus(String mealID);
+  Future<Either<List<Meal>, FirebaseServerFailure>> modifyFavList(String mealID);
 }
