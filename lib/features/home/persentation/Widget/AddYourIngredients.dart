@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_router.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_text_styles.dart';
 
 class AddYourIngredients extends StatelessWidget {
@@ -16,7 +18,10 @@ class AddYourIngredients extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.c_001A3F,
           ),
-          onPressed: () {},
+          onPressed: () {
+            context.go(AppRouter.kGeminiScreen);
+
+          },
           child: Text(
             "Add Your Ingredients",
             style: AppTextStyles.style_bold_14.copyWith(

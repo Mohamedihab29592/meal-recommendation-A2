@@ -69,9 +69,9 @@ void setup() {
   s1.registerLazySingleton(() => VerifyOTP(s1<OTPRepository>()));
   //OTP Cubit
   s1.registerFactory<OTPCubit>(() => OTPCubit(
-        sendOTPUseCase: s1<SendOTP>(),
-        verifyOTPUseCase: s1<VerifyOTP>(),
-      ));
+    sendOTPUseCase: s1<SendOTP>(),
+    verifyOTPUseCase: s1<VerifyOTP>(),
+  ));
   //SecureStorageService
   s1.registerLazySingleton<SecureStorageServicee>(() => SecureStorageServicee());
   //Firebase Authentication instance
@@ -79,10 +79,10 @@ void setup() {
 
   //Profile View
   s1.registerLazySingleton<FirebaseStorageServices>(
-    () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
+        () => FirebaseStorageServices(firebaseNetworkService: FirebaseNetworkServiceImpl()),
   );
   s1.registerLazySingleton<ProfileRepoImpl>(
-    () => ProfileRepoImpl(
+        () => ProfileRepoImpl(
       firebaseNetworkService: FirebaseNetworkServiceImpl(),
       firebaseStorageServices: s1.get<FirebaseStorageServices>(),
     ),
@@ -90,7 +90,7 @@ void setup() {
 
   //Meal Details View
   s1.registerLazySingleton<MealDetailsRepoImpl>(
-    () => MealDetailsRepoImpl(
+        () => MealDetailsRepoImpl(
       firebaseNetworkService: FirebaseNetworkServiceImpl(),
       secureStorageService: const SecureStorageService(),
     ),
