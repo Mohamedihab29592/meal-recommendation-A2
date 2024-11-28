@@ -3,6 +3,7 @@ import 'package:meal_recommendations_a2/core/helper/build_menu_item.dart';
 import 'package:meal_recommendations_a2/core/helper/last_name_sign.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
+import 'package:meal_recommendations_a2/main.dart';
 
 class Sidebar extends StatefulWidget {
   const Sidebar({super.key});
@@ -15,6 +16,7 @@ class _SidebarState extends State<Sidebar> {
   int selectedIndex = -1;
   String lastName = "Loading..."; // Initial placeholder text
   final UserService userService = UserService(); // Create an instance of UserService
+  bool isDarkMode = false; // Track the current theme state
 
   @override
   void initState() {
@@ -26,6 +28,13 @@ class _SidebarState extends State<Sidebar> {
     String fetchedName = await userService.fetchLastName();
     setState(() {
       lastName = fetchedName;
+    });
+  }
+
+  void toggleTheme(BuildContext context) {
+    MyApp.of(context)?.toggleTheme(); // Access the MyApp state
+    setState(() {
+      isDarkMode = !isDarkMode; // Update the local state to sync the UI
     });
   }
 
@@ -56,6 +65,18 @@ class _SidebarState extends State<Sidebar> {
               ],
             ),
           ),
+          ListTile(
+            leading: Icon(
+              isDarkMode ? Icons.dark_mode : Icons.light_mode,
+              color: Colors.grey[700],
+            ),
+            title: Text(isDarkMode ? "Dark Mode" : "Light Mode"),
+            trailing: Switch(
+              value: isDarkMode,
+              onChanged: (value) => toggleTheme(context),
+            ),
+          ),
+          const Divider(endIndent: 25, indent: 25),
           MenuItem(
             imagePath: Assets.home,
             title: AppStrings.home,
@@ -89,17 +110,6 @@ class _SidebarState extends State<Sidebar> {
               });
             },
           ),
-         /* MenuItem(
-            imagePath: Assets.settings,
-            title: AppStrings.settings,
-            index: 3,
-            selectedIndex: selectedIndex,
-            onTap: () {
-              setState(() {
-                selectedIndex = 3;
-              });
-            },
-          ),*/
           const SizedBox(height: 20.0),
           const Divider(endIndent: 25, indent: 25),
           const SizedBox(height: 20.0),
