@@ -56,7 +56,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kLoginScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const loginView();
+          return const LoginView();
         },
       ),
       GoRoute(
@@ -106,8 +106,7 @@ class AppRouter {
         path: AppRouter.kMealDetailsScreen,
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
-            create: (context) =>
-                MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
+            create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
             child: MealDetailsView(mealID: state.extra as String),
           );
         },

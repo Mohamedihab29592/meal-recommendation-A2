@@ -38,7 +38,7 @@ class _ItemVerticalSeeAllState extends State<ItemVerticalSeeAll> {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: AppColors.c_D9D9D9),
+              border: Border.all(color: AppColors.cD9D9D9),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +70,7 @@ class _ItemVerticalSeeAllState extends State<ItemVerticalSeeAll> {
                         icon: Icon(
                           widget.seeAllModel.isFavorite ? Icons.favorite : Icons.favorite_border,
                           size: 35,
-                          color: AppColors.c_FFFFFF,
+                          color: AppColors.cFFFFFF,
                         ),
                       ),
                     ),
@@ -81,14 +81,14 @@ class _ItemVerticalSeeAllState extends State<ItemVerticalSeeAll> {
                 ),
                 Text(
                   widget.seeAllModel.mealName,
-                  style: AppTextStyles.style_bold_20,
+                  style: AppTextStyles.styleBold20,
                 ),
                 Row(
                   children: [
                     Text(
                       '${widget.seeAllModel.ingredientsCount} ingrediuanets',
-                      style: AppTextStyles.style_med_15.copyWith(
-                        color: AppColors.c_8A8A8A,
+                      style: AppTextStyles.styleMed15.copyWith(
+                        color: AppColors.c8A8A8A,
                       ),
                     ),
                     const SizedBox(
@@ -96,8 +96,8 @@ class _ItemVerticalSeeAllState extends State<ItemVerticalSeeAll> {
                     ),
                     Text(
                       '${widget.seeAllModel.time} min',
-                      style: AppTextStyles.style_med_15.copyWith(
-                        color: AppColors.c_001A3F,
+                      style: AppTextStyles.styleMed15.copyWith(
+                        color: AppColors.c001A3F,
                       ),
                     ),
                   ],

@@ -13,7 +13,7 @@ class IngredianteItem extends StatelessWidget {
         Container(
           height: 36,
           width: 36,
-          decoration: BoxDecoration(color: AppColors.c_D9D9D9, shape: BoxShape.circle),
+          decoration: BoxDecoration(color: AppColors.cD9D9D9, shape: BoxShape.circle),
         ),
         const SizedBox(width: 15),
         SizedBox(
@@ -21,7 +21,7 @@ class IngredianteItem extends StatelessWidget {
             ingred.name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: AppColors.c_001A3F, fontWeight: FontWeight.bold, fontSize: 18),
+            style: const TextStyle(color: AppColors.c001A3F, fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
         const Expanded(child: SizedBox(width: 5)),
@@ -30,7 +30,7 @@ class IngredianteItem extends StatelessWidget {
             "${ingred.pieces.toString()} pcs",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: AppColors.c_001A3F, fontSize: 18),
+            style: const TextStyle(color: AppColors.c001A3F, fontSize: 18),
           ),
         ),
       ],

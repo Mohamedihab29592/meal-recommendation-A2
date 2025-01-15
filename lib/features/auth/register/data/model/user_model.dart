@@ -5,12 +5,7 @@ class RegisterUserModel {
   final String uId;
   final String profilePic;
 
-  RegisterUserModel(
-      {required this.userName,
-      required this.profilePic,
-      required this.email,
-      required this.mobileNumber,
-      required this.uId});
+  RegisterUserModel({required this.userName, required this.profilePic, required this.email, required this.mobileNumber, required this.uId});
 
   factory RegisterUserModel.fromJson(Map<String, dynamic> json) {
     return RegisterUserModel(

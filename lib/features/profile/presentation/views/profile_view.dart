@@ -96,7 +96,7 @@ class _ProfileViewState extends State<ProfileView> {
                             child: CustomButton(
                               text: AppStrings.saveButton,
                               foregroundColor: Colors.white,
-                              backgroundColor: AppColors.c_001A3F,
+                              backgroundColor: AppColors.c001A3F,
                               radius: 14,
                               onPressed: () async {
                                 if (formKey.currentState!.validate()) {

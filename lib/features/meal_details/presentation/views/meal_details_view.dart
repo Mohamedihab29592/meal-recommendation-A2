@@ -45,7 +45,7 @@ class _MealDetailsViewState extends State<MealDetailsView> {
                         const SizedBox(height: 10),
                         Text(state.model.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
                         const SizedBox(height: 10),
-                        Text("${state.model.subtitle} . ${state.model.duration.inMinutes}min . ${state.model.serving} serving", style: TextStyle(fontSize: 18, color: AppColors.c_8A8A8A)),
+                        Text("${state.model.subtitle} . ${state.model.duration.inMinutes}min . ${state.model.serving} serving", style: TextStyle(fontSize: 18, color: AppColors.c8A8A8A)),
                         const SizedBox(height: 15),
                         PageViewTitles(model: state.model),
                       ],
@@ -62,7 +62,7 @@ class _MealDetailsViewState extends State<MealDetailsView> {
             body: Center(
               child: Text(
                 state.error.errMsg,
-                style: const TextStyle(fontSize: 20, color: AppColors.c_001A3F),
+                style: const TextStyle(fontSize: 20, color: AppColors.c001A3F),
               ),
             ),
           );

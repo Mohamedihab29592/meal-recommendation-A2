@@ -12,7 +12,7 @@ class CustomDot extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: isActive ? AppColors.c_001A3F : AppColors.c_D9D9D9,
+        color: isActive ? AppColors.c001A3F : AppColors.cD9D9D9,
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../domain/gemini_chat_use_case.dart';
 import 'gemini_states.dart';
 
-
 class ChatStatesError extends ChatStates {
   final String error;
 

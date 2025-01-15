@@ -32,7 +32,7 @@ class _OnboardingState extends State<Onboarding> {
       children: [
         ItemPageView(
           curcurrentPageIndex: curcurrentPageIndex,
-          image: Assets.WellDoneSteak_2x,
+          image: Assets.homemadeSteak,
           title: 'like in a Restaurant but at home',
           subtitle:
               ', consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea qui officia deserunt mollit anim id est laborum.',
@@ -55,7 +55,7 @@ class _OnboardingState extends State<Onboarding> {
         ),
         ItemPageView(
           curcurrentPageIndex: curcurrentPageIndex,
-          image: Assets.Pizza,
+          image: Assets.pizzaWithTomatos,
           title: 'like in a Restaurant but at home',
           subtitle:
               ', consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea qui officia deserunt mollit anim id est laborum.',
@@ -78,7 +78,7 @@ class _OnboardingState extends State<Onboarding> {
         ),
         ItemPageView(
           curcurrentPageIndex: curcurrentPageIndex,
-          image: Assets.WellDoneSteak_2x,
+          image: Assets.homemadeSteak,
           title: 'like in a Restaurant but at home',
           subtitle:
               ', consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea qui officia deserunt mollit anim id est laborum.',
@@ -101,7 +101,7 @@ class _OnboardingState extends State<Onboarding> {
         ),
         ItemPageView(
           curcurrentPageIndex: curcurrentPageIndex,
-          image: Assets.Pizza,
+          image: Assets.pizzaWithTomatos,
           title: 'like in a Restaurant but at home',
           subtitle:
               ', consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea qui officia deserunt mollit anim id est laborum.',

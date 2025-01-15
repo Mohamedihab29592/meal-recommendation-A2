@@ -11,7 +11,7 @@ class AppStrings {
   static const String registerOption = "Don't have an account? Register now";
   static const String orLoginWith = "or login with";
   static const String rememberMe = "Remember me and keep me logged in";
-  
+
   // Error messages
   static const String ok = "ok";
   static const String cancel = "cancel";
@@ -20,8 +20,7 @@ class AppStrings {
   static const String errorForbidden = 'Forbidden request.';
   static const String errorResource = 'Resource not found.';
   static const String errorServer = 'Server not found.';
-  static const String errorInternal =
-      'Internal server error. Please try again later.';
+  static const String errorInternal = 'Internal server error. Please try again later.';
   static const String errorTimeout = 'Request timeout. Please try again later.';
   static const String error = 'Error';
   static const String errorNoData = 'No data found.';
@@ -45,37 +44,23 @@ class AppStrings {
   static const String profileUpdate = 'Profile Update';
   static const String profileUpdateSuccess = 'Profile Update Success';
   static const String profileUpdateFailed = 'Profile Update Failed';
-  static const String profileUpdateMessage =
-      'Are you sure you want to update profile?';
+  static const String profileUpdateMessage = 'Are you sure you want to update profile?';
   static const String profileUpdateError = 'Profile Update Error';
   static const String profileUpdateErrorEmpty = 'Please fill all the fields';
   static const String profileUpdateErrorEmail = 'Please enter valid email';
-  static const String profileUpdateErrorPhone =
-      'Please enter valid phone number';
-  static const String profileUpdateErrorPassword =
-      'Please enter valid password';
-  static const String profileUpdateErrorPasswordMatch =
-      'Password does not match';
-  static const String profileUpdateErrorPasswordLength =
-      'Password length should be greater than 6';
-  static const String profileUpdateErrorPasswordOld =
-      'Please enter old password';
-  static const String profileUpdateErrorPasswordNew =
-      'Please enter new password';
-  static const String profileUpdateErrorPasswordConfirm =
-      'Please enter confirm password';
-  static const String profileUpdateErrorPasswordOldMatch =
-      'Old password does not match';
-  static const String profileUpdateErrorPasswordNewMatch =
-      'New password does not match';
-  static const String profileUpdateErrorPasswordConfirmMatch =
-      'Confirm password does not match';
-  static const String profileUpdateErrorPasswordOldLength =
-      'Old password length should be greater than 6';
-  static const String profileUpdateErrorPasswordNewLength =
-      'New password length should be greater than 6';
-  static const String profileUpdateErrorPasswordConfirmLength =
-      'Confirm password length should be greater than 6';
+  static const String profileUpdateErrorPhone = 'Please enter valid phone number';
+  static const String profileUpdateErrorPassword = 'Please enter valid password';
+  static const String profileUpdateErrorPasswordMatch = 'Password does not match';
+  static const String profileUpdateErrorPasswordLength = 'Password length should be greater than 6';
+  static const String profileUpdateErrorPasswordOld = 'Please enter old password';
+  static const String profileUpdateErrorPasswordNew = 'Please enter new password';
+  static const String profileUpdateErrorPasswordConfirm = 'Please enter confirm password';
+  static const String profileUpdateErrorPasswordOldMatch = 'Old password does not match';
+  static const String profileUpdateErrorPasswordNewMatch = 'New password does not match';
+  static const String profileUpdateErrorPasswordConfirmMatch = 'Confirm password does not match';
+  static const String profileUpdateErrorPasswordOldLength = 'Old password length should be greater than 6';
+  static const String profileUpdateErrorPasswordNewLength = 'New password length should be greater than 6';
+  static const String profileUpdateErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
 
   // // Register screen
   // static const String register = 'Register';
@@ -124,13 +109,10 @@ class AppStrings {
   static String filter = "Filter";
 
   static String reset = "Reset";
-  static String Mael = "Mael";
-  static String Time = "Time";
+  static String meal = "Meal";
+  static String time = "Time";
   static String diffeculty = "Diffeculty";
   static String numofindredients = "Number Of Ingredients";
-
-  // static String searchre"Filter"cipes = 'Search Recipes';
-  // static String searchrecipes = 'Search Recipes';
 
 //register screen
   static String register = 'Register';
@@ -154,17 +136,12 @@ class AppStrings {
   static String registerErrorPhone = 'Please enter valid phone number';
   static String registerErrorPassword = 'Please enter valid password';
   static String registerErrorPasswordMatch = 'Password does not match';
-  static String registerErrorPasswordLength =
-      'Password length should be greater than 6';
+  static String registerErrorPasswordLength = 'Password length should be greater than 6';
   static String registerErrorPasswordConfirm = 'Please enter confirm password';
-  static String registerErrorPasswordConfirmMatch =
-      'Confirm password does not match';
-  static String registerErrorPasswordConfirmLength =
-      'Confirm password length should be greater than 6';
+  static String registerErrorPasswordConfirmMatch = 'Confirm password does not match';
+  static String registerErrorPasswordConfirmLength = 'Confirm password length should be greater than 6';
 
-  static String favorite="Favorite";
+  static String favorite = "Favorite";
 
-  static String settings="Settings";
-
+  static String settings = "Settings";
 }
-

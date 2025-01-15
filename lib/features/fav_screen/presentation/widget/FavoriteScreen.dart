@@ -6,7 +6,6 @@ import 'package:meal_recommendations_a2/features/home/persentation/Widget/RowTop
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SearchAndFilter.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/Widget/SideBarAndNotifications.dart';
 
-
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
 

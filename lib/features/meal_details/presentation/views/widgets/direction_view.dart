@@ -22,11 +22,11 @@ class DirectionView extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               "step $index",
-              style: const TextStyle(color: AppColors.c_001A3F, fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: AppColors.c001A3F, fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               model.steps[index],
-              style: const TextStyle(color: AppColors.c_001A3F, fontSize: 16),
+              style: const TextStyle(color: AppColors.c001A3F, fontSize: 16),
             )
           ],
         );

@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.c_001A3F,
+      backgroundColor: AppColors.c001A3F,
       body: Column(
         children: [
           const Expanded(flex: 1, child: SizedBox()),
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   builder: (context, child) {
                     return Transform.scale(
                       scale: _animation.value,
-                      child: Image.asset(Assets.assetsLogo, fit: BoxFit.fill),
+                      child: Image.asset(Assets.logo, fit: BoxFit.fill),
                     );
                   },
                 ),

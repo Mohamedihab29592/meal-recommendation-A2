@@ -1,60 +1,73 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
+  
+  /// Assets for accountIcon
+  /// assets/AccountIcon.png
+  static const String accountIcon = "assets/AccountIcon.png";
 
-  /// Assets for assetsFlatLayCompositionMexicanFoodWithCopyspace 1
-  /// assets/flat-lay-composition-mexican-food-with-copyspace 1.png
-  static const String Login_Register_background =
-      "assets/flat-lay-composition-mexican-food-with-copyspace 1.png";
+  /// Assets for authBackground
+  /// assets/AuthBackground.png
+  static const String authBackground = "assets/AuthBackground.png";
 
-  /// Assets for assetsGoogle
-  /// assets/Google.png
-  static const String assetsGoogle = "assets/Google.png";
+  /// Assets for burger
+  /// assets/Burger.png
+  static const String burger = "assets/Burger.png";
 
-  /// Assets for assetsLogo
-  /// assets/logo.png
-  static const String assetsLogo = "assets/logo.png";
+  /// Assets for editIcon
+  /// assets/EditIcon.png
+  static const String editIcon = "assets/EditIcon.png";
 
-  /// Assets for assetsMask group
-  /// assets/Mask group.png
-  static const String Burger = "assets/Maskgroup.png";
+  /// Assets for favouriteIcon
+  /// assets/FavouriteIcon.png
+  static const String favouriteIcon = "assets/FavouriteIcon.png";
 
-  /// Assets for assetsPizzaPizzaFilledWithTomatoesSalamiOlives 1
-  /// assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png
-  static const String Pizza =
-      "assets/pizza-pizza-filled-with-tomatoes-salami-olives 1.png";
+  /// Assets for googleIcon
+  /// assets/GoogleIcon.png
+  static const String googleIcon = "assets/GoogleIcon.png";
 
-  /// Assets for assetsRegisterBackground
-  /// assets/register_background.png
-  static const String assetsRegisterBackground =
-      "assets/register_background.png";
+  /// Assets for homeIcon
+  /// assets/HomeIcon.png
+  static const String homeIcon = "assets/HomeIcon.png";
 
-  /// Assets for assetsViewTastyShawarmaDish 2
-  /// assets/view-tasty-shawarma-dish 2.png
-  static const String ShawarmaDish = "assets/view-tasty-shawarma-dish 2.png";
+  /// Assets for homemadeSteak
+  /// assets/HomemadeSteak.png
+  static const String homemadeSteak = "assets/HomemadeSteak.png";
 
-  /// Assets for assetsWellDoneSteakHomemadePotatoes 1
-  /// assets/well-done-steak-homemade-potatoes 1.png
-  static const String WellDoneSteak_1x =
-      "assets/well-done-steak-homemade-potatoes 1.png";
+  /// Assets for lockIcon
+  /// assets/LockIcon.png
+  static const String lockIcon = "assets/LockIcon.png";
 
-  /// Assets for assetsWellDoneSteakHomemadePotatoes 12x
-  /// assets/well-done-steak-homemade-potatoes 1@2x.png
-  static const String WellDoneSteak_2x =
-      "assets/well-done-steak-homemade-potatoes1@2x.png";
+  /// Assets for logo
+  /// assets/Logo.png
+  static const String logo = "assets/Logo.png";
 
-  static const String background = "assets/login.png";
-  static const String logo = "assets/logo.png";
-  static const String accountIcon = "assets/Account.png";
-  static const String lockIcon = "assets/Lock.png";
-  static const String googleIcon = "assets/Google.png";
-  static const String imagesCheck = "assets/Check.svg";
-  static const String maskgroup = "assets/Mask_group.png";
-  static const String editIcon = "assets/Edit.png";
-  static const String favorite='assets/love.png';
-  static const String settings='assets/settings.png';
-  static const String logout="assets/log_out.png";
-  static const String home="assets/Home.png";
-  static const String maskGroup="assets/Mask group.png";
+  /// Assets for logoutIcon
+  /// assets/LogoutIcon.png
+  static const String logoutIcon = "assets/LogoutIcon.png";
 
+  /// Assets for maskGroupIcon
+  /// assets/MaskGroupIcon.png
+  static const String maskGroupIcon = "assets/MaskGroupIcon.png";
+
+  /// Assets for personIcon
+  /// assets/PersonIcon.png
+  static const String personIcon = "assets/PersonIcon.png";
+
+  /// Assets for pizzaWithTomatos
+  /// assets/PizzaWithTomatos.png
+  static const String pizzaWithTomatos = "assets/PizzaWithTomatos.png";
+
+  /// Assets for rectangle687
+  /// assets/Rectangle687.png
+  static const String rectangle687 = "assets/Rectangle687.png";
+
+  /// Assets for settingsIcon
+  /// assets/SettingsIcon.png
+  static const String settingsIcon = "assets/SettingsIcon.png";
+
+  /// Assets for shawarmaDish
+  /// assets/ShawarmaDish.png
+  static const String shawarmaDish = "assets/ShawarmaDish.png";
 }
+

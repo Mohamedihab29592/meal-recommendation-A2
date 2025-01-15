@@ -41,7 +41,7 @@ class _RememberMeState extends State<RememberMe> {
               setState(() {
                 isTermsAccepted = value;
                 widget.onChanged(value);
-                PreferencesHelper.setTermsAccepted(value); 
+                PreferencesHelper.setTermsAccepted(value);
               });
             },
             isChecked: isTermsAccepted,
@@ -49,7 +49,7 @@ class _RememberMeState extends State<RememberMe> {
           const SizedBox(
             width: 10,
           ),
-         const Expanded(
+          const Expanded(
             child: Text(
               AppStrings.rememberMe,
               style: TextStyle(color: Colors.white),

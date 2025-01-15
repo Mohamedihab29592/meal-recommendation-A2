@@ -38,14 +38,14 @@ class ItemHorizontalSeeAll extends StatelessWidget {
               ),
               Text(
                 seeAllModel.mealName,
-                style: AppTextStyles.style_bold_16,
+                style: AppTextStyles.styleBold16,
               ),
               Row(
                 children: [
                   Text(
                     '${seeAllModel.ingredientsCount} ingrediuanets',
-                    style: AppTextStyles.style_med_12.copyWith(
-                      color: AppColors.c_8A8A8A,
+                    style: AppTextStyles.styleMed12.copyWith(
+                      color: AppColors.c8A8A8A,
                     ),
                   ),
                   const SizedBox(
@@ -53,8 +53,8 @@ class ItemHorizontalSeeAll extends StatelessWidget {
                   ),
                   Text(
                     '${seeAllModel.time} min',
-                    style: AppTextStyles.style_med_12.copyWith(
-                      color: AppColors.c_001A3F,
+                    style: AppTextStyles.styleMed12.copyWith(
+                      color: AppColors.c001A3F,
                     ),
                   ),
                 ],

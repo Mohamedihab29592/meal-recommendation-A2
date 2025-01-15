@@ -15,19 +15,19 @@ class NutritionItem extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.c_001A3F, width: 4),
+        border: Border.all(color: AppColors.c001A3F, width: 4),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             amount,
-            style: const TextStyle(color: AppColors.c_001A3F, fontSize: 14),
+            style: const TextStyle(color: AppColors.c001A3F, fontSize: 14),
           ),
           const SizedBox(height: 5),
           Text(
             type,
-            style: const TextStyle(color: AppColors.c_001A3F, fontSize: 14),
+            style: const TextStyle(color: AppColors.c001A3F, fontSize: 14),
           ),
         ],
       ),

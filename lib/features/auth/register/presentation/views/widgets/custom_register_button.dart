@@ -21,8 +21,8 @@ class CustomRegisterButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           AppStrings.register,
-          style: AppTextStyles.style_bold_21.copyWith(
-            color: AppColors.c_001A3F,
+          style: AppTextStyles.styleBold21.copyWith(
+            color: AppColors.c001A3F,
           ),
         ),
       ),

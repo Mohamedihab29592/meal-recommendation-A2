@@ -16,7 +16,7 @@ class RowTopRecipes extends StatelessWidget {
       children: [
         Text(
           AppStrings.toprecipes,
-          style: AppTextStyles.style_bold_18,
+          style: AppTextStyles.styleBold18,
         ),
         GestureDetector(
           onTap: () {
@@ -24,7 +24,7 @@ class RowTopRecipes extends StatelessWidget {
           },
           child: Text(
             AppStrings.seeall,
-            style: AppTextStyles.style_med_18,
+            style: AppTextStyles.styleMed18,
           ),
         ),
       ],

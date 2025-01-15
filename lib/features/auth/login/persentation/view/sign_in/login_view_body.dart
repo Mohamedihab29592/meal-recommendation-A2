@@ -45,7 +45,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     final screenHeight = MediaQuery.of(context).size.height;
     const boxDecoration = BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(Assets.background),
+        image: AssetImage(Assets.authBackground),
         fit: BoxFit.cover,
       ),
     );

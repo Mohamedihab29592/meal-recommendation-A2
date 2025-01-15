@@ -12,11 +12,11 @@ class ProfileViewHeader extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.menu, color: AppColors.c_001A3F),
+          icon: const Icon(Icons.menu, color: AppColors.c001A3F),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.notifications, color: AppColors.c_001A3F),
+          icon: const Icon(Icons.notifications, color: AppColors.c001A3F),
         ),
       ],
     );

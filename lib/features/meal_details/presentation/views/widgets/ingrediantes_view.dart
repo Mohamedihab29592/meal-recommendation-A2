@@ -22,7 +22,7 @@ class IngrediantesView extends StatelessWidget {
           children: [
             IngredianteItem(ingred: model.ingrediantes[index]),
             const SizedBox(height: 10),
-            const Divider(color: AppColors.c_001A3F, thickness: .75),
+            const Divider(color: AppColors.c001A3F, thickness: .75),
             const SizedBox(height: 10),
           ],
         );

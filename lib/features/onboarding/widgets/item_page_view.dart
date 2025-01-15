@@ -19,7 +19,7 @@ class ItemPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.c_FFFFFF,
+      backgroundColor: AppColors.cFFFFFF,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -30,7 +30,7 @@ class ItemPageView extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.5,
                 width: MediaQuery.sizeOf(context).width,
                 decoration: const BoxDecoration(
-                    color: AppColors.c_001A3F,
+                    color: AppColors.c001A3F,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(227),
                       bottomRight: Radius.circular(227),
@@ -38,7 +38,7 @@ class ItemPageView extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 100),
                   child: Image.asset(
-                    Assets.assetsLogo,
+                    Assets.logo,
                     width: MediaQuery.sizeOf(context).width * 0.125,
                     height: MediaQuery.sizeOf(context).height * 0.125,
                   ),
@@ -55,7 +55,7 @@ class ItemPageView extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: AppColors.c_001A3F,
+                        color: AppColors.c001A3F,
                         width: 1,
                       ),
                     ),
@@ -76,8 +76,8 @@ class ItemPageView extends StatelessWidget {
           ),
           Text(
             title,
-            style: AppTextStyles.style_bold_18.copyWith(
-              color: AppColors.c_001A3F,
+            style: AppTextStyles.styleBold18.copyWith(
+              color: AppColors.c001A3F,
             ),
           ),
           const SizedBox(
@@ -87,8 +87,8 @@ class ItemPageView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               subtitle,
-              style: AppTextStyles.style_bold_14.copyWith(
-                color: AppColors.c_001A3F,
+              style: AppTextStyles.styleBold14.copyWith(
+                color: AppColors.c001A3F,
               ),
             ),
           ),
@@ -104,8 +104,8 @@ class ItemPageView extends StatelessWidget {
                   onTap: onTap1,
                   child: Text(
                     textButton1,
-                    style: AppTextStyles.style_bold_14.copyWith(
-                      color: AppColors.c_001A3F,
+                    style: AppTextStyles.styleBold14.copyWith(
+                      color: AppColors.c001A3F,
                     ),
                   ),
                 ),
@@ -114,8 +114,8 @@ class ItemPageView extends StatelessWidget {
                   onTap: onTap2,
                   child: Text(
                     textbutton2,
-                    style: AppTextStyles.style_bold_14.copyWith(
-                      color: AppColors.c_001A3F,
+                    style: AppTextStyles.styleBold14.copyWith(
+                      color: AppColors.c001A3F,
                     ),
                   ),
                 ),

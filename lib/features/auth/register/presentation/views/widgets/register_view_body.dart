@@ -46,7 +46,7 @@ class RegisterViewBody extends StatelessWidget {
               Image.asset(
                 fit: BoxFit.fill,
                 width: double.infinity,
-                Assets.assetsRegisterBackground,
+                Assets.authBackground,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 26, right: 25, left: 25),
@@ -56,7 +56,7 @@ class RegisterViewBody extends StatelessWidget {
                     child: Column(
                       children: [
                         Image.asset(
-                          Assets.assetsLogo,
+                          Assets.logo,
                         ),
                         SizedBox(
                           height: height * 0.031,
@@ -79,9 +79,7 @@ class RegisterViewBody extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return AppStrings.registerEmpytEmail;
-                            } else if (!RegExp(
-                                    r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$')
-                                .hasMatch(value)) {
+                            } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$').hasMatch(value)) {
                               return AppStrings.registerErrorEmail;
                             }
                             return null;
@@ -120,9 +118,7 @@ class RegisterViewBody extends StatelessWidget {
                           controller: cubit.passwordController,
                           hintText: AppStrings.createPassword,
                           preIcon: Icons.lock_outline_rounded,
-                          sufIcon: cubit.showPassword
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                          sufIcon: cubit.showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                           onPressedSufIcon: () {
                             cubit.toggleIcons();
                           },
@@ -143,9 +139,7 @@ class RegisterViewBody extends StatelessWidget {
                           controller: cubit.confirmPasswordController,
                           hintText: AppStrings.confirmPassword,
                           preIcon: Icons.lock_outline_rounded,
-                          sufIcon: cubit.showPassword
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                          sufIcon: cubit.showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                           onPressedSufIcon: () {
                             cubit.toggleIcons();
                           },
@@ -161,8 +155,7 @@ class RegisterViewBody extends StatelessWidget {
                             onPressed: () {
                               if (cubit.formKey.currentState!.validate()) {
                                 cubit.regitserUser(
-                                  mobileNumber:
-                                      cubit.mobileNumberController.text,
+                                  mobileNumber: cubit.mobileNumberController.text,
                                   name: cubit.userNameController.text,
                                   profilePic:
                                       'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3396.jpg',

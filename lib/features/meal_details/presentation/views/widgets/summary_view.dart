@@ -14,11 +14,11 @@ class SummaryView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
-          Text(model.summary, style: const TextStyle(color: AppColors.c_001A3F)),
+          Text(model.summary, style: const TextStyle(color: AppColors.c001A3F)),
           const SizedBox(height: 10),
           const Row(
             children: [
-              Text("nutrations", style: TextStyle(color: AppColors.c_001A3F, fontSize: 20, fontWeight: FontWeight.bold)),
+              Text("nutrations", style: TextStyle(color: AppColors.c001A3F, fontSize: 20, fontWeight: FontWeight.bold)),
             ],
           ),
           const SizedBox(height: 15),

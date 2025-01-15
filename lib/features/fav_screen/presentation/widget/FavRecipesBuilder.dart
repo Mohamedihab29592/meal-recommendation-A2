@@ -17,7 +17,7 @@ class FavRecipesBuilder extends StatelessWidget {
       ),
       child: Card(
         elevation: 4,
-        shadowColor: Colors.grey.withOpacity(0.5),
+        shadowColor: Colors.grey.withValues(alpha: 0.5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -25,9 +25,7 @@ class FavRecipesBuilder extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: meal.imageUrl.isNotEmpty
-                    ? NetworkImage(meal.imageUrl)
-                    : const AssetImage('assets/placeholder.png') as ImageProvider,
+                backgroundImage: meal.imageUrl.isNotEmpty ? NetworkImage(meal.imageUrl) : const AssetImage('assets/placeholder.png') as ImageProvider,
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -36,23 +34,23 @@ class FavRecipesBuilder extends StatelessWidget {
                   children: [
                     Text(
                       meal.category.isNotEmpty ? meal.category : 'No category',
-                      style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_001A3F),
+                      style: AppTextStyles.styleMed15.copyWith(color: AppColors.c001A3F),
                     ),
                     Text(
                       meal.title.isNotEmpty ? meal.title : 'No title',
-                      style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_000000),
+                      style: AppTextStyles.styleBold20.copyWith(color: AppColors.c000000),
                     ),
                     const SizedBox(height: 4),
                     Row(
                       children: [
                         Text(
                           '${meal.ingredients} ingredients',
-                          style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_8A8A8A),
+                          style: AppTextStyles.styleMed15.copyWith(color: AppColors.c8A8A8A),
                         ),
                         const SizedBox(width: 10),
                         Text(
                           meal.time,
-                          style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_001A3F),
+                          style: AppTextStyles.styleMed15.copyWith(color: AppColors.c001A3F),
                         ),
                       ],
                     ),
@@ -70,7 +68,7 @@ class FavRecipesBuilder extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.favorite, color: AppColors.c_001A3F),
+                icon: const Icon(Icons.favorite, color: AppColors.c001A3F),
                 onPressed: () {},
               ),
             ],

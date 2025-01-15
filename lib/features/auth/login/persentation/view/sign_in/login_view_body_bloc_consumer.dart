@@ -17,8 +17,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-         context.go(AppRouter.kHomeScreen);
-
+          context.go(AppRouter.kHomeScreen);
         }
         if (state is LogininFailure) {
           buildErrorBar(context, state.message);
@@ -26,9 +25,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         // Provide a simple default WeatherModel instance
-        return CustomProgressHud(
-            isLoading: state is LoginLoading ? true : false,
-            child: const LoginViewBody());
+        return CustomProgressHud(isLoading: state is LoginLoading ? true : false, child: const LoginViewBody());
       },
     );
   }

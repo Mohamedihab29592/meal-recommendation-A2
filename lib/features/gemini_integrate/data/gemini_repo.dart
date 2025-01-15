@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:meal_recommendations_a2/features/gemini_integrate/data/gemini_response.dart';
 
-
 class GeminiRepository {
   final Gemini _gemini = Gemini.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -26,11 +25,7 @@ class GeminiRepository {
     if (user == null) throw Exception("No logged-in user found");
 
     try {
-      await _firestore
-          .collection('users')
-          .doc(user.uid)
-          .collection('meals')
-          .add({
+      await _firestore.collection('users').doc(user.uid).collection('meals').add({
         'response': response.output,
         'timestamp': FieldValue.serverTimestamp(),
       });
@@ -39,4 +34,3 @@ class GeminiRepository {
     }
   }
 }
-

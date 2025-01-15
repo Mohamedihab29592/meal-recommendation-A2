@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'core/services/di.dart';
 import 'core/utiles/app_router.dart';
 import 'firebase_options.dart';

@@ -149,8 +149,6 @@ class FavoriteScreen extends StatelessWidget {
   }
 }
 
-
-
 // class MyNavigationBar extends StatelessWidget {
 //   const MyNavigationBar({
 //     super.key,

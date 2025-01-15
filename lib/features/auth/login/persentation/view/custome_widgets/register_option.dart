@@ -9,7 +9,7 @@ class RegisterOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRouter.kRegisterScreen);
       },
       child: const Row(

@@ -16,7 +16,7 @@ class LoginTextButton extends StatelessWidget {
       children: [
         Text(
           AppStrings.registerHaveAnAccount,
-          style: AppTextStyles.style_med_14.copyWith(
+          style: AppTextStyles.styleMed14.copyWith(
             color: Colors.white,
           ),
         ),
@@ -26,7 +26,7 @@ class LoginTextButton extends StatelessWidget {
           },
           child: Text(
             AppStrings.registerLoginNow,
-            style: AppTextStyles.style_bold_14.copyWith(
+            style: AppTextStyles.styleBold14.copyWith(
               color: Colors.white,
             ),
           ),

@@ -14,7 +14,7 @@ class SideBarAndNotifications extends StatelessWidget {
           },
           icon: const Icon(
             Icons.menu,
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
             size: 30,
           ),
         ),
@@ -25,7 +25,7 @@ class SideBarAndNotifications extends StatelessWidget {
           },
           icon: const Icon(
             Icons.notifications,
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
             size: 30,
           ),
         ),

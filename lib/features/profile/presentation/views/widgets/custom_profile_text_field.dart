@@ -45,7 +45,7 @@ class _CustomProfileTextFieldState extends State<CustomProfileTextField> {
       onFocusChange: (focus) {
         foucsed = focus;
         if (color != Colors.red) {
-          color = focus ? AppColors.c_001A3F : Colors.grey;
+          color = focus ? AppColors.c001A3F : Colors.grey;
           setState(() {});
         }
       },
@@ -57,7 +57,7 @@ class _CustomProfileTextFieldState extends State<CustomProfileTextField> {
               setState(() {});
               return "Field is required";
             } else if (foucsed) {
-              color = AppColors.c_001A3F;
+              color = AppColors.c001A3F;
               setState(() {});
             }
           }
