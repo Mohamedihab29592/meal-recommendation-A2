@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/helper/preferences_helper.dart';
+import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/core/utiles/assets.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
 import 'package:meal_recommendations_a2/features/auth/login/persentation/manger/cubit/login_cubit.dart';
@@ -46,17 +47,18 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     const boxDecoration = BoxDecoration(
       image: DecorationImage(
         image: AssetImage(Assets.authBackground),
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
     );
 
     return Scaffold(
+      backgroundColor: AppColors.c001A3F,
       body: Container(
         width: screenWidth,
         height: screenHeight,
         decoration: boxDecoration,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.06),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
           child: SingleChildScrollView(
             child: Form(
               key: formKey,
@@ -65,6 +67,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(height: screenHeight * 0.06),
                   const LogoWidget(),
                   const SizedBox(height: 75),
                   CustomTextField(
@@ -80,10 +83,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     iconPath: Assets.lockIcon,
                     onSaved: (value) => password = value!,
                   ),
-                  const SizedBox(height: 16),
-                  RememberMe(
-                    onChanged: (value) => setState(() => isTermsAccepted = value),
-                  ),
+                  const SizedBox(height: 32),
+                  RememberMe(onChanged: (value) => setState(() => isTermsAccepted = value)),
                   const SizedBox(height: 32),
                   CustomButton(
                     text: AppStrings.login,
@@ -123,6 +124,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   ),
                   const SizedBox(height: 33),
                   const RegisterOption(),
+                  SizedBox(height: screenHeight * 0.06),
                 ],
               ),
             ),

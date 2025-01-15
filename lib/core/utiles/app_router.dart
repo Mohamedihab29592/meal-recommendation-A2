@@ -16,7 +16,7 @@ import '../../features/auth/register/presentation/views/register_view.dart';
 import '../../features/fav_screen/presentation/cubit/fav_cubit.dart';
 import '../../features/home/persentation/Widget/MyNavigationBar.dart';
 import '../../features/home/persentation/see_all_screen.dart';
-import '../../features/onboarding/onboarding.dart';
+import '../../features/onboarding/presentation/onboarding.dart';
 import '../../features/splash_boarding/splash_screen.dart';
 
 class AppRouter {

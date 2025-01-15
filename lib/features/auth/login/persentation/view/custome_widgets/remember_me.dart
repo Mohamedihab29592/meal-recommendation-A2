@@ -32,31 +32,26 @@ class _RememberMeState extends State<RememberMe> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 25.0, top: 10),
-      child: Row(
-        children: [
-          CustomCheckBox(
-            onChecked: (value) {
-              setState(() {
-                isTermsAccepted = value;
-                widget.onChanged(value);
-                PreferencesHelper.setTermsAccepted(value);
-              });
-            },
-            isChecked: isTermsAccepted,
+    return Row(
+      children: [
+        CustomCheckBox(
+          onChecked: (value) {
+            setState(() {
+              isTermsAccepted = value;
+              widget.onChanged(value);
+              PreferencesHelper.setTermsAccepted(value);
+            });
+          },
+          isChecked: isTermsAccepted,
+        ),
+        const SizedBox(width: 10),
+        const Expanded(
+          child: Text(
+            AppStrings.rememberMe,
+            style: TextStyle(color: Colors.white),
           ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Expanded(
-            child: Text(
-              AppStrings.rememberMe,
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
