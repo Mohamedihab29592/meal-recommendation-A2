@@ -84,14 +84,14 @@ features
 
 ## Screen Shots 📸
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/1.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/2.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/3.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/1.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/2.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/3.jpg" width="300">
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/4.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/5.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/6.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/4.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/5.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/6.jpg" width="300">
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/7.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/8.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/9.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/7.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/8.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/9.jpg" width="300">
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/10.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/11.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/12.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/10.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/11.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/12.jpg" width="300">
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/13.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/14.PNG" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/15.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/13.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/14.jpg" width="300"><img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/15.jpg" width="300">
 
-<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/screen_shots/screen_shots/16.PNG" width="300">
+<img src="https://github.com/Mohamedihab29592/meal-recommendation-A2/blob/main/screen_shots/16.jpg" width="300">
