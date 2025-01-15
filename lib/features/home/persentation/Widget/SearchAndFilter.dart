@@ -22,7 +22,7 @@ class SearchAndFilter extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.c_999999,
+                  color: AppColors.c999999,
                   blurRadius: 7,
                   spreadRadius: 4,
                   offset: const Offset(4, 5),
@@ -37,7 +37,7 @@ class SearchAndFilter extends StatelessWidget {
                 suffixIcon: IconButton(
                   onPressed: () {
                     showModalBottomSheet(
-                      backgroundColor: AppColors.c_FFFFFF,
+                      backgroundColor: AppColors.cFFFFFF,
                       context: context,
                       // isScrollControlled: true,
                       shape: const RoundedRectangleBorder(
@@ -51,12 +51,12 @@ class SearchAndFilter extends StatelessWidget {
                     );
                   },
                   icon: Image.asset(
-                    Assets.maskgroup,
+                    Assets.maskGroupIcon,
                   ),
                 ),
                 hintText: AppStrings.searchrecipes,
                 hintStyle: TextStyle(
-                  color: AppColors.c_939393,
+                  color: AppColors.c939393,
                 ),
               ),
             ),
@@ -88,18 +88,18 @@ class MyBottomSheet extends StatelessWidget {
             children: [
               Text(
                 AppStrings.filter,
-                style: AppTextStyles.style_bold_24.copyWith(color: AppColors.c_001A3F),
+                style: AppTextStyles.styleBold24.copyWith(color: AppColors.c001A3F),
               ),
               const Spacer(),
               Text(
                 AppStrings.reset,
-                style: AppTextStyles.style_med_18.copyWith(color: AppColors.c_0047FF),
+                style: AppTextStyles.styleMed18.copyWith(color: AppColors.c0047FF),
               ),
             ],
           ),
           Text(
-            AppStrings.Mael,
-            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            AppStrings.meal,
+            style: AppTextStyles.styleBold20.copyWith(color: AppColors.c001A3F),
           ),
           SizedBox(
             height: screenHeight * 0.05,
@@ -124,8 +124,8 @@ class MyBottomSheet extends StatelessWidget {
             ),
           ),
           Text(
-            AppStrings.Time,
-            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            AppStrings.time,
+            style: AppTextStyles.styleBold20.copyWith(color: AppColors.c001A3F),
           ),
           SizedBox(
             width: screenWidth,
@@ -152,7 +152,7 @@ class MyBottomSheet extends StatelessWidget {
           ),
           Text(
             AppStrings.diffeculty,
-            style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_001A3F),
+            style: AppTextStyles.styleBold20.copyWith(color: AppColors.c001A3F),
           ),
           SizedBox(
             width: screenWidth,
@@ -181,7 +181,7 @@ class MyBottomSheet extends StatelessWidget {
             children: [
               Text(
                 AppStrings.numofindredients,
-                style: AppTextStyles.style_bold_22.copyWith(color: AppColors.c_001A3F),
+                style: AppTextStyles.styleBold22.copyWith(color: AppColors.c001A3F),
               ),
               const Spacer(),
               GestureDetector(

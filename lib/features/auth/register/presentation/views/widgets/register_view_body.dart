@@ -13,7 +13,6 @@ import 'package:meal_recommendations_a2/features/auth/register/presentation/view
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/custom_snack_bar.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/google_button.dart';
 import 'package:meal_recommendations_a2/features/auth/register/presentation/views/widgets/login_text_button.dart';
-
 import '../../../../../../core/utiles/app_router.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -40,27 +39,24 @@ class RegisterViewBody extends StatelessWidget {
         },
         builder: (context, state) {
           var cubit = context.read<RegisterCubit>();
-          return Stack(
-            alignment: AlignmentDirectional.topCenter,
-            children: [
-              Image.asset(
+          return Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
                 fit: BoxFit.fill,
-                width: double.infinity,
-                Assets.assetsRegisterBackground,
+                image: AssetImage(Assets.authBackground),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 26, right: 25, left: 25),
+            ),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
                 child: SingleChildScrollView(
                   child: Form(
                     key: cubit.formKey,
                     child: Column(
                       children: [
-                        Image.asset(
-                          Assets.assetsLogo,
-                        ),
-                        SizedBox(
-                          height: height * 0.031,
-                        ),
+                        const SizedBox(height: 20),
+                        Image.asset(Assets.logo),
+                        const SizedBox(height: 20),
                         CustomRegisterFormField(
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -72,16 +68,12 @@ class RegisterViewBody extends StatelessWidget {
                           hintText: AppStrings.fullName,
                           preIcon: Icons.person_2_outlined,
                         ),
-                        SizedBox(
-                          height: height * 0.022,
-                        ),
+                        const SizedBox(height: 15),
                         CustomRegisterFormField(
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return AppStrings.registerEmpytEmail;
-                            } else if (!RegExp(
-                                    r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$')
-                                .hasMatch(value)) {
+                            } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}$').hasMatch(value)) {
                               return AppStrings.registerErrorEmail;
                             }
                             return null;
@@ -90,9 +82,7 @@ class RegisterViewBody extends StatelessWidget {
                           hintText: AppStrings.emailAddress,
                           preIcon: Icons.email_outlined,
                         ),
-                        SizedBox(
-                          height: height * 0.022,
-                        ),
+                        const SizedBox(height: 15),
                         CustomRegisterFormField(
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -104,9 +94,7 @@ class RegisterViewBody extends StatelessWidget {
                           hintText: AppStrings.mobileNumber,
                           preIcon: Icons.phone_android,
                         ),
-                        SizedBox(
-                          height: height * 0.022,
-                        ),
+                        const SizedBox(height: 15),
                         CustomRegisterFormField(
                           secureText: !cubit.showPassword,
                           validator: (value) {
@@ -120,16 +108,12 @@ class RegisterViewBody extends StatelessWidget {
                           controller: cubit.passwordController,
                           hintText: AppStrings.createPassword,
                           preIcon: Icons.lock_outline_rounded,
-                          sufIcon: cubit.showPassword
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                          sufIcon: cubit.showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                           onPressedSufIcon: () {
                             cubit.toggleIcons();
                           },
                         ),
-                        SizedBox(
-                          height: height * 0.022,
-                        ),
+                        const SizedBox(height: 15),
                         CustomRegisterFormField(
                           secureText: !cubit.showPassword,
                           validator: (value) {
@@ -143,16 +127,12 @@ class RegisterViewBody extends StatelessWidget {
                           controller: cubit.confirmPasswordController,
                           hintText: AppStrings.confirmPassword,
                           preIcon: Icons.lock_outline_rounded,
-                          sufIcon: cubit.showPassword
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined,
+                          sufIcon: cubit.showPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                           onPressedSufIcon: () {
                             cubit.toggleIcons();
                           },
                         ),
-                        SizedBox(
-                          height: height * 0.045,
-                        ),
+                        const SizedBox(height: 20),
                         ConditionalBuilder(
                           condition: state is RegitserLoading,
                           builder: (context) => const CustomIndicator(),
@@ -161,8 +141,7 @@ class RegisterViewBody extends StatelessWidget {
                             onPressed: () {
                               if (cubit.formKey.currentState!.validate()) {
                                 cubit.regitserUser(
-                                  mobileNumber:
-                                      cubit.mobileNumberController.text,
+                                  mobileNumber: cubit.mobileNumberController.text,
                                   name: cubit.userNameController.text,
                                   profilePic:
                                       'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3396.jpg',
@@ -173,13 +152,9 @@ class RegisterViewBody extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.023,
-                        ),
+                        const SizedBox(height: 15),
                         const CustomDivider(),
-                        SizedBox(
-                          height: height * 0.023,
-                        ),
+                        const SizedBox(height: 15),
                         ConditionalBuilder(
                           condition: state is GoogleSignInLoading,
                           builder: (context) => const CustomIndicator(),
@@ -190,16 +165,15 @@ class RegisterViewBody extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.019,
-                        ),
+                        const SizedBox(height: 10),
                         const LoginTextButton(),
+                        const SizedBox(height: 10),
                       ],
                     ),
                   ),
                 ),
               ),
-            ],
+            ),
           );
         },
       ),

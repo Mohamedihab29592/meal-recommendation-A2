@@ -22,7 +22,7 @@ class RecipesBuilder extends StatelessWidget {
         ),
         child: Card(
           elevation: 4,
-          shadowColor: Colors.grey.withOpacity(0.5),
+          shadowColor: Colors.grey.withValues(alpha: 0.5),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           margin: const EdgeInsets.all(8),
           child: Padding(
@@ -40,23 +40,23 @@ class RecipesBuilder extends StatelessWidget {
                     children: [
                       Text(
                         meal.subtitle.isNotEmpty ? meal.subtitle : 'No subtitle',
-                        style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_001A3F),
+                        style: AppTextStyles.styleMed15.copyWith(color: AppColors.c001A3F),
                       ),
                       Text(
                         meal.name.isNotEmpty ? meal.name : 'No name',
-                        style: AppTextStyles.style_bold_20.copyWith(color: AppColors.c_000000),
+                        style: AppTextStyles.styleBold20.copyWith(color: AppColors.c000000),
                       ),
                       const SizedBox(height: 4),
                       Row(
                         children: [
                           Text(
                             '${meal.ingredients.length} ingredients',
-                            style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_8A8A8A),
+                            style: AppTextStyles.styleMed15.copyWith(color: AppColors.c8A8A8A),
                           ),
                           const SizedBox(width: 10),
                           Text(
                             '${meal.duration} min',
-                            style: AppTextStyles.style_med_15.copyWith(color: AppColors.c_001A3F),
+                            style: AppTextStyles.styleMed15.copyWith(color: AppColors.c001A3F),
                           ),
                         ],
                       ),
@@ -76,7 +76,7 @@ class RecipesBuilder extends StatelessWidget {
                 IconButton(
                   icon: Icon(
                     meal.isFav ? Icons.favorite : Icons.favorite_border,
-                    color: AppColors.c_001A3F,
+                    color: AppColors.c001A3F,
                   ),
                   onPressed: onPressed,
                 ),
@@ -155,15 +155,15 @@ class DetailsFood extends StatelessWidget {
       children: [
         Text(
           "vegan",
-          style: AppTextStyles.style_bold_16,
+          style: AppTextStyles.styleBold16,
         ),
         Text(
           "italian pizza",
-          style: AppTextStyles.style_bold_22,
+          style: AppTextStyles.styleBold22,
         ),
         Text(
           "12 ingrediantes",
-          style: AppTextStyles.style_bold_14.copyWith(color: AppColors.c_8D8D8D),
+          style: AppTextStyles.styleBold14.copyWith(color: AppColors.c8D8D8D),
         ),
       ],
     );
@@ -176,7 +176,7 @@ class ImageOfFood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CircleAvatar(
-      backgroundImage: AssetImage(Assets.Pizza),
+      backgroundImage: AssetImage(Assets.pizzaWithTomatos),
       radius: 50,
     );
   }

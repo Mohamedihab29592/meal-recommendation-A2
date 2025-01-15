@@ -30,7 +30,7 @@ class ProfileViewImage extends StatelessWidget {
                     return Center(
                       child: CircularProgressIndicator(
                         value: loadingProgress.expectedTotalBytes != null ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1) : null,
-                        color: AppColors.c_001A3F,
+                        color: AppColors.c001A3F,
                       ),
                     );
                   }
@@ -49,7 +49,7 @@ class ProfileViewImage extends StatelessWidget {
                 },
                 child: CircleAvatar(
                   radius: 18,
-                  backgroundColor: AppColors.c_001A3F,
+                  backgroundColor: AppColors.c001A3F,
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: Image.asset(

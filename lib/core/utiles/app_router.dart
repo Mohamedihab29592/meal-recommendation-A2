@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
+import 'package:meal_recommendations_a2/features/fav_screen/presentation/widget/FavoriteScreen.dart';
 import 'package:meal_recommendations_a2/features/gemini_integrate/persentation/gemini_screen.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'package:meal_recommendations_a2/features/meal_details/data/repo_impl/meal_details_repo_impl.dart';
@@ -16,7 +17,7 @@ import '../../features/auth/register/presentation/views/register_view.dart';
 import '../../features/fav_screen/presentation/cubit/fav_cubit.dart';
 import '../../features/home/persentation/Widget/MyNavigationBar.dart';
 import '../../features/home/persentation/see_all_screen.dart';
-import '../../features/onboarding/onboarding.dart';
+import '../../features/onboarding/presentation/onboarding.dart';
 import '../../features/splash_boarding/splash_screen.dart';
 
 class AppRouter {
@@ -56,7 +57,7 @@ class AppRouter {
       GoRoute(
         path: AppRouter.kLoginScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const loginView();
+          return const LoginView();
         },
       ),
       GoRoute(
@@ -65,8 +66,6 @@ class AppRouter {
           return const RegisterView();
         },
       ),
-
-      //OTP SCREEN
       GoRoute(
         path: AppRouter.kOtpScreen,
         builder: (context, state) {
@@ -89,7 +88,6 @@ class AppRouter {
           return const SeeAll();
         },
       ),
-
       GoRoute(
         path: AppRouter.kFavScreen,
         builder: (BuildContext context, GoRouterState state) {
@@ -106,8 +104,7 @@ class AppRouter {
         path: AppRouter.kMealDetailsScreen,
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
-            create: (context) =>
-                MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
+            create: (context) => MealDetailsViewCubit(s1<MealDetailsRepoImpl>()),
             child: MealDetailsView(mealID: state.extra as String),
           );
         },

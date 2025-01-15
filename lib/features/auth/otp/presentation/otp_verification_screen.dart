@@ -51,15 +51,14 @@ class OtpVerificationScreen extends StatelessWidget {
           },
           child: Container(
             decoration: const BoxDecoration(
-              color: AppColors.c_001A3F,
+              color: AppColors.c001A3F,
               image: DecorationImage(
-                image: AssetImage(Assets.Login_Register_background),
+                image: AssetImage(Assets.authBackground),
                 fit: BoxFit.cover,
               ),
             ),
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 24.0, horizontal: 32.0),
+              padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 32.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -67,7 +66,7 @@ class OtpVerificationScreen extends StatelessWidget {
                   const CircleAvatar(
                     backgroundColor: Colors.transparent,
                     radius: 60,
-                    backgroundImage: AssetImage(Assets.assetsLogo),
+                    backgroundImage: AssetImage(Assets.logo),
                   ),
                   const SizedBox(height: 20),
                   Text(
@@ -94,7 +93,7 @@ class OtpVerificationScreen extends StatelessWidget {
                           fieldHeight: 60,
                           fieldWidth: 45,
                           activeColor: Colors.white,
-                          inactiveColor: Colors.white.withOpacity(0.5),
+                          inactiveColor: Colors.white.withValues(alpha: 0.5),
                           selectedColor: Colors.white,
                           activeFillColor: Colors.white,
                           inactiveFillColor: Colors.white,
@@ -104,15 +103,11 @@ class OtpVerificationScreen extends StatelessWidget {
                         onChanged: (value) {},
                         onCompleted: (otp) async {
                           final otpCubit = BlocProvider.of<OTPCubit>(context);
-                          final verificationId = await s1<
-                                  SecureStorageServicee>()
-                              .read(SecureStorageServicee
-                                  .verificationIdCredential); // Retrieve it securely
+                          final verificationId = await s1<SecureStorageServicee>().read(SecureStorageServicee.verificationIdCredential); // Retrieve it securely
 
                           otpCubit.verifyOTP(verificationId!, otp);
                           if (kDebugMode) {
-                            print(
-                                ' otp XxXxXxXxXxXxXx $otp XxXxXxXxXxXxXxXxXx otp');
+                            print(' otp XxXxXxXxXxXxXx $otp XxXxXxXxXxXxXxXxXx otp');
                           }
                         },
                       );
@@ -131,7 +126,7 @@ class OtpVerificationScreen extends StatelessWidget {
                         },
                         child: Text(
                           AppStrings.getcode,
-                          style: const TextStyle(color: AppColors.c_001A3F),
+                          style: const TextStyle(color: AppColors.c001A3F),
                         ),
                       ),
                       const Spacer(),

@@ -31,7 +31,7 @@ class SeeAllScreenViewBody extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
                     'Trending Recipes',
-                    style: AppTextStyles.style_bold_18,
+                    style: AppTextStyles.styleBold18,
                   ),
                 ),
                 const SizedBox(
@@ -47,7 +47,7 @@ class SeeAllScreenViewBody extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
                     'Recommended for you',
-                    style: AppTextStyles.style_bold_18,
+                    style: AppTextStyles.styleBold18,
                   ),
                 ),
                 const SizedBox(

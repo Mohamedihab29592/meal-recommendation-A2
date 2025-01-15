@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/services/di.dart';
+import 'package:meal_recommendations_a2/features/fav_screen/presentation/widget/FavoriteScreen.dart';
 import 'package:meal_recommendations_a2/features/home/domain/Model/NavModel.dart';
 import 'package:meal_recommendations_a2/features/home/persentation/homescreen.dart';
 import 'package:meal_recommendations_a2/features/profile/data/repo_implementation/profile_repo_impl.dart';

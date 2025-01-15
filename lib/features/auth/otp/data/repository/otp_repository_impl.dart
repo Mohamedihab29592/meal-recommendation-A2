@@ -7,8 +7,7 @@ class OTPRepositoryImpl implements OTPRepository {
   final FirebaseAuth firebaseAuth;
   final SecureStorageServicee secureStorageService;
 
-  OTPRepositoryImpl(
-      {required this.firebaseAuth, required this.secureStorageService}) {
+  OTPRepositoryImpl({required this.firebaseAuth, required this.secureStorageService}) {
     firebaseAuth.setSettings(
       forceRecaptchaFlow: true,
     );
@@ -28,13 +27,11 @@ class OTPRepositoryImpl implements OTPRepository {
 
           // Store accessToken if available
           if (credential.accessToken != null) {
-            await secureStorageService.write(
-                'accessToken', credential.accessToken!);
+            await secureStorageService.write('accessToken', credential.accessToken!);
           }
         },
         verificationFailed: (FirebaseAuthException e) {
-          throw Exception(
-              e.message ?? 'Error occurred during phone verification');
+          throw Exception(e.message ?? 'Error occurred during phone verification');
         },
         codeSent: (String verificationId, int? resendToken) async {
           if (kDebugMode) {
@@ -73,8 +70,7 @@ class OTPRepositoryImpl implements OTPRepository {
 
       // Save the access token securely if available
       if (credential.accessToken != null) {
-        await secureStorageService.write(
-            'accessToken', credential.accessToken!);
+        await secureStorageService.write('accessToken', credential.accessToken!);
       }
       // return userCredential;
     } catch (e) {

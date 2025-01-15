@@ -1,4 +1,3 @@
-// ignore: dangling_library_doc_comments
 /// # OTP Verification Feature
 /// 
 /// This feature allows phone number verification using an OTP (One-Time Password) 

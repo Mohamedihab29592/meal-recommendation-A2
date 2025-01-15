@@ -22,7 +22,7 @@ class CustomDivider extends StatelessWidget {
         ),
         Text(
           AppStrings.registerOrLoginWith,
-          style: AppTextStyles.style_med_12.copyWith(
+          style: AppTextStyles.styleMed12.copyWith(
             color: Colors.white,
           ),
         ),

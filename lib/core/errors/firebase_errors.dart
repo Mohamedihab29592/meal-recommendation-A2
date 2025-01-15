@@ -14,8 +14,7 @@ class FirebaseServerFailure extends FirebaseFailure {
       case 'weak-password':
         return FirebaseServerFailure('The password provided is too weak');
       case 'email-already-in-use':
-        return FirebaseServerFailure(
-            'The account already exists for that email');
+        return FirebaseServerFailure('The account already exists for that email');
       default:
         return FirebaseServerFailure(e.message.toString());
     }

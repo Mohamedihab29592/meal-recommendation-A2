@@ -16,16 +16,15 @@ class AddYourIngredients extends StatelessWidget {
       children: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.c_001A3F,
+            backgroundColor: AppColors.c001A3F,
           ),
           onPressed: () {
             context.go(AppRouter.kGeminiScreen);
-
           },
           child: Text(
             "Add Your Ingredients",
-            style: AppTextStyles.style_bold_14.copyWith(
-              color: AppColors.c_FFFFFF,
+            style: AppTextStyles.styleBold14.copyWith(
+              color: AppColors.cFFFFFF,
             ),
           ),
         ),

@@ -33,7 +33,7 @@ class LoadingDialog extends StatelessWidget {
           children: [
             const CupertinoActivityIndicator(
               radius: 15,
-              color: AppColors.c_001A3F,
+              color: AppColors.c001A3F,
             ),
             const SizedBox(height: 16.0),
             Text(

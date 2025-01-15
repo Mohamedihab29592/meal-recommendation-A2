@@ -8,19 +8,25 @@ class RegisterOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        GoRouter.of(context).push(AppRouter.kRegisterScreen);
-      },
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            AppStrings.registerOption,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          AppStrings.registerOption,
+          style: TextStyle(color: Colors.white),
+        ),
+        const SizedBox(width: 10),
+        TextButton(
+          style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
+          onPressed: () {
+            GoRouter.of(context).pushReplacement(AppRouter.kRegisterScreen);
+          },
+          child: Text(
+            AppStrings.registerNow,
             style: TextStyle(color: Colors.white),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

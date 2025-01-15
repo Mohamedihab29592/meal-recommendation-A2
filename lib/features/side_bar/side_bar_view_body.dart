@@ -57,7 +57,7 @@ class _SidebarState extends State<Sidebar> {
             ),
           ),
           MenuItem(
-            imagePath: Assets.home,
+            imagePath: Assets.homeIcon,
             title: AppStrings.home,
             index: 0,
             selectedIndex: selectedIndex,
@@ -68,7 +68,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           MenuItem(
-            imagePath: Assets.maskGroup,
+            imagePath: Assets.personIcon,
             title: AppStrings.profileHintText,
             index: 1,
             selectedIndex: selectedIndex,
@@ -79,7 +79,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           MenuItem(
-            imagePath: Assets.favorite,
+            imagePath: Assets.favouriteIcon,
             title: AppStrings.favorite,
             index: 2,
             selectedIndex: selectedIndex,
@@ -89,7 +89,7 @@ class _SidebarState extends State<Sidebar> {
               });
             },
           ),
-         /* MenuItem(
+          /* MenuItem(
             imagePath: Assets.settings,
             title: AppStrings.settings,
             index: 3,
@@ -104,7 +104,7 @@ class _SidebarState extends State<Sidebar> {
           const Divider(endIndent: 25, indent: 25),
           const SizedBox(height: 20.0),
           MenuItem(
-            imagePath: Assets.logout,
+            imagePath: Assets.logoutIcon,
             title: AppStrings.logout,
             index: 4,
             selectedIndex: selectedIndex,

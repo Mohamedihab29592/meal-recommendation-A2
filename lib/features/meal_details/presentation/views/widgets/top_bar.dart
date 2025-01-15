@@ -27,7 +27,7 @@ class TopBar extends StatelessWidget {
           },
           icon: Icon(
             mealModel.isFav ? Icons.favorite : Icons.favorite_border,
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
           ),
         ),
       ],

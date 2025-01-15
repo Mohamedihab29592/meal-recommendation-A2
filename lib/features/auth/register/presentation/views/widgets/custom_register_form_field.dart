@@ -40,10 +40,7 @@ class CustomRegisterFormField extends StatelessWidget {
         hintText: hintText,
         suffixIcon: IconButton(
           onPressed: onPressedSufIcon,
-          icon: Icon(
-            sufIcon,
-            color: Colors.white,
-          ),
+          icon: Icon(sufIcon, color: Colors.white),
         ),
         prefixIcon: Icon(
           preIcon,

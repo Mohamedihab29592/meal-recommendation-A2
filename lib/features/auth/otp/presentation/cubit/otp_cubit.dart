@@ -10,8 +10,7 @@ class OTPCubit extends Cubit<OTPState> {
   final SendOTP sendOTPUseCase;
   final VerifyOTP verifyOTPUseCase;
 
-  OTPCubit({required this.sendOTPUseCase, required this.verifyOTPUseCase})
-      : super(OTPInitial());
+  OTPCubit({required this.sendOTPUseCase, required this.verifyOTPUseCase}) : super(OTPInitial());
 
   void sendOTP(String phoneNumber) async {
     //emit(OTPLoading());

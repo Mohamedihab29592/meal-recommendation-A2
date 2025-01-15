@@ -13,7 +13,7 @@ class MyNavigationBar extends StatelessWidget {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       backgroundColor: Colors.transparent,
-      unselectedItemColor: AppColors.c_939393,
+      unselectedItemColor: AppColors.c939393,
       onTap: (index) {
         context.read<NavigationCubit>().getNavValue(index);
       },
@@ -23,49 +23,49 @@ class MyNavigationBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           activeIcon: CircleAvatar(
-            backgroundColor: AppColors.c_001A3F,
+            backgroundColor: AppColors.c001A3F,
             radius: 35,
             child: Icon(
               Icons.home,
-              color: AppColors.c_FFFFFF,
+              color: AppColors.cFFFFFF,
               size: 40,
             ),
           ),
           label: "Home",
           icon: const Icon(
             Icons.home,
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
           ),
         ),
         BottomNavigationBarItem(
           label: "favorite",
           activeIcon: CircleAvatar(
-            backgroundColor: AppColors.c_001A3F,
+            backgroundColor: AppColors.c001A3F,
             radius: 35,
             child: Icon(
               Icons.favorite_border,
-              color: AppColors.c_FFFFFF,
+              color: AppColors.cFFFFFF,
               size: 40,
             ),
           ),
           icon: const Icon(
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
             Icons.favorite_border,
           ),
         ),
         BottomNavigationBarItem(
           label: "Profile",
           activeIcon: CircleAvatar(
-            backgroundColor: AppColors.c_001A3F,
+            backgroundColor: AppColors.c001A3F,
             radius: 35,
             child: Icon(
               Icons.person,
-              color: AppColors.c_FFFFFF,
+              color: AppColors.cFFFFFF,
               size: 40,
             ),
           ),
           icon: const Icon(
-            color: AppColors.c_001A3F,
+            color: AppColors.c001A3F,
             Icons.person,
           ),
         ),

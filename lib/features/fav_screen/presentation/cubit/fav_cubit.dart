@@ -13,8 +13,8 @@ class FavCubit extends Cubit<FavState> {
   void loadFavorites() {
     emit(FavLoading());
     favoriteService.getFavoriteMeals().listen(
-      (meals) => emit(FavLoaded(meals: meals)),
-      onError: (error) => emit(const FavError(message: "Failed to load favorite meals")),
-    );
+          (meals) => emit(FavLoaded(meals: meals)),
+          onError: (error) => emit(const FavError(message: "Failed to load favorite meals")),
+        );
   }
 }

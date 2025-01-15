@@ -15,14 +15,14 @@ class PageViewTitleItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(title, style: TextStyle(color: isSelected ? AppColors.c_001A3F : AppColors.c_8A8A8A, fontSize: 20)),
+          Text(title, style: TextStyle(color: isSelected ? AppColors.c001A3F : AppColors.c8A8A8A, fontSize: 20)),
           const SizedBox(height: 7),
           isSelected
               ? Container(
                   width: 30,
                   height: 5,
                   decoration: BoxDecoration(
-                    color: AppColors.c_001A3F,
+                    color: AppColors.c001A3F,
                     borderRadius: BorderRadius.circular(50),
                   ),
                 )
