@@ -11,7 +11,9 @@ class ProfileViewHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
           icon: const Icon(Icons.menu, color: AppColors.c001A3F),
         ),
         IconButton(

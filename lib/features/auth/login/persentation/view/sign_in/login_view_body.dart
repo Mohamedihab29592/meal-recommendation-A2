@@ -122,7 +122,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 33),
+                  const SizedBox(height: 15),
                   const RegisterOption(),
                   SizedBox(height: screenHeight * 0.06),
                 ],

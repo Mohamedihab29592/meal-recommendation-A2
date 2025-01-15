@@ -16,9 +16,12 @@ class CustomRegisterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: height * 0.060,
+      height: 57,
       child: ElevatedButton(
         onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(Colors.white),
+        ),
         child: Text(
           AppStrings.register,
           style: AppTextStyles.styleBold21.copyWith(

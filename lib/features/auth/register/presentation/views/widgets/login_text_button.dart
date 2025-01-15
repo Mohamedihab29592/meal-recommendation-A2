@@ -20,9 +20,11 @@ class LoginTextButton extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        const SizedBox(width: 10),
         TextButton(
+          style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
           onPressed: () {
-            context.go(AppRouter.kLoginScreen);
+            context.pushReplacement(AppRouter.kLoginScreen);
           },
           child: Text(
             AppStrings.registerLoginNow,

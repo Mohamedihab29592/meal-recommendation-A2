@@ -8,7 +8,8 @@ class AppStrings {
   static const String passwordValidate = "password cannot be empty";
   static const String password = 'password';
   static const String loginError = 'Login Error';
-  static const String registerOption = "Don't have an account? Register now";
+  static const String registerOption = "Don't have an account?";
+  static const String registerNow = "Register now";
   static const String orLoginWith = "or login with";
   static const String rememberMe = "Remember me and keep me logged in";
 
@@ -130,7 +131,7 @@ class AppStrings {
 
   static String registerErrorEmail = 'Please enter valid email';
   static String registerHaveAnAccount = 'have an account?';
-  static String registerLoginNow = 'login now';
+  static String registerLoginNow = 'Login now';
   static String registerEmpytEmail = 'Please enter your email';
   static String registerEmpytPassword = 'Please enter your email';
   static String registerErrorPhone = 'Please enter valid phone number';

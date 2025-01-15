@@ -1,6 +1,5 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'core/services/di.dart';
@@ -16,7 +15,7 @@ void main() async {
   setup(); //get it
   runApp(DevicePreview(
     builder: (context) => const MyApp(),
-    enabled: !kReleaseMode,
+    enabled: false,
   ));
 }
 
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      // darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
     );

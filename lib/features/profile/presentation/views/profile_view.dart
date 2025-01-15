@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meal_recommendations_a2/core/helper/snack_bar.dart';
 import 'package:meal_recommendations_a2/core/utiles/strings.dart';
+import 'package:meal_recommendations_a2/features/side_bar/side_bar_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:meal_recommendations_a2/core/utiles/app_colors.dart';
 import 'package:meal_recommendations_a2/features/profile/data/models/user_model.dart';
@@ -66,6 +67,7 @@ class _ProfileViewState extends State<ProfileView> {
       },
       builder: (context, state) {
         return Scaffold(
+          drawer: const Sidebar(),
           body: ModalProgressHUD(
             inAsyncCall: isLoading,
             child: CustomScrollView(

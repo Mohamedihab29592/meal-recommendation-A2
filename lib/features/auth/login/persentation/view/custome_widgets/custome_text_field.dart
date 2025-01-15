@@ -46,15 +46,15 @@ class CustomTextField extends StatelessWidget {
             child: Image.asset(iconPath), // Displaying the image as the prefixIcon
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(color: Colors.red),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(color: Colors.white),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(color: Colors.white),
           ),
         ),
